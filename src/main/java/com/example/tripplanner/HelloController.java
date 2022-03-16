@@ -4,10 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -34,6 +31,14 @@ public class HelloController implements Initializable {
 
         fxComboboxTest.setItems(FXCollections.observableArrayList("Dog", "Cat", "Bird"));
         //fxComboboxTest.setItems();
+        fxDepartureDate.setDayCellFactory(picker -> new DateCell() {
+            public void updateItem(LocalDate date, boolean empty) {
+                super.updateItem(date, empty);
+                LocalDate today = LocalDate.now();
+
+                setDisable(empty || date.compareTo(today) < 0 );
+            }
+        });
 
     }
 
@@ -77,11 +82,19 @@ public class HelloController implements Initializable {
     }
 
     public void departureDateHandler(ActionEvent actionEvent) {
+        LocalDate depDate = fxDepartureDate.getValue();
+        fxReturnDate.setDayCellFactory(picker -> new DateCell() {
+            public void updateItem(LocalDate date, boolean empty) {
+                super.updateItem(date, empty);
+                LocalDate depDate = fxDepartureDate.getValue();
 
+                setDisable(empty || date.compareTo(depDate) < 0 );
+            }
+        });
     }
 
     public void returnDateHandler(ActionEvent actionEvent) {
-        LocalDate depDate = fxDepartureDate.getValue();
+
         // RUGL fxReturnDate.setDisable(depDate.compareTo(LocalDate.now()) < 0);
     }
 }
