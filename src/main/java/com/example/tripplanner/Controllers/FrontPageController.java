@@ -1,4 +1,4 @@
-package com.example.tripplanner;
+package com.example.tripplanner.Controllers;
 
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -10,7 +10,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class HelloController implements Initializable {
+public class FrontPageController implements Initializable {
     @FXML
     private ComboBox<String> fxComboboxTest;
     @FXML
