@@ -15,12 +15,13 @@ public class DayTrip {
     private int difficulty;
     private String description;
     private int ageLimit;
-    private double price;
+    private Integer price;
+    private Integer rating;
     private Operator Operator;
     private String location;
     private int capacity;
 
-    public DayTrip(String tripName, LocalDate date, LocalDateTime timeStart, LocalDateTime timeEnd, int difficulty, String description, int ageLimit, double price, com.example.tripplanner.Classes.Operator operator, String location, int capacity) {
+    public DayTrip(String tripName, LocalDate date, LocalDateTime timeStart, LocalDateTime timeEnd, int difficulty, String description, int ageLimit, Integer price, com.example.tripplanner.Classes.Operator operator, String location, int capacity, Integer rating) {
         this.tripName = tripName;
         this.date = date;
         this.timeStart = timeStart;
@@ -32,5 +33,18 @@ public class DayTrip {
         Operator = operator;
         this.location = location;
         this.capacity = capacity;
+        this.rating = rating;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public Integer getRating() {
+        return rating;
+    }
+
+    public int getDifficulty() {
+        return difficulty;
     }
 }

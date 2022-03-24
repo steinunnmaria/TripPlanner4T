@@ -23,6 +23,11 @@ public class DayTripController {
   private String location;
   private int capacity;
      */
+
+    /* Búa til smið sem annað hvort les inn úr skrá eða "generate'ar"
+    gögn eftir formúlu (ekki handahófskennt, því við þurfum að geta yfirfarið þau.
+     */
+    
     public ArrayList<DayTrip> retrieveDayTrips(String location, LocalDate departureDate, LocalDate returnDate, int adultCount, int childrenCount){
 
         return null;
