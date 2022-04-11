@@ -12,7 +12,9 @@ import java.util.ResourceBundle;
 
 public class FrontPageController implements Initializable {
     @FXML
-    private ComboBox<String> fxComboboxTest;
+    private ComboBox<String> fxFromDest;
+    @FXML
+    private ComboBox<String> fxToDest;
     @FXML
     private DatePicker fxReturnDate;
     @FXML
@@ -23,13 +25,18 @@ public class FrontPageController implements Initializable {
     private RadioButton fxReturn;
     //Redda að má ekki skrifa strengi
     @FXML
-    private TextField fxChildrenCount;
+    private Label fxChildrenCount;
     @FXML
-    private TextField fxAdultCount;
+    private Label fxAdultCount;
+    private final int MAXPEOPLE = 9;
+    private int totalAdult;
+    private int totalChildren;
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        totalAdult = Integer.parseInt(fxAdultCount.getText());
+        totalChildren = Integer.parseInt(fxChildrenCount.getText());
 
-        fxComboboxTest.setItems(FXCollections.observableArrayList("Dog", "Cat", "Bird"));
+        fxFromDest.setItems(FXCollections.observableArrayList("Dog", "Cat", "Bird"));
         //fxComboboxTest.setItems();
         fxDepartureDate.setDayCellFactory(picker -> new DateCell() {
             public void updateItem(LocalDate date, boolean empty) {
@@ -43,31 +50,31 @@ public class FrontPageController implements Initializable {
     }
 
     public void adultsMinusHandler(ActionEvent actionEvent) {
-        int c = Integer.parseInt(fxAdultCount.getText());
-        if (c > 1) {
-            c--;
-            fxAdultCount.setText(String.valueOf(c));
+        if (totalAdult > 1) {
+            totalAdult--;
+            fxAdultCount.setText(String.valueOf(totalAdult));
         }
     }
 
     public void adultsPlusHandler(ActionEvent actionEvent) {
-        int c = Integer.parseInt(fxAdultCount.getText());
-        c++;
-        fxAdultCount.setText(String.valueOf(c));
+        if ((totalAdult+totalChildren) < MAXPEOPLE) {
+            totalAdult++;
+        }
+        fxAdultCount.setText(String.valueOf(totalAdult));
     }
 
     public void childrenMinusHandler(ActionEvent actionEvent) {
-        int c = Integer.parseInt(fxChildrenCount.getText());
-        if (c > 0) {
-            c--;
-            fxChildrenCount.setText(String.valueOf(c));
+        if (totalChildren > 0) {
+            totalChildren--;
         }
+        fxChildrenCount.setText(String.valueOf(totalChildren));
     }
 
     public void childrenPlusHandler(ActionEvent actionEvent) {
-        int c = Integer.parseInt(fxChildrenCount.getText());
-        c++;
-        fxChildrenCount.setText(String.valueOf(c));
+        if ((totalAdult+totalChildren) < MAXPEOPLE) {
+            totalChildren++;
+        }
+        fxChildrenCount.setText(String.valueOf(totalChildren));
     }
 
 
@@ -94,7 +101,8 @@ public class FrontPageController implements Initializable {
     }
 
     public void returnDateHandler(ActionEvent actionEvent) {
+    }
 
-        // RUGL fxReturnDate.setDisable(depDate.compareTo(LocalDate.now()) < 0);
+    public void searchHandler(ActionEvent actionEvent) {
     }
 }
