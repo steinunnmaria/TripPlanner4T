@@ -140,7 +140,7 @@
                                     <Insets left="20.0" top="20.0" />
                                 </HBox.margin>
                             </RadioButton>
-                            <Button mnemonicParsing="false" text="Search">
+                            <Button mnemonicParsing="false" onAction="#searchHandler" text="Search">
                                 <HBox.margin>
                                     <Insets left="45.0" top="20.0" />
                                 </HBox.margin>
