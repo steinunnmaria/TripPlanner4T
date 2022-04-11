@@ -32,29 +32,11 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <HBox layoutX="225.0" layoutY="122.0">
-         <children>
-            <Label text="Date:">
-               <HBox.margin>
-                  <Insets left="5.0" right="15.0" top="5.0" />
-               </HBox.margin>
-            </Label>
-            <DatePicker prefHeight="26.0" prefWidth="139.0" />
-         </children>
-      </HBox>
-      <HBox layoutX="225.0" layoutY="167.0">
-         <children>
-            <Label text="Time">
-               <HBox.margin>
-                  <Insets left="5.0" right="15.0" top="5.0" />
-               </HBox.margin>
-            </Label>
-            <ComboBox prefHeight="26.0" prefWidth="140.0" />
-         </children>
-      </HBox>
+      <HBox layoutX="225.0" layoutY="126.0" />
+      <HBox layoutX="225.0" layoutY="167.0" />
       <Button layoutX="279.0" layoutY="216.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #32C520 #32C520;" text="Confirm booking" />
-      <Label alignment="TOP_LEFT" layoutX="33.0" layoutY="82.0" prefHeight="133.0" prefWidth="172.0" text="A long winded description of the daytrip or perhaps a photo or nothing, I don't know..." wrapText="true" />
-      <GridPane layoutX="214.0" layoutY="22.0" prefHeight="93.0" prefWidth="196.0">
+      <Label alignment="TOP_LEFT" layoutX="27.0" layoutY="82.0" prefHeight="133.0" prefWidth="172.0" text="A long winded description of the daytrip or perhaps a photo or nothing, I don't know..." wrapText="true" />
+      <GridPane layoutX="214.0" layoutY="22.0" prefHeight="153.0" prefWidth="196.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="92.0" minWidth="10.0" prefWidth="55.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="92.0" minWidth="10.0" prefWidth="67.0" />
@@ -64,6 +46,8 @@
          </columnConstraints>
          <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="41.0" minHeight="10.0" prefHeight="23.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="37.0" minHeight="5.0" prefHeight="37.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
@@ -77,6 +61,10 @@
             <Button mnemonicParsing="false" onAction="#adultsPlusHandler" text="+" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
             <Label text="1990 kr." GridPane.columnIndex="1" GridPane.halignment="CENTER" />
             <Label text="590 kr." GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Label text="Date:" GridPane.rowIndex="2" />
+            <DatePicker prefHeight="26.0" prefWidth="139.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="2" />
+            <Label text="Time" GridPane.rowIndex="3" />
+            <ComboBox prefHeight="26.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="3" />
          </children>
       </GridPane>
    </children>
