@@ -1,8 +1,6 @@
 <component name="libraryTable">
   <library name="charm-glisten-6.1.0">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/charm-glisten-6.1.0.jar!/" />
-    </CLASSES>
+    <CLASSES />
     <JAVADOC />
     <SOURCES />
   </library>
