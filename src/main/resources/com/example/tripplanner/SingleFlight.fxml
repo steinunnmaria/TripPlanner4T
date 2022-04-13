@@ -51,7 +51,7 @@
                   </Label>
                </children>
             </GridPane>
-            <Button fx:id="fxBookFlight" layoutX="203.0" layoutY="13.0" mnemonicParsing="false" onAction="#bookFlightHandler" prefHeight="73.0" prefWidth="53.0" style="-fx-background-color: #32C520;" text="Book flight" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true">
+            <Button fx:id="fxBookFlight" layoutX="203.0" layoutY="13.0" mnemonicParsing="false" onAction="#bookFlightHandler" prefHeight="73.0" prefWidth="53.0" style="-fx-background-color: linear-gradient(from 25px 25px to 100px 100px, #dc143c, #32cd32)linear-gradient(from 25px 25px to 100px 100px, #dc143c, #32cd32);" text="Book flight" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>

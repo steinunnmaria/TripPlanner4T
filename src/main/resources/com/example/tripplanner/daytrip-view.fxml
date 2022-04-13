@@ -121,5 +121,6 @@
             <RadioButton fx:id="fxDescendingPrice" mnemonicParsing="false" onAction="#descendingHandler" text="Sort by price" />
          </children>
       </GridPane>
+      <Label layoutX="48.0" layoutY="52.0" prefHeight="37.0" prefWidth="199.0" text="March 22 - March 25" />
    </children>
 </AnchorPane>

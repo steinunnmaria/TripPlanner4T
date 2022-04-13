@@ -137,5 +137,6 @@
             </CheckBox>
          </children>
       </GridPane>
+      <Label layoutX="48.0" layoutY="50.0" prefHeight="37.0" prefWidth="172.0" text="From March 22 to March 25" />
    </children>
 </AnchorPane>
