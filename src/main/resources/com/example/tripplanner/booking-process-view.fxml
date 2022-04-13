@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.BookingProcessView">
+   <children>
+      <TabPane layoutX="14.0" layoutY="81.0" prefHeight="505.0" prefWidth="772.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab style="-fx-font-size: 16px; -fx-color: #C8D9F0; -fx-background-color: #C8D9F0;" text="Flights">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+          <Tab style="-fx-color: #D9EDDD; -fx-background-color: #D9EDDD; -fx-font-size: 16px;" text="Hotels">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab style="-fx-font-size: 16px; -fx-color: #FFF5BD; -fx-background-color: #FFF5BD;" text="Day Trips">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
