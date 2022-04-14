@@ -1,11 +1,13 @@
 package com.example.tripplanner.Controllers;
 
 import com.example.tripplanner.Classes.DayTrip;
+import javafx.scene.control.SplitPane;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class DayTripController {
+public class DayTripController extends SplitPane {
+
 
 
     /* 4D:
@@ -27,10 +29,12 @@ public class DayTripController {
     /* Búa til smið sem annað hvort les inn úr skrá eða "generate'ar"
     gögn eftir formúlu (ekki handahófskennt, því við þurfum að geta yfirfarið þau.
      */
-    
+
+
     public ArrayList<DayTrip> retrieveDayTrips(String location, LocalDate departureDate, LocalDate returnDate, int adultCount, int childrenCount){
 
         return null;
     }
+
 
 }

@@ -6,11 +6,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class FrontPageController implements Initializable {
+
     @FXML
     private ComboBox<String> fxFromDest;
     @FXML
@@ -28,9 +30,11 @@ public class FrontPageController implements Initializable {
     private Label fxChildrenCount;
     @FXML
     private Label fxAdultCount;
+
     private final int MAXPEOPLE = 9;
     private int totalAdult;
     private int totalChildren;
+
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         totalAdult = Integer.parseInt(fxAdultCount.getText());
@@ -46,8 +50,11 @@ public class FrontPageController implements Initializable {
                 setDisable(empty || date.compareTo(today) < 0 );
             }
         });
-
     }
+
+
+
+
 
     public void adultsMinusHandler(ActionEvent actionEvent) {
         if (totalAdult > 1) {
@@ -103,6 +110,9 @@ public class FrontPageController implements Initializable {
     public void returnDateHandler(ActionEvent actionEvent) {
     }
 
-    public void searchHandler(ActionEvent actionEvent) {
+    public void searchHandler(ActionEvent actionEvent) throws IOException {
+        SceneController sc = new SceneController();
+        sc.switchToSceneBooking(actionEvent);
+
     }
 }

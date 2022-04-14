@@ -13,20 +13,20 @@
 
 <AnchorPane fx:id="fxBookRoot" prefHeight="600.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.Controllers.BookingProcessController">
    <children>
-      <TabPane fx:id="fxTabCont" layoutX="15.0" layoutY="39.0" prefHeight="546.0" prefWidth="1055.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="fxTabCont" layoutX="15.0" layoutY="39.0" prefHeight="546.0" prefWidth="1035.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab fx:id="fxFlightsTab" style="-fx-font-size: 16px; -fx-color: #C8D9F0; -fx-background-color: #C8D9F0;" text="Flights">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ScrollPane layoutX="178.0" layoutY="14.0" prefHeight="450.0" prefWidth="425.0">
+                        <ScrollPane layoutX="178.0" layoutY="14.0" prefHeight="450.0" prefWidth="420.0">
                            <content>
                               <VBox fx:id="fxFlightsDepCont" prefHeight="448.0" prefWidth="409.0" />
                            </content>
                         </ScrollPane>
                         <Button layoutX="968.0" layoutY="474.0" mnemonicParsing="false" onAction="#flightsConfirmHandler" text="Confirm" />
                         <Button layoutX="900.0" layoutY="474.0" mnemonicParsing="false" onAction="#flightsSkipHandler" text="Skip" />
-                        <ScrollPane layoutX="620.0" layoutY="14.0" prefHeight="450.0" prefWidth="425.0">
+                        <ScrollPane layoutX="615.0" layoutY="14.0" prefHeight="450.0" prefWidth="420.0">
                            <content>
                               <VBox fx:id="fxFlightsRetCont" prefHeight="448.0" prefWidth="409.0" />
                            </content>
@@ -55,7 +55,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ScrollPane fx:id="fxHotelList" layoutX="178.0" layoutY="14.0" prefHeight="450.0" prefWidth="425.0">
+                        <ScrollPane fx:id="fxHotelList" layoutX="178.0" layoutY="14.0" prefHeight="450.0" prefWidth="412.0">
                            <content>
                               <VBox prefHeight="448.0" prefWidth="409.0" />
                            </content></ScrollPane>
@@ -89,7 +89,7 @@
                               </Pane>
                            </children>
                         </VBox>
-                        <VBox layoutX="620.0" layoutY="14.0" prefHeight="450.0" prefWidth="425.0">
+                        <VBox layoutX="600.0" layoutY="14.0" prefHeight="450.0" prefWidth="412.0">
                            <children>
                               <Pane prefHeight="225.0" prefWidth="206.0" />
                               <Pane prefHeight="225.0" prefWidth="206.0" />
@@ -127,7 +127,7 @@
                               </Pane>
                            </children>
                         </VBox>
-                        <VBox layoutX="620.0" layoutY="14.0" prefHeight="450.0" prefWidth="420.0">
+                        <VBox layoutX="610.0" layoutY="14.0" prefHeight="450.0" prefWidth="420.0">
                            <children>
                               <Pane prefHeight="225.0" prefWidth="206.0" />
                               <Pane prefHeight="225.0" prefWidth="206.0" />
