@@ -1,15 +1,27 @@
 package com.example.tripplanner.Classes;
 
-import java.util.ArrayList;
-
 public class Customers {
 
-    private String contactEmail;
     private String contactTelNo;
+    private String contactEmail;
     private String contactAddress;
     private String contactCity;
     private CreditCard contactCardDetails;
-    private int adultCount;
-    private int childCount;
-    private ArrayList<Traveller> travellers;
+    private final int adultCount;
+    private final int childCount;
+
+    public Customers(String email, String telNo, String address, String city, int adults, int children) {
+        this.contactTelNo = telNo;
+        this.contactEmail = email;
+        this.contactAddress = address;
+        this.contactCity = city;
+        this.adultCount = adults;
+        this.childCount = children;
+    }
+
+    /* Getters */
+
+    public void setCreditCard(CreditCard cardDetails) {
+        this.contactCardDetails = cardDetails;
+    }
 }
