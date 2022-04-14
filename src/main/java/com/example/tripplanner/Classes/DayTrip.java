@@ -15,7 +15,7 @@ public class DayTrip {
     private int difficulty;
     private String description;
     private int ageLimit;
-    private Integer price;
+    private double price;
     private Integer rating;
     private Operator Operator;
     private String location;
@@ -36,15 +36,11 @@ public class DayTrip {
         this.rating = rating;
     }
 
-    public Integer getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public Integer getRating() {
-        return rating;
-    }
-
     public int getDifficulty() {
-        return difficulty;
+        return this.difficulty;
     }
 }
