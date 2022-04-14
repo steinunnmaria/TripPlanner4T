@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.3319397993311037" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="409.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root type="javafx.scene.control.SplitPane" dividerPositions="0.3319397993311037" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="409.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
@@ -42,7 +42,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label fx:id="fxHotelName" text="Hotel name" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT">
+                  <Label fx:id="fxName" text="Hotel name" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
@@ -64,11 +64,11 @@
                   </Label>
                </children>
             </GridPane>
-            <Button fx:id="fxBookHotel" layoutX="203.0" layoutY="13.0" mnemonicParsing="false" onAction="#bookHotelHandler" prefHeight="73.0" prefWidth="53.0" style="-fx-background-color: #32C520;" text="Book hotel" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true">
+            <Button fx:id="fxBookHotel" layoutX="203.0" layoutY="13.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="53.0" style="-fx-background-color: #32C520;" text="Book hotel" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
             </Button>
          </children></AnchorPane>
   </items>
-</SplitPane>
+</fx:root>

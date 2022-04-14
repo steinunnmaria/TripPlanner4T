@@ -24,7 +24,7 @@
                               <VBox fx:id="fxFlightsDepCont" prefHeight="448.0" prefWidth="409.0" />
                            </content>
                         </ScrollPane>
-                        <Button layoutX="968.0" layoutY="474.0" mnemonicParsing="false" onAction="#flightsConfirmHandler" text="Confirm" />
+                        <Button fx:id="fxFlightsConfirm" layoutX="968.0" layoutY="474.0" mnemonicParsing="false" onAction="#flightsConfirmHandler" text="Confirm" />
                         <Button layoutX="900.0" layoutY="474.0" mnemonicParsing="false" onAction="#flightsSkipHandler" text="Skip" />
                         <ScrollPane layoutX="620.0" layoutY="14.0" prefHeight="450.0" prefWidth="425.0">
                            <content>
@@ -35,14 +35,14 @@
                            <children>
                               <Pane prefHeight="69.0" prefWidth="174.0">
                                  <children>
-                                    <ComboBox fx:id="fxSortPriceFlights" layoutX="16.0" layoutY="14.0" prefWidth="150.0" promptText="Sort by Price" />
+                                    <ComboBox fx:id="fxSortFlights" layoutX="16.0" layoutY="14.0" prefWidth="150.0" promptText="Sort by:" />
                                  </children>
                               </Pane>
                               <Pane prefHeight="149.0" prefWidth="174.0">
                                  <children>
-                                    <CheckBox layoutX="16.0" layoutY="40.0" mnemonicParsing="false" onAction="#fxFilterFlights" text="Icelandair" />
-                                    <CheckBox layoutX="16.0" layoutY="70.0" mnemonicParsing="false" onAction="#fxFilterFlights" text="Ernir" />
-                                    <CheckBox layoutX="16.0" layoutY="100.0" mnemonicParsing="false" onAction="#fxFilterFlights" text="XX" />
+                                    <CheckBox fx:id="fxIcelandair" layoutX="16.0" layoutY="40.0" mnemonicParsing="false" onAction="#fxFilterFlights" text="Icelandair" />
+                                    <CheckBox fx:id="fxErnir" layoutX="16.0" layoutY="70.0" mnemonicParsing="false" onAction="#fxFilterFlights" text="Ernir" />
+                                    <CheckBox fx:id="fxXX" layoutX="16.0" layoutY="100.0" mnemonicParsing="false" onAction="#fxFilterFlights" text="XX" />
                                     <Label layoutX="16.0" layoutY="10.0" text="Filter by Airline" />
                                  </children>
                               </Pane>
@@ -57,15 +57,15 @@
                      <children>
                         <ScrollPane fx:id="fxHotelList" layoutX="178.0" layoutY="14.0" prefHeight="450.0" prefWidth="425.0">
                            <content>
-                              <VBox prefHeight="448.0" prefWidth="409.0" />
+                              <VBox fx:id="fxHotelCont" prefHeight="448.0" prefWidth="409.0" />
                            </content></ScrollPane>
-                        <Button layoutX="700.0" layoutY="474.0" mnemonicParsing="false" onAction="#hotelConfirmHandler" text="Confirm" />
+                        <Button fx:id="fxHotelConfirm" layoutX="700.0" layoutY="474.0" mnemonicParsing="false" onAction="#hotelConfirmHandler" text="Confirm" />
                         <Button layoutX="640.0" layoutY="474.0" mnemonicParsing="false" onAction="#hotelSkipHandler" text="Skip" />
                         <VBox layoutY="14.0" prefHeight="448.0" prefWidth="174.0">
                            <children>
                               <Pane prefHeight="103.0" prefWidth="174.0">
                                  <children>
-                                    <ComboBox fx:id="fxSortPriceHotels" layoutX="16.0" layoutY="14.0" prefWidth="150.0" promptText="Sort by Price" />
+                                    <ComboBox fx:id="fxSortHotels" layoutX="16.0" layoutY="14.0" prefWidth="150.0" promptText="Sort by:" />
                                     <ComboBox layoutX="16.0" layoutY="52.0" prefWidth="150.0" promptText="Sort by Rating" />
                                  </children>
                               </Pane>
@@ -107,13 +107,13 @@
                               <VBox fx:id="fxDayTripsCont" prefHeight="448.0" prefWidth="409.0" />
                            </content>
                         </ScrollPane>
-                        <Button layoutX="700.0" layoutY="474.0" mnemonicParsing="false" onAction="#dayTripConfirmHandler" text="Confirm" />
+                        <Button fx:id="fxDayTripConfirm" layoutX="700.0" layoutY="474.0" mnemonicParsing="false" onAction="#dayTripConfirmHandler" text="Confirm" />
                         <Button layoutX="640.0" layoutY="474.0" mnemonicParsing="false" onAction="#dayTripSkipHandler" text="Skip" />
                         <VBox layoutY="14.0" prefHeight="448.0" prefWidth="174.0">
                            <children>
                               <Pane prefHeight="103.0" prefWidth="174.0">
                                  <children>
-                                    <ComboBox fx:id="fxSortPriceDT" layoutX="16.0" layoutY="14.0" prefWidth="150.0" promptText="Sort by Price" />
+                                    <ComboBox fx:id="fxSortDT" layoutX="16.0" layoutY="14.0" prefWidth="150.0" promptText="Sort by:" />
                                     <ComboBox layoutX="16.0" layoutY="52.0" prefWidth="150.0" promptText="Sort by Rating" />
                                  </children>
                               </Pane>
