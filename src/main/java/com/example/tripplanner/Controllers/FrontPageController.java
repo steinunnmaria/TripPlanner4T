@@ -28,7 +28,7 @@ public class FrontPageController implements Initializable {
     private RadioButton fxOneWay;
     @FXML
     private RadioButton fxReturn;
-    //Redda að má ekki skrifa strengi
+    //Redda að má ekki skrifa strengi - Steinunn Breyting
     @FXML
     private Label fxChildrenCount;
     @FXML
