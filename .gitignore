@@ -1,2 +1,5 @@
 #Mac system files
 *.DS_Store
+
+#out folder
+out/*
