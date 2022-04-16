@@ -1,5 +1,6 @@
 package com.example.tripplanner.Controllers;
 
+import com.example.tripplanner.Classes.VacationDeal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -16,8 +17,11 @@ public class SceneController {
     private Scene scene;
     private Parent root;
 
-    public void switchToSceneBooking(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/tripplanner/booking-process-view.fxml")));
+    public void switchToSceneBooking(ActionEvent actionEvent, VacationDeal vd) throws IOException {
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/com/example/tripplanner/booking-process-view.fxml")));
+        root = loader.load();
+        BookingProcessController bookingControl = loader.getController();
+        bookingControl.setVacationDeal(vd);
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene((root));
         stage.setTitle("Booking process");

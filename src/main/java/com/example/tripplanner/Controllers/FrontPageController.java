@@ -153,16 +153,16 @@ public class FrontPageController implements Initializable {
     }
 
     public void searchHandler(ActionEvent actionEvent) throws IOException {
-        //String fromDest = fxFromDest.getValue();
-        //String toDest = fxToDest.getValue();
-        //LocalDate fromDate = fxDepartureDate.getValue();
-        //LocalDate returnDate = fxReturnDate.getValue();
-        //vd = new VacationDeal(fromDest, toDest, fromDate, returnDate, totalAdult, totalChildren);
+        String fromDest = fxFromDest.getValue();
+        String toDest = fxToDest.getValue();
+        LocalDate fromDate = fxDepartureDate.getValue();
+        LocalDate returnDate = fxReturnDate.getValue();
+        vd = new VacationDeal(fromDest, toDest, fromDate, returnDate, totalAdult, totalChildren);
 
         //Stage stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         //bpc.setVacationDeal(vd);
         SceneController sc = new SceneController();
-        sc.switchToSceneBooking(actionEvent);
+        sc.switchToSceneBooking(actionEvent, vd);
 
     }
 }

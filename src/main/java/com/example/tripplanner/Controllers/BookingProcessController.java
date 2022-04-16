@@ -213,6 +213,11 @@ public class BookingProcessController implements Initializable {
         }
         fxHotelsTab.setDisable(false);
         fxTabCont.getSelectionModel().selectNext();
+
+        System.out.println(vd.getAdultCount());
+        System.out.println(vd.getDestFrom());
+        System.out.println(vd.getDestTo());
+
     }
 
     public void flightsSkipHandler(ActionEvent actionEvent) {
