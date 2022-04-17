@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="fxBookRoot" prefHeight="600.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.Controllers.BookingProcessController">
+<AnchorPane fx:id="fxBookRoot" prefHeight="600.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.Controllers.BookingProcessController">
    <children>
       <TabPane fx:id="fxTabCont" layoutX="15.0" layoutY="39.0" prefHeight="546.0" prefWidth="1055.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -91,7 +91,7 @@
                         </VBox>
                         <VBox layoutX="620.0" layoutY="14.0" prefHeight="450.0" prefWidth="425.0">
                            <children>
-                              <Pane prefHeight="225.0" prefWidth="206.0" />
+                              <Pane fx:id="fxHotelPopup" prefHeight="225.0" prefWidth="206.0" />
                               <Pane prefHeight="225.0" prefWidth="206.0" />
                            </children>
                         </VBox>
@@ -104,7 +104,7 @@
                      <children>
                         <ScrollPane layoutX="178.0" layoutY="14.0" prefHeight="450.0" prefWidth="425.0">
                            <content>
-                              <VBox fx:id="fxDayTripsCont" prefHeight="448.0" prefWidth="409.0" />
+                              <VBox fx:id="fxDayTripsCont" onMouseClicked="#openDayTripHandler" prefHeight="448.0" prefWidth="409.0" />
                            </content>
                         </ScrollPane>
                         <Button fx:id="fxDayTripConfirm" layoutX="700.0" layoutY="474.0" mnemonicParsing="false" onAction="#dayTripConfirmHandler" text="Confirm" />
@@ -129,7 +129,7 @@
                         </VBox>
                         <VBox layoutX="620.0" layoutY="14.0" prefHeight="450.0" prefWidth="420.0">
                            <children>
-                              <Pane prefHeight="225.0" prefWidth="206.0" />
+                              <Pane fx:id="fxDayTripPopup" prefHeight="225.0" prefWidth="206.0" />
                               <Pane prefHeight="225.0" prefWidth="206.0" />
                            </children>
                         </VBox>

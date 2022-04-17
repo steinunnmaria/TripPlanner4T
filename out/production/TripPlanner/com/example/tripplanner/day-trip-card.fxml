@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<fx:root type="javafx.scene.control.SplitPane" dividerPositions="0.3319397993311037" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="409.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" >
+<fx:root dividerPositions="0.3319397993311037" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="409.0" type="javafx.scene.control.SplitPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
@@ -55,7 +55,7 @@
                   <Label fx:id="fxDiff" text="Difficulty" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <Button fx:id="fxBook" layoutX="203.0" layoutY="13.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="53.0" style="-fx-background-color: #32C520;" text="Book trip" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true">
+            <Button layoutX="203.0" layoutY="13.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="57.0" style="-fx-background-color: #32C520;" text="Open trip" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>

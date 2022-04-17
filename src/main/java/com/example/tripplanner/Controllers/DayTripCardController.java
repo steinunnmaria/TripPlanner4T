@@ -3,6 +3,7 @@ package com.example.tripplanner.Controllers;
 import com.example.tripplanner.Classes.DayTrip;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 
@@ -11,6 +12,8 @@ import java.io.IOException;
 public class DayTripCardController extends SplitPane {
     @FXML
     private Label fxTitle;
+    @FXML
+    private Button fxOpenTrip;
 
     private DayTrip dayTrip;
 
@@ -29,6 +32,12 @@ public class DayTripCardController extends SplitPane {
 
     private void setLabels(DayTrip dt) {
         // sækja titil, dags, o.s.frv frá daytrip og setja í labels (setText)
+    }
+
+    public DayTrip getDayTrip() {
+        fxOpenTrip.setText("Close trip");
+        fxOpenTrip.setStyle("Yellow");
+        return(this.dayTrip);
     }
 
 

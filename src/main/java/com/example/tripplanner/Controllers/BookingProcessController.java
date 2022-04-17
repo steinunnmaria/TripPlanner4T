@@ -1,5 +1,6 @@
 package com.example.tripplanner.Controllers;
 
+import com.example.tripplanner.Classes.DayTrip;
 import com.example.tripplanner.Classes.VacationDeal;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableSet;
@@ -8,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -26,6 +28,8 @@ public class BookingProcessController implements Initializable {
     @FXML
     private VBox fxHotelCont;
     @FXML
+    private Pane fxDayTripPopup;
+    @FXML
     private TabPane fxTabCont;
     @FXML
     private Tab fxDayTripsTab, fxHotelsTab, fxFlightsTab;
@@ -37,6 +41,8 @@ public class BookingProcessController implements Initializable {
     private AnchorPane fxBookRoot;
 
     private VacationDeal vd;
+
+    private DayTrip chosenDayTrip;
 
     private FrontPageController fpg = new FrontPageController();
 
@@ -159,6 +165,13 @@ public class BookingProcessController implements Initializable {
 
     }
 
+    public void openDayTripHandler(ActionEvent actionEvent) {
+        DayTripCardController dt = (DayTripCardController) actionEvent.getSource();
+        this.chosenDayTrip = dt.getDayTrip();
+        DayTripPopUpController dtpu = new DayTripPopUpController(this.chosenDayTrip);
+        fxDayTripPopup.getChildren().addAll(dtpu);
+
+    }
     public void loadHotelCards() throws IOException {
 
         ArrayList<HotelCardController> listi = new ArrayList<HotelCardController>();
