@@ -31,10 +31,10 @@
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <GridPane alignment="CENTER" layoutY="5.0" prefHeight="90.0" prefWidth="178.0">
+            <GridPane alignment="CENTER" layoutX="14.0" layoutY="4.0" prefHeight="90.0" prefWidth="165.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="81.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.0" minWidth="10.0" prefWidth="108.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="69.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.0" minWidth="10.0" prefWidth="96.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -42,31 +42,31 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label fx:id="fxName" text="Hotel name" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT">
+                  <Label fx:id="fxName" text="Hotel name" GridPane.columnSpan="2147483647">
                      <GridPane.margin>
-                        <Insets left="10.0" />
+                        <Insets />
                      </GridPane.margin>
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="fxAdultCnt" text="Adults" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                  <Label fx:id="fxChildCnt" text="Children" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                  <Label fx:id="fxHotelPrice" text="Price kr." GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                  <Label fx:id="fxAdultCnt" text="Adults" GridPane.rowIndex="1" />
+                  <Label fx:id="fxChildCnt" text="Children" GridPane.rowIndex="2" />
+                  <Label fx:id="fxHotelPrice" text="Price kr." GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="fxLengthOfStay" text="No of nights" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                  <Label fx:id="fxLengthOfStay" text="No of nights" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
                </children>
             </GridPane>
-            <Button fx:id="fxBookHotel" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" onAction="#selectHandler" prefHeight="74.0" prefWidth="68.0" style="-fx-background-color: #32C520;" text="Select" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true">
+            <Button fx:id="fxBookHotel" layoutX="198.0" mnemonicParsing="false" onAction="#selectHandler" prefHeight="60.0" prefWidth="70.0" style="-fx-background-color: radial-gradient(radius 180%, LIGHTGREEN, derive(LIGHTGREEN, -30%), derive(LIGHTGREEN, 30%))radial-gradient(radius 180%, LIGHTGREEN, derive(LIGHTGREEN, -30%), derive(LIGHTGREEN, 30%));" text="View hotel" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" wrapText="true" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="18.0">
                <font>
-                  <Font name="Arial" size="14.0" />
+                  <Font name="Arial" size="13.0" />
                </font>
             </Button>
          </children></AnchorPane>
