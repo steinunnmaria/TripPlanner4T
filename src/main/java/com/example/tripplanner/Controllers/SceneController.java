@@ -29,8 +29,11 @@ public class SceneController {
         stage.setScene(scene);
         stage.show();
     }
-    public void switchToSceneReview(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/tripplanner/review-booking-view.fxml")));
+    public void switchToSceneReview(ActionEvent actionEvent, VacationDeal vd) throws IOException {
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/com/example/tripplanner/review-booking-view.fxml")));
+        root = loader.load();
+        ReviewBookingView reviewBookingView = loader.getController();
+        reviewBookingView.setVacationDeal(vd);
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene((root));
         stage.setTitle("Review Booking");
@@ -47,8 +50,12 @@ public class SceneController {
         stage.show();
     }
 
-    public void switchToSceneFinish(ActionEvent actionEvent) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/tripplanner/finish-view.fxml")));
+    public void switchToSceneFinish(ActionEvent actionEvent, VacationDeal vd) throws IOException {
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/com/example/tripplanner/finish-view.fxml")));
+        root = loader.load();
+        FinishController finishController = loader.getController();
+        finishController.setVacationDeal(vd);
+        //finishController.setThisLoader(loader);
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene((root));
         stage.setTitle("Trip Planner");

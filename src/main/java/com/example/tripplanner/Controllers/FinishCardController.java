@@ -1,7 +1,6 @@
 package com.example.tripplanner.Controllers;
 
 import com.example.tripplanner.Classes.DayTrip;
-import com.example.tripplanner.Classes.VacationDeal;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
@@ -20,8 +19,7 @@ public class FinishCardController extends Pane {
 
 
 
-    public FinishCardController(String name, VacationDeal vd) {
-        totalPeople = vd.getAdultCount() + vd.getAdultCount();
+    public FinishCardController(String name) {
 
         readCard();
         this.name = name;

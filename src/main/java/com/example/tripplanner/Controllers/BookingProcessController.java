@@ -230,13 +230,13 @@ public class BookingProcessController implements Initializable {
 
     public void dayTripConfirmHandler(ActionEvent actionEvent) throws IOException {
         SceneController sc = new SceneController();
-        sc.switchToSceneReview(actionEvent);
+        sc.switchToSceneReview(actionEvent, vd);
 
     }
 
     public void dayTripSkipHandler(ActionEvent actionEvent) throws IOException {
         SceneController sc = new SceneController();
-        sc.switchToSceneReview(actionEvent);
+        sc.switchToSceneReview(actionEvent, vd);
     }
 
     /**
