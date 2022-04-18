@@ -20,7 +20,7 @@ public class HotelCardController extends SplitPane {
 
     public HotelCardController(String name, BookingProcessController bookingProcessController) {
         this.bpc = bookingProcessController;
-        lesaVidburd();
+        readCard();
         //Setja Hotel hlut sem parameter í fallið, upphafsstilla fyrir tilviksbreytu hér fyrir neðan
         //this.hotel=hotel;
         //setLabels(hotel);
@@ -45,7 +45,7 @@ public class HotelCardController extends SplitPane {
 
 
 
-    private void lesaVidburd() {
+    private void readCard() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/tripplanner/hotel-card.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);

@@ -315,6 +315,9 @@ public class BookingProcessController implements Initializable {
             i++;
         }
 
+        // Hvernig er ef allt er afcheckað? Fáum við ekki örugglega gamla listann til baka?
+
+
         // Kalla á getDayTrips með strengjafylkinu sem parameter til að filtera, undir lyklinum
         // difficulty
         // Kalla á filteringsföll hjá hinum teymunum með strengjafylkinu

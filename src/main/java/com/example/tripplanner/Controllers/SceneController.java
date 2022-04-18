@@ -46,6 +46,16 @@ public class SceneController {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void switchToSceneFinish(ActionEvent actionEvent) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/tripplanner/finish-view.fxml")));
+        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene((root));
+        stage.setTitle("Trip Planner");
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public void closeButtonAction(ActionEvent actionEvent){
         // get a handle to the stage
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
