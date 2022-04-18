@@ -1,4 +1,5 @@
-package com.example.tripplanner.Classes;
+package com.example.tripplanner.DayTripDataBase;
+
 
 public class Operator {
     private String operatorId;

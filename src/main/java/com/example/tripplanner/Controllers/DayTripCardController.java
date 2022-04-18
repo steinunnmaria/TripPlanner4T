@@ -1,6 +1,6 @@
 package com.example.tripplanner.Controllers;
 
-import com.example.tripplanner.Classes.DayTrip;
+import com.example.tripplanner.DayTripDataBase.DayTrip;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,22 +17,22 @@ public class DayTripCardController extends SplitPane {
     private Button fxOpenTrip;
 
     private DayTrip dayTrip;
-    private String title;
+    private String name;
 
     private BookingProcessController bpc;
 
 
 
-    public DayTripCardController(String title, BookingProcessController bookingProcessController) {
+    public DayTripCardController(DayTrip dt, BookingProcessController bookingProcessController) {
         bpc = bookingProcessController;
-        this.title = title;
-        readCard(title);
+        this.name = dt.getName();
+        readCard(name);
         //Setja DayTrip hlut sem parameter í fallið, upphafsstilla fyrir tilviksbreytu hér fyrir neðan
         //this.dayTrip=dayTrip;
         //setLabels(dayTrip);
 
 
-        fxTitle.setText(title);
+        fxTitle.setText(name);
 
     }
 
@@ -55,8 +55,8 @@ public class DayTripCardController extends SplitPane {
 
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
     private void readCard(String title) {

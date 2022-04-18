@@ -1,6 +1,6 @@
 package com.example.tripplanner.Comparators;
 
-import com.example.tripplanner.Classes.DayTrip;
+import com.example.tripplanner.DayTripDataBase.DayTrip;
 
 import java.util.Comparator;
 

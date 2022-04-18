@@ -1,6 +1,6 @@
 package com.example.tripplanner.Controllers;
 
-import com.example.tripplanner.Classes.DayTrip;
+import com.example.tripplanner.DayTripDataBase.DayTrip;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;

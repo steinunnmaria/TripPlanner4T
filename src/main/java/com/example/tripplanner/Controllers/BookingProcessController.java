@@ -1,7 +1,10 @@
 package com.example.tripplanner.Controllers;
 
-import com.example.tripplanner.Classes.DayTrip;
 import com.example.tripplanner.Classes.VacationDeal;
+import com.example.tripplanner.DayTripDataBase.DayTrip;
+import com.example.tripplanner.DayTripDataBase.DayTripController;
+import com.example.tripplanner.HotelDataBase.Hotel;
+import com.example.tripplanner.HotelDataBase.HotelController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableSet;
 import javafx.event.ActionEvent;
@@ -15,7 +18,9 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.ResourceBundle;
 
 public class BookingProcessController implements Initializable {
@@ -125,41 +130,37 @@ public class BookingProcessController implements Initializable {
 
     }
 
-    public void loadHotelCards() throws IOException {
+    public void loadHotelCards() throws Exception {
 
         ArrayList<HotelCardController> listi = new ArrayList<HotelCardController>();
-        HotelCardController h = new HotelCardController("Hótel Selfoss", loader.getController());
-        HotelCardController h1 = new HotelCardController("Hótel RVK", loader.getController());
-        HotelCardController h2 = new HotelCardController("Radison", loader.getController());
-        HotelCardController h3 = new HotelCardController("Stúdó", loader.getController());
+
+        HotelController hotelController = HotelController.getInstance();
+        ArrayList<Hotel> hotelListi = hotelController.getAllAvailableHotels(2, totalPeople, vd.getDateFrom(), vd.getDateTo());
 
 
-        listi.add(h);
-        listi.add(h1);
-        listi.add(h2);
-        listi.add(h3);
+        for (Hotel h : hotelListi) {
+            HotelCardController hcc = new HotelCardController(h, loader.getController());
+            listi.add(hcc);
+        }
+
 
         fxHotelCont.getChildren().addAll(listi);
 
     }
 
     public void loadDTCards() throws IOException {
-        //Hér köllum við á getDayTrips og fáum arraylista
-
         ArrayList<DayTripCardController> listi = new ArrayList<DayTripCardController>();
-        DayTripCardController dt = new DayTripCardController("Fyrsti", loader.getController());
-        DayTripCardController dtt = new DayTripCardController("Annar", loader.getController());
-        DayTripCardController dta = new DayTripCardController("Fyrsti", loader.getController());
-        DayTripCardController dtta = new DayTripCardController("Annar", loader.getController());
-        DayTripCardController dtb = new DayTripCardController("Fyrsti", loader.getController());
-        DayTripCardController dttb = new DayTripCardController("Annar", loader.getController());
+        ArrayList<DayTrip> listiafDT = new ArrayList<DayTrip>();
+        Hashtable<String, Object> params = new Hashtable<>();
+        LocalDate[] fylki = {vd.getDateFrom(), vd.getDateTo()};
+        params.put("date", fylki);
+        params.put("localCode", 2);
+        listiafDT = DayTripController.getDayTrips(params);
 
-        listi.add(dt);
-        listi.add(dtt);
-        listi.add(dta);
-        listi.add(dtta);
-        listi.add(dtb);
-        listi.add(dttb);
+        for (DayTrip dt : listiafDT) {
+            DayTripCardController dtc = new DayTripCardController(dt, loader.getController());
+            listi.add(dtc);
+        }
         fxDayTripsCont.getChildren().addAll(listi);
 
     }
@@ -170,6 +171,8 @@ public class BookingProcessController implements Initializable {
             loadHotelCards();
         }
         catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
         fxHotelsTab.setDisable(false);
@@ -187,6 +190,8 @@ public class BookingProcessController implements Initializable {
             loadHotelCards();
         }
         catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
         fxHotelsTab.setDisable(false);

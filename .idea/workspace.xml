@@ -62,7 +62,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/com/example/tripplanner" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/sqliteLib/sqlite-jdbc-3.36.0.3.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/example/tripplanner/HotelDataBase" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -72,10 +72,19 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.tripplanner.Processing" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\stein\Desktop\Vor22\HBV401G\TripPlanner\src\main\java\com\example\tripplanner\HotelDataBase" />
+      <recent name="C:\Users\stein\Desktop\Vor22\HBV401G\TripPlanner\src\main\java\com\example\tripplanner\DayTripDataBase" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\stein\Desktop\Vor22\HBV401G\TripPlanner\src\main\java\com\example\tripplanner\HotelDataBase" />
+      <recent name="C:\Users\stein\Desktop\Vor22\HBV401G\TripPlanner\src\main\java\com\example\tripplanner\hotelreservation" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.tripplanner" />
       <recent name="com.example.tripplanner.Controllers" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
@@ -93,9 +102,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DayTripController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.tripplanner.DayTripDataBase.DayTripController" />
+      <module name="TripPlanner" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.tripplanner.HelloApplication" />
       <module name="TripPlanner" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Init" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.tripplanner.DayTripDataBase.Init" />
+      <module name="TripPlanner" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -126,10 +151,14 @@
     <list>
       <item itemvalue="Application.HelloApplication" />
       <item itemvalue="JUnit.CalculatorTest" />
+      <item itemvalue="Application.Init" />
+      <item itemvalue="Application.DayTripController" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="Application.DayTripController" />
+        <item itemvalue="Application.Init" />
         <item itemvalue="JUnit.CalculatorTest" />
       </list>
     </recent_temporary>

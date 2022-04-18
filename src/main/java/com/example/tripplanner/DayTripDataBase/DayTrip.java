@@ -1,4 +1,4 @@
-package com.example.tripplanner.Classes;
+package com.example.tripplanner.DayTripDataBase;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -16,7 +16,7 @@ public class DayTrip {
     private int ageLimit;
     private String difficulty;
     private int capacity;
-    private String operatorId;
+    private String oId;
 
     public DayTrip(
             String dayTripId,
@@ -31,7 +31,7 @@ public class DayTrip {
             int ageLimit,
             String difficulty,
             int capacity,
-            String operatorId
+            String oId
     ) {
         this.dayTripId = dayTripId;
         this.name = name;
@@ -45,7 +45,7 @@ public class DayTrip {
         this.ageLimit = ageLimit;
         this.difficulty = difficulty;
         this.capacity = capacity;
-        this.operatorId = operatorId;
+        this.oId = oId;
     }
 
     public String getDayTripId() {
@@ -84,8 +84,8 @@ public class DayTrip {
         return this.price;
     }
 
-    public String getOperatorId() {
-        return this.operatorId.toString();
+    public String getOId() {
+        return this.oId;
     }
 
     public String getLocation() {
