@@ -12,7 +12,7 @@ public class FinishCardController extends Pane {
 
     private BookingProcessController bpc;
     @FXML
-    private TextField fxFirstName;
+    private TextField fxName;
     private String name;
 
     private int totalPeople;
@@ -23,7 +23,7 @@ public class FinishCardController extends Pane {
 
         readCard();
         this.name = name;
-        fxFirstName.setText(name);
+        fxName.setText(name);
 
         //Setja DayTrip hlut sem parameter í fallið, upphafsstilla fyrir tilviksbreytu hér fyrir neðan
         //this.dayTrip=dayTrip;

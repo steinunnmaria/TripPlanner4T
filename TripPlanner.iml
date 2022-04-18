@@ -17,6 +17,6 @@
     <orderEntry type="library" name="junit.jupiter" level="project" />
     <orderEntry type="library" name="charm-glisten-6.1.0" level="project" />
     <orderEntry type="library" name="sqlite-jdbc-3.36.0.3" level="project" />
-    <orderEntry type="library" exported="" name="maclib" level="project" />
+    <orderEntry type="library" name="JavaFXlib" level="project" />
   </component>
 </module>
