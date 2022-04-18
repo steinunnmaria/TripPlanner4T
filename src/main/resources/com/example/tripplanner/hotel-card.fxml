@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<fx:root dividerPositions="0.3319397993311037" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="409.0" type="javafx.scene.control.SplitPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root dividerPositions="0.3319397993311037" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="409.0" type="javafx.scene.control.SplitPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
             <SplitPane dividerPositions="0.5" layoutY="-1.0" orientation="VERTICAL" prefHeight="99.0" prefWidth="132.0">
               <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="45.0" prefWidth="130.0">
                      <children>
-                        <Label fx:id="fxInDate" alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="14.0" text="Check-in date" textAlignment="CENTER" />
+                        <Label fx:id="fxInDate" alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="130.0" text="Check-in date" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="45.0" prefWidth="130.0">
                      <children>
-                        <Label fx:id="fxOutDate" alignment="CENTER" layoutX="22.0" layoutY="14.0" text="Check-out date" textAlignment="CENTER" />
+                        <Label fx:id="fxOutDate" alignment="CENTER" prefHeight="45.0" prefWidth="130.0" text="Check-out date" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
               </items>

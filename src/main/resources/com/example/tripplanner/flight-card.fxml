@@ -9,20 +9,20 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<fx:root type="javafx.scene.control.SplitPane" dividerPositions="0.3319397993311037" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="409.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root dividerPositions="0.3319397993311037" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="409.0" type="javafx.scene.control.SplitPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
             <SplitPane dividerPositions="0.5" layoutY="-1.0" orientation="VERTICAL" prefHeight="99.0" prefWidth="132.0">
               <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="45.0" prefWidth="130.0">
                      <children>
-                        <Label fx:id="fxFlightDate" alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="14.0" text="Flight date" textAlignment="CENTER" />
+                        <Label fx:id="fxFlightDate" alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="130.0" text="Flight date" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="45.0" prefWidth="130.0">
                      <children>
-                        <Label fx:id="fxFlightDuration" alignment="CENTER" layoutX="26.0" layoutY="14.0" text="Flight duration" textAlignment="CENTER" />
+                        <Label fx:id="fxFlightDuration" alignment="CENTER" prefHeight="45.0" prefWidth="130.0" text="Flight duration" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
               </items>
@@ -51,7 +51,7 @@
                   </Label>
                </children>
             </GridPane>
-            <Button fx:id="fxBookFlight" layoutX="203.0" layoutY="13.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="53.0" style="-fx-background-color: linear-gradient(from 25px 25px to 100px 100px, #dc143c, #32cd32)linear-gradient(from 25px 25px to 100px 100px, #dc143c, #32cd32);" text="Book flight" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true">
+            <Button fx:id="fxBookFlight" layoutX="205.0" layoutY="11.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="53.0" style="-fx-background-color: radial-gradient(radius 180%, limegreen, derive(limegreen, -30%), derive(limegreen, 30%));" text="Book flight" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" wrapText="true">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
