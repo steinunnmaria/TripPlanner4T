@@ -5,14 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3faa3c8f-6dae-4916-8435-b835f09856f0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/DayTripPopUpController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/maclib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TripPlanner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TripPlanner.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Classes/CreditCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Classes/CreditCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Classes/Customers.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Classes/Customers.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Classes/DayTrip.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Classes/DayTrip.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Classes/Flight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Classes/Flight.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Classes/Hotel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Classes/Hotel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Classes/Operator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Classes/Operator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Classes/Traveller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Classes/Traveller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Classes/VacationDeal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Classes/VacationDeal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Comparators/DayTripDifficultyComparator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Comparators/DayTripDifficultyComparator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Comparators/DayTripPriceComparator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Comparators/DayTripPriceComparator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Comparators/FlightPriceComparator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Comparators/FlightPriceComparator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Comparators/HotelPriceComparator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Comparators/HotelPriceComparator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Comparators/HotelRatingComparator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Comparators/HotelRatingComparator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Controllers/BookingProcessController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Controllers/BookingProcessController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Controllers/DayTripCardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Controllers/DayTripCardController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/BookingProcessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/BookingProcessController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/DayTripCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/DayTripCardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tripplanner/booking-process-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/tripplanner/booking-process-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Controllers/DayTripController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Controllers/DayTripController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Controllers/FlightCardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Controllers/FlightCardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Controllers/FlightController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Controllers/FlightController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Controllers/FrontPageController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Controllers/FrontPageController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Controllers/FrontPageController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Controllers/FrontPageController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Controllers/FrontPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Controllers/FrontPageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Controllers/HotelCardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Controllers/HotelCardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Controllers/ReviewBookingView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Controllers/ReviewBookingView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Controllers/SceneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/Controllers/SceneController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/HelloApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/com/example/tripplanner/HelloApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TripPlanner/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TripPlanner/module-info.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tripplanner/day-trip-card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/tripplanner/day-trip-card.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tripplanner/flight-card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/tripplanner/flight-card.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tripplanner/hotel-card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/tripplanner/hotel-card.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,15 +109,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.HelloApplication">
-    <configuration default="true" type="TestNG">
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.tripplanner.HelloApplication" />
       <module name="TripPlanner" />
@@ -119,6 +135,15 @@
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
