@@ -8,7 +8,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -37,8 +36,7 @@ public class BookingProcessController implements Initializable {
     private ComboBox<String> fxSortFlights, fxSortDT, fxSortHotels;
     @FXML
     private VBox fxDayTripsCont;
-    @FXML
-    private AnchorPane fxBookRoot;
+
 
     private VacationDeal vd;
 
@@ -71,6 +69,7 @@ public class BookingProcessController implements Initializable {
         configureCheckBox(fxIcelandair);
         configureCheckBox(fxErnir);
         configureCheckBox(fxXX);
+        fxDayTripPopup.setVisible(false);
 
     }
 
@@ -245,4 +244,15 @@ public class BookingProcessController implements Initializable {
     }
 
 
+    public void popDTAdMinusHandler(ActionEvent actionEvent) {
+    }
+
+    public void popDTChMinusHandler(ActionEvent actionEvent) {
+    }
+
+    public void popDTAdPlusHandler(ActionEvent actionEvent) {
+    }
+
+    public void popDTChPlusHandler(ActionEvent actionEvent) {
+    }
 }
