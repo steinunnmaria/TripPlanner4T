@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.Controllers.BookingProcessController">
+<AnchorPane prefHeight="600.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.Controllers.BookingProcessController">
    <children>
       <TabPane fx:id="fxTabCont" layoutX="15.0" layoutY="39.0" prefHeight="546.0" prefWidth="1055.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -12,16 +28,16 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ScrollPane layoutX="178.0" layoutY="14.0" prefHeight="450.0" prefWidth="425.0">
+                        <ScrollPane layoutX="178.0" layoutY="29.0" prefHeight="353.0" prefWidth="425.0">
                            <content>
-                              <VBox fx:id="fxFlightsDepCont" prefHeight="448.0" prefWidth="409.0" />
+                              <VBox fx:id="fxFlightsDepCont" prefHeight="346.0" prefWidth="423.0" spacing="5.0" />
                            </content>
                         </ScrollPane>
                         <Button fx:id="fxFlightsConfirm" layoutX="968.0" layoutY="474.0" mnemonicParsing="false" onAction="#flightsConfirmHandler" text="Confirm" />
                         <Button layoutX="900.0" layoutY="474.0" mnemonicParsing="false" onAction="#flightsSkipHandler" text="Skip" />
-                        <ScrollPane layoutX="620.0" layoutY="14.0" prefHeight="450.0" prefWidth="425.0">
+                        <ScrollPane layoutX="620.0" layoutY="29.0" prefHeight="353.0" prefWidth="425.0">
                            <content>
-                              <VBox fx:id="fxFlightsRetCont" prefHeight="448.0" prefWidth="409.0" />
+                              <VBox fx:id="fxFlightsRetCont" prefHeight="351.0" prefWidth="423.0" spacing="5.0" />
                            </content>
                         </ScrollPane>
                         <VBox layoutY="14.0" prefHeight="448.0" prefWidth="174.0">
@@ -41,6 +57,184 @@
                               </Pane>
                            </children>
                         </VBox>
+                        <Label layoutX="629.0" layoutY="479.0" text="Total price:" />
+                        <Label fx:id="fxFlightTotalPrice" layoutX="711.0" layoutY="479.0" text="Many money" />
+                        <Label layoutX="178.0" layoutY="11.0" text="Flights out:" />
+                        <Label layoutX="620.0" layoutY="11.0" text="Flights back:" />
+                        <SplitPane fx:id="fxMyFlight1" dividerPositions="0.22512437810945274" layoutX="180.0" layoutY="388.0" prefHeight="80.0" prefWidth="422.0" style="-fx-border-color: #C8D9F0 #C8D9F0; -fx-border-width: 1.5;">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="75.0" prefWidth="90.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.5" layoutX="-2.0" orientation="VERTICAL" prefHeight="75.0" prefWidth="90.0" style="-fx-border-color: #C8D9F0 #C8D9F0 #C8D9F0 #C8D9F0; -fx-border-width: 1;" AnchorPane.leftAnchor="1.0">
+                                      <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="32.0" prefWidth="80.0">
+                                             <children>
+                                                <Label fx:id="fxMyFlightNo1" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="86.0" text="FI-131" />
+                                             </children>
+                                          </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="32.0" prefWidth="80.0">
+                                             <children>
+                                                <Label fx:id="fxMyFlightDate1" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="86.0" text="22.04.2022" />
+                                             </children>
+                                          </AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <GridPane layoutY="4.0" prefHeight="67.0" prefWidth="307.0" AnchorPane.leftAnchor="5.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="62.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="162.0" minWidth="10.0" prefWidth="34.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="238.0" minWidth="10.0" prefWidth="99.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="238.0" minWidth="10.0" prefWidth="110.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label fx:id="fxMyFlightDept1" text="11:05" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets right="5.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                             <image>
+                                                <Image url="@../../../images/takeoff-the-plane.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="fxMyFlightFrom1" text="Reykjavík" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label fx:id="fxMyFlightTo1" text="Egilsstaðir" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label fx:id="fxMyFlightArr1" text="14:50" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                             <padding>
+                                                <Insets right="5.0" />
+                                             </padding>
+                                          </Label>
+                                          <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                             <image>
+                                                <Image url="@../../../images/plane-landing.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="fxMyAirline1" text="Flugleiðir" GridPane.columnSpan="2" GridPane.halignment="LEFT">
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="fxMyFlightPrice1" text="72.889 kr." GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets right="20.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label fx:id="fxMyFlightPass1" text="3 tickets" GridPane.columnIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="105.0" style="-fx-background-color: radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%))radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%));" text="Your flight out" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowSpan="2" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                        <SplitPane fx:id="fxMyFlight2" dividerPositions="0.22512437810945274" layoutX="622.0" layoutY="388.0" prefHeight="80.0" prefWidth="422.0" style="-fx-border-color: #C8D9F0 #C8D9F0; -fx-border-width: 1.5;">
+                           <items>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="75.0" prefWidth="90.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.5" layoutX="-2.0" orientation="VERTICAL" prefHeight="75.0" prefWidth="90.0" style="-fx-border-color: #C8D9F0 #C8D9F0 #C8D9F0 #C8D9F0; -fx-border-width: 1;" AnchorPane.leftAnchor="1.0">
+                                       <items>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="32.0" prefWidth="80.0">
+                                             <children>
+                                                <Label fx:id="fxMyFlightNo2" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="86.0" text="FI-131" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="32.0" prefWidth="80.0">
+                                             <children>
+                                                <Label fx:id="fxMyFlightDate2" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="86.0" text="22.04.2022" />
+                                             </children>
+                                          </AnchorPane>
+                                       </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <GridPane layoutY="4.0" prefHeight="67.0" prefWidth="307.0" AnchorPane.leftAnchor="5.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="62.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="162.0" minWidth="10.0" prefWidth="34.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="238.0" minWidth="10.0" prefWidth="99.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="238.0" minWidth="10.0" prefWidth="110.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label fx:id="fxMyFlightDept2" text="11:05" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets right="5.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                             <image>
+                                                <Image url="@../../../images/takeoff-the-plane.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="fxMyFlightFrom2" text="Reykjavík" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label fx:id="fxMyFlightTo2" text="Egilsstaðir" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label fx:id="fxMyFlightArr2" text="14:50" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                             <padding>
+                                                <Insets right="5.0" />
+                                             </padding>
+                                          </Label>
+                                          <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                             <image>
+                                                <Image url="@../../../images/plane-landing.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="fxMyAirline2" text="Flugleiðir" GridPane.columnSpan="2" GridPane.halignment="LEFT">
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="fxMyFlightPrice2" text="72.889 kr." GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets right="20.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label fx:id="fxMyFlightPass2" text="3 tickets" GridPane.columnIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="103.0" style="-fx-background-color: radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%))radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%));" text="Your flight back" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowSpan="2" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -50,10 +244,10 @@
                      <children>
                         <ScrollPane layoutX="178.0" layoutY="14.0" prefHeight="450.0" prefWidth="425.0">
                            <content>
-                              <VBox fx:id="fxHotelCont" prefHeight="448.0" prefWidth="409.0" />
+                              <VBox fx:id="fxHotelCont" prefHeight="448.0" prefWidth="409.0" spacing="5.0" />
                            </content></ScrollPane>
-                        <Button fx:id="fxHotelConfirm" layoutX="981.0" layoutY="474.0" mnemonicParsing="false" onAction="#hotelConfirmHandler" text="Confirm" />
-                        <Button layoutX="927.0" layoutY="474.0" mnemonicParsing="false" onAction="#hotelSkipHandler" text="Skip" />
+                        <Button fx:id="fxHotelConfirm" layoutX="968.0" layoutY="474.0" mnemonicParsing="false" onAction="#hotelConfirmHandler" text="Confirm" />
+                        <Button layoutX="900.0" layoutY="474.0" mnemonicParsing="false" onAction="#hotelSkipHandler" text="Skip" />
                         <VBox layoutY="14.0" prefHeight="448.0" prefWidth="174.0">
                            <children>
                               <Pane prefHeight="103.0" prefWidth="174.0">
@@ -101,7 +295,7 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="293.0" layoutY="174.0" mnemonicParsing="false" onAction="#hotelBookHandler" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #32C520;" text="Confirm" />
+                                    <Button layoutX="293.0" layoutY="174.0" mnemonicParsing="false" onAction="#hotelBookHandler" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: radial-gradient(radius 180%, limegreen, derive(limegreen, -30%), derive(limegreen, 30%)) radial-gradient(radius 180%, limegreen, derive(limegreen, -30%), derive(limegreen, 30%)) radial-gradient(radius 180%, limegreen, derive(limegreen, -30%), derive(limegreen, 30%)) radial-gradient(radius 180%, limegreen, derive(limegreen, -30%), derive(limegreen, 30%));" text="Confirm" />
                                     <Label layoutX="226.0" layoutY="15.0" text="1 person room" />
                                     <Button layoutX="313.0" layoutY="10.0" mnemonicParsing="false" text="-" />
                                     <Button layoutX="313.0" layoutY="45.0" mnemonicParsing="false" text="-" />
@@ -147,11 +341,11 @@
                      <children>
                         <ScrollPane layoutX="178.0" layoutY="14.0" prefHeight="450.0" prefWidth="425.0">
                            <content>
-                              <VBox fx:id="fxDayTripsCont" prefHeight="448.0" prefWidth="409.0" />
+                              <VBox fx:id="fxDayTripsCont" prefHeight="448.0" prefWidth="409.0" spacing="5.0" />
                            </content>
                         </ScrollPane>
-                        <Button fx:id="fxDayTripConfirm" layoutX="700.0" layoutY="474.0" mnemonicParsing="false" onAction="#dayTripConfirmHandler" text="Confirm" />
-                        <Button layoutX="640.0" layoutY="474.0" mnemonicParsing="false" onAction="#dayTripSkipHandler" text="Skip" />
+                        <Button fx:id="fxDayTripConfirm" layoutX="968.0" layoutY="474.0" mnemonicParsing="false" onAction="#dayTripConfirmHandler" text="Confirm" />
+                        <Button layoutX="900.0" layoutY="474.0" mnemonicParsing="false" onAction="#dayTripSkipHandler" text="Skip" />
                         <VBox layoutY="14.0" prefHeight="448.0" prefWidth="174.0">
                            <children>
                               <Pane prefHeight="103.0" prefWidth="174.0">
@@ -178,32 +372,68 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="fxPopDTDescr" alignment="TOP_LEFT" layoutX="17.0" layoutY="67.0" prefHeight="117.0" prefWidth="170.0" text="A long winded description of the daytrip or perhaps a photo or nothing, I don't know..." wrapText="true" />
+                                    <Label fx:id="fxPopDTDescr" alignment="TOP_LEFT" layoutX="17.0" layoutY="91.0" prefHeight="93.0" prefWidth="170.0" text="A long winded description of the daytrip or perhaps a photo or nothing, I don't know..." wrapText="true" />
                                     <Label layoutX="17.0" layoutY="184.0" text="Price:">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="fxPopDTPrice" layoutX="64.0" layoutY="183.0" text="Price of Day Trip">
+                                    <Label fx:id="fxPopDTPrice" layoutX="70.0" layoutY="184.0" text="Price of Day Trip">
                                        <font>
-                                          <Font size="20.0" />
+                                          <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="293.0" layoutY="174.0" mnemonicParsing="false" onAction="#fxBookDayTrip" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #32C520;" text="Book Trip" />
-                                    <DatePicker fx:id="fxPopDTDate" layoutX="262.0" layoutY="100.0" prefHeight="25.0" prefWidth="138.0" />
-                                    <Label layoutX="224.0" layoutY="29.0" text="Adults" />
-                                    <Label layoutX="224.0" layoutY="58.0" text="Children" />
-                                    <Button layoutX="313.0" layoutY="25.0" mnemonicParsing="false" onAction="#popDTAdMinusHandler" text="-" />
-                                    <Button layoutX="313.0" layoutY="54.0" mnemonicParsing="false" onAction="#popDTChMinusHandler" text="-" />
-                                    <Button layoutX="373.0" layoutY="25.0" mnemonicParsing="false" onAction="#popDTAdPlusHandler" text="+" />
-                                    <Button layoutX="373.0" layoutY="54.0" mnemonicParsing="false" onAction="#popDTChPlusHandler" text="+" />
-                                    <Label fx:id="fxPopDTAdCnt" layoutX="351.0" layoutY="29.0" text="1" />
-                                    <Label fx:id="fxPopDTChCnt" layoutX="351.0" layoutY="58.0" text="1" />
-                                    <Label layoutX="224.0" layoutY="104.0" text="Date:" />
+                                    <Button layoutX="293.0" layoutY="174.0" mnemonicParsing="false" onAction="#fxBookDayTrip" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: radial-gradient(radius 180%, GOLD, derive(GOLD, -30%), derive(GOLD, 30%))radial-gradient(radius 180%, GOLD, derive(GOLD, -30%), derive(GOLD, 30%));" text="Book Trip" />
+                                    <Label fx:id="fxPopDTAgeLimit" layoutX="17.0" layoutY="67.0" text="Age limit: 8 years" textFill="RED" />
+                                    <GridPane layoutX="222.0" layoutY="55.0" prefHeight="83.0" prefWidth="184.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="10.0" prefWidth="57.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="56.0" minWidth="10.0" prefWidth="30.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="27.0" minWidth="10.0" prefWidth="27.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="27.0" minWidth="0.0" prefWidth="26.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="27.0" minWidth="10.0" prefWidth="30.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="27.0" minWidth="10.0" prefWidth="20.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="Tickets:" />
+                                          <Button mnemonicParsing="false" onAction="#popDTAdMinusHandler" text="-" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                                          <Label fx:id="fxPopDTAdCnt" text="1" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+                                          <Button mnemonicParsing="false" onAction="#popDTAdPlusHandler" text="+" GridPane.columnIndex="4" GridPane.halignment="CENTER" />
+                                          <Label text="Date:" GridPane.rowIndex="2" />
+                                          <Label text="Time:" GridPane.rowIndex="3" />
+                                          <Label fx:id="fxPopDTDate" text="Label" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="2" />
+                                          <Label fx:id="fxPopDTTime" text="Label" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="3" />
+                                       </children>
+                                    </GridPane>
                                  </children></Pane>
                               <Pane prefHeight="225.0" prefWidth="206.0" />
                            </children>
                         </VBox>
+                        <GridPane layoutX="179.0" layoutY="472.0" prefHeight="30.0" prefWidth="424.0">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="10.0" prefWidth="56.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="134.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="10.0" prefWidth="12.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.0" minWidth="10.0" prefWidth="103.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button mnemonicParsing="false" text="&lt;&lt; Previous day" GridPane.halignment="LEFT" />
+                              <Button mnemonicParsing="false" text="Next day &gt;&gt;" GridPane.columnIndex="5" GridPane.halignment="RIGHT" />
+                              <Label text="Jump to:" GridPane.columnIndex="2" />
+                              <DatePicker prefHeight="26.0" prefWidth="139.0" GridPane.columnIndex="3" GridPane.halignment="RIGHT" />
+                           </children>
+                        </GridPane>
                      </children></AnchorPane>
                </content>
             </Tab>

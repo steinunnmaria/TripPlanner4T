@@ -93,8 +93,8 @@ public class BookingProcessController implements Initializable {
         //Taka inn dayTrip hlut, upphafsstilla hann sem chosenDayTrip
         //Ef ýtt er á confirm, ætti að fjarlægja þessa daytrip af listanum?
         fxPopDTName.setText(title);
-        fxPopDTAdCnt.setText(String.valueOf(totalAdult));
-        fxPopDTChCnt.setText(String.valueOf(totalChildren));
+        //fxPopDTAdCnt.setText(String.valueOf(totalAdult));
+        //fxPopDTChCnt.setText(String.valueOf(totalChildren));
         fxDayTripPopup.setVisible(true);
     }
 

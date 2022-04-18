@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
@@ -31,10 +30,10 @@
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <GridPane alignment="CENTER" layoutY="5.0" prefHeight="90.0" prefWidth="178.0">
+            <GridPane alignment="CENTER" layoutX="14.0" layoutY="4.0" prefHeight="90.0" prefWidth="159.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="119.0" minWidth="10.0" prefWidth="113.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.0" minWidth="10.0" prefWidth="65.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="119.0" minWidth="10.0" prefWidth="90.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.0" minWidth="10.0" prefWidth="88.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -42,22 +41,18 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label fx:id="fxTitle" text="DayTrip name" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT">
+                  <Label fx:id="fxTitle" text="DayTrip name" GridPane.columnSpan="2147483647">
                      <font>
                         <Font size="15.0" />
-                     </font>
-                     <padding>
-                        <Insets left="10.0" />
-                     </padding></Label>
-                  <Label fx:id="fxAdultCnt" text="Adults" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                  <Label fx:id="fxChildCnt" text="Children" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                  <Label fx:id="fxPrice" text="Price kr." GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                  <Label fx:id="fxDiff" text="Difficulty" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                     </font></Label>
+                  <Label fx:id="fxCapacity" text="Capacity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="fxPrice" text="Price kr." GridPane.rowIndex="2" />
+                  <Label fx:id="fxDiff" text="Difficulty" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <Button layoutX="193.0" layoutY="13.0" mnemonicParsing="false" onAction="#selectHandler" prefHeight="74.0" prefWidth="68.0" style="-fx-background-color: #32C520;" text="Select" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true">
+            <Button layoutX="198.0" mnemonicParsing="false" onAction="#selectHandler" prefHeight="60.0" prefWidth="70.0" style="-fx-background-color: radial-gradient(radius 180%, yellow, derive(yellow, -30%), derive(yellow, 30%))radial-gradient(radius 180%, yellow, derive(yellow, -30%), derive(yellow, 30%))radial-gradient(radius 180%, yellow, derive(yellow, -30%), derive(yellow, 30%))radial-gradient(radius 180%, yellow, derive(yellow, -30%), derive(yellow, 30%));" text="View daytrip" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="18.0">
                <font>
-                  <Font name="Arial" size="14.0" />
+                  <Font name="Arial" size="13.0" />
                </font>
             </Button>
          </children></AnchorPane>
