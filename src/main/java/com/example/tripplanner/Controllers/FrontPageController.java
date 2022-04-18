@@ -17,37 +17,37 @@ public class FrontPageController implements Initializable {
     @FXML
     private Button fxConfirm;
     @FXML
-    private ComboBox<String> fxFromDest;
+    private ComboBox<String> fxFromDest, fxToDest;
     @FXML
-    private ComboBox<String> fxToDest;
+    private DatePicker fxReturnDate, fxDepartureDate;
     @FXML
-    private DatePicker fxReturnDate;
-    @FXML
-    private DatePicker fxDepartureDate;
-    @FXML
-    private RadioButton fxOneWay;
-    @FXML
-    private RadioButton fxReturn;
+    private RadioButton fxOneWay, fxReturn;
     //Redda að má ekki skrifa strengi - Steinunn Breyting
     @FXML
-    private Label fxChildrenCount;
-    @FXML
-    private Label fxAdultCount;
+    private Label fxChildrenCount, fxAdultCount;
+
 
     private final int MAXPEOPLE = 9;
     private int totalAdult;
     private int totalChildren;
 
     private ArrayList<String> location = new ArrayList<>();
-    private final String[] loc = {"Reykjavík", "Stykkishólmur", "Akureyri", "Egilsstaðir"};
+
     private VacationDeal vd;
+
+    private final String[] LOCATIONS1 = {"Ísafjörður", "Bolungarvík", "Reykjarfjörður"};
+    private final String[] LOCATIONS2 = {"Stykkishólmur", "Ólafsvík", "Arnarstapi"};
+    private final String[] LOCATIONS3 = {"Reykjavík", "Keflavík", "Selfoss"};
+    private final String[] LOCATIONS4 = {"Vestmannaeyjar"};
+    private final String[] LOCATIONS5 = {"Egilsstaðir", "Seyðisfjörður", "Neskaupsstaður", "Fjarðabyggð"};
+    private final String[] LOCATIONS6 = {"Akureyri", "Húsavík", "Reykjahlíð"};
+    private final String[] LOC = {"Ísafjörður", "Stykkishólmur", "Reykjavík", "Vestmannaeyjar"
+            , "Egilsstaðir", "Akureyri"};
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         totalAdult = Integer.parseInt(fxAdultCount.getText());
         totalChildren = Integer.parseInt(fxChildrenCount.getText());
-
-        //fxFromDest.setItems(FXCollections.observableArrayList("Dog", "Cat", "Bird"));
 
         fxDepartureDate.setDayCellFactory(picker -> new DateCell() {
             public void updateItem(LocalDate date, boolean empty) {
@@ -57,16 +57,15 @@ public class FrontPageController implements Initializable {
                 setDisable(empty || date.compareTo(today) < 0 );
             }
         });
-        location.addAll(List.of(loc));
+        location.addAll(List.of(LOC));
         fxFromDest.getItems().addAll(location);
         fxToDest.getItems().addAll(location);
+        fxToDest.setDisable(true);
+        fxReturnDate.setDisable(true);
 
-        //fxConfirm.setDisable(true);
+        fxConfirm.setDisable(true);
 
     }
-
-
-
 
 
     public void adultsMinusHandler(ActionEvent actionEvent) {
@@ -115,7 +114,7 @@ public class FrontPageController implements Initializable {
     }
 
     public void departureDateHandler(ActionEvent actionEvent) {
-        LocalDate depDate = fxDepartureDate.getValue();
+        //LocalDate depDate = fxDepartureDate.getValue();
         fxReturnDate.setDayCellFactory(picker -> new DateCell() {
             public void updateItem(LocalDate date, boolean empty) {
                 super.updateItem(date, empty);
@@ -124,6 +123,7 @@ public class FrontPageController implements Initializable {
                 setDisable(empty || date.compareTo(depDate) < 0 );
             }
         });
+        fxReturnDate.setDisable(false);
 
         if (isFilledOut()) {
             fxConfirm.setDisable(false);
@@ -135,11 +135,10 @@ public class FrontPageController implements Initializable {
             return fxReturnDate.getValue() != null && fxDepartureDate.getValue() != null
                     && fxFromDest.getValue() != null && fxToDest.getValue() != null;
         }
-        else if (fxOneWay.isSelected()) {
+        else {
             return fxDepartureDate.getValue() != null
                     && fxFromDest.getValue() != null && fxToDest.getValue() != null;
         }
-        return false;
     }
 
     public void returnDateHandler(ActionEvent actionEvent) {
@@ -159,10 +158,23 @@ public class FrontPageController implements Initializable {
         LocalDate returnDate = fxReturnDate.getValue();
         vd = new VacationDeal(fromDest, toDest, fromDate, returnDate, totalAdult, totalChildren);
 
-        //Stage stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        //bpc.setVacationDeal(vd);
         SceneController sc = new SceneController();
         sc.switchToSceneBooking(actionEvent, vd);
 
+    }
+
+    public void fromDestHandler(ActionEvent actionEvent) {
+        if (isFilledOut()) {
+            fxConfirm.setDisable(false);
+        }
+        fxToDest.setDisable(false);
+        String from = fxFromDest.getValue();
+        fxToDest.getItems().remove(from);
+    }
+
+    public void toDestHandler(ActionEvent actionEvent) {
+        if (isFilledOut()) {
+            fxConfirm.setDisable(false);
+        }
     }
 }

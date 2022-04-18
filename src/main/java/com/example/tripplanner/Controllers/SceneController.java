@@ -22,6 +22,7 @@ public class SceneController {
         root = loader.load();
         BookingProcessController bookingControl = loader.getController();
         bookingControl.setVacationDeal(vd);
+        bookingControl.setThisLoader(loader);
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene((root));
         stage.setTitle("Booking process");

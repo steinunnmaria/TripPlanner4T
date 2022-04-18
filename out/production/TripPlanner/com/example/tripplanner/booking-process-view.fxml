@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="fxBookRoot" prefHeight="600.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.Controllers.BookingProcessController">
+<AnchorPane prefHeight="600.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.Controllers.BookingProcessController">
    <children>
       <TabPane fx:id="fxTabCont" layoutX="15.0" layoutY="39.0" prefHeight="546.0" prefWidth="1055.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab fx:id="fxFlightsTab" style="-fx-font-size: 16px; -fx-color: #C8D9F0; -fx-background-color: #C8D9F0;" text="Flights">
+          <Tab fx:id="fxFlightsTab" onSelectionChanged="#tabChangeHandler" style="-fx-font-size: 16px; -fx-color: #C8D9F0; -fx-background-color: #C8D9F0;" text="Flights">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -40,9 +33,9 @@
                               </Pane>
                               <Pane prefHeight="149.0" prefWidth="174.0">
                                  <children>
-                                    <CheckBox fx:id="fxIcelandair" layoutX="16.0" layoutY="40.0" mnemonicParsing="false" onAction="#fxFilterFlights" text="Icelandair" />
-                                    <CheckBox fx:id="fxErnir" layoutX="16.0" layoutY="70.0" mnemonicParsing="false" onAction="#fxFilterFlights" text="Ernir" />
-                                    <CheckBox fx:id="fxXX" layoutX="16.0" layoutY="100.0" mnemonicParsing="false" onAction="#fxFilterFlights" text="XX" />
+                                    <CheckBox fx:id="fxIcelandair" layoutX="16.0" layoutY="40.0" mnemonicParsing="false" onAction="#filterHandler" text="Icelandair" />
+                                    <CheckBox fx:id="fxErnir" layoutX="16.0" layoutY="70.0" mnemonicParsing="false" onAction="#filterHandler" text="Ernir" />
+                                    <CheckBox fx:id="fxFlugleidir" layoutX="16.0" layoutY="100.0" mnemonicParsing="false" onAction="#filterHandler" text="Flugleiðir" />
                                     <Label layoutX="16.0" layoutY="10.0" text="Filter by Airline" />
                                  </children>
                               </Pane>
@@ -51,39 +44,38 @@
                      </children></AnchorPane>
             </content>
           </Tab>
-          <Tab fx:id="fxHotelsTab" disable="true" style="-fx-color: #D9EDDD; -fx-background-color: #D9EDDD; -fx-font-size: 16px;" text="Hotels">
+          <Tab fx:id="fxHotelsTab" disable="true" onSelectionChanged="#tabChangeHandler" style="-fx-color: #D9EDDD; -fx-background-color: #D9EDDD; -fx-font-size: 16px;" text="Hotels">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ScrollPane fx:id="fxHotelList" layoutX="178.0" layoutY="14.0" prefHeight="450.0" prefWidth="425.0">
+                        <ScrollPane layoutX="178.0" layoutY="14.0" prefHeight="450.0" prefWidth="425.0">
                            <content>
                               <VBox fx:id="fxHotelCont" prefHeight="448.0" prefWidth="409.0" />
                            </content></ScrollPane>
-                        <Button fx:id="fxHotelConfirm" layoutX="700.0" layoutY="474.0" mnemonicParsing="false" onAction="#hotelConfirmHandler" text="Confirm" />
-                        <Button layoutX="640.0" layoutY="474.0" mnemonicParsing="false" onAction="#hotelSkipHandler" text="Skip" />
+                        <Button fx:id="fxHotelConfirm" layoutX="981.0" layoutY="474.0" mnemonicParsing="false" onAction="#hotelConfirmHandler" text="Confirm" />
+                        <Button layoutX="927.0" layoutY="474.0" mnemonicParsing="false" onAction="#hotelSkipHandler" text="Skip" />
                         <VBox layoutY="14.0" prefHeight="448.0" prefWidth="174.0">
                            <children>
                               <Pane prefHeight="103.0" prefWidth="174.0">
                                  <children>
                                     <ComboBox fx:id="fxSortHotels" layoutX="16.0" layoutY="14.0" prefWidth="150.0" promptText="Sort by:" />
-                                    <ComboBox layoutX="16.0" layoutY="52.0" prefWidth="150.0" promptText="Sort by Rating" />
                                  </children>
                               </Pane>
                               <Pane prefHeight="149.0" prefWidth="174.0">
                                  <children>
-                                    <CheckBox fx:id="fxGym" layoutX="16.0" layoutY="40.0" mnemonicParsing="false" onAction="#fxFilterHotels" text="Gym" />
-                                    <CheckBox fx:id="fxWifi" layoutX="16.0" layoutY="70.0" mnemonicParsing="false" onAction="#fxFilterHotels" text="Wifi" />
-                                    <CheckBox fx:id="fxBreakfast" layoutX="16.0" layoutY="100.0" mnemonicParsing="false" onAction="#fxFilterHotels" text="Breakfast" />
+                                    <CheckBox fx:id="fxGym" layoutX="16.0" layoutY="40.0" mnemonicParsing="false" onAction="#filterHandler" text="Gym" />
+                                    <CheckBox fx:id="fxWifi" layoutX="16.0" layoutY="70.0" mnemonicParsing="false" onAction="#filterHandler" text="Wifi" />
+                                    <CheckBox fx:id="fxBreakfast" layoutX="16.0" layoutY="100.0" mnemonicParsing="false" onAction="#filterHandler" text="Breakfast" />
                                     <Label layoutX="16.0" layoutY="10.0" text="Filter by accomodations" />
                                  </children>
                               </Pane>
                               <Pane prefHeight="194.0" prefWidth="174.0">
                                  <children>
-                                    <CheckBox layoutX="16.0" layoutY="35.0" mnemonicParsing="false" text="1 star" />
-                                    <CheckBox layoutX="16.0" layoutY="65.0" mnemonicParsing="false" text="2 stars" />
-                                    <CheckBox layoutX="16.0" layoutY="95.0" mnemonicParsing="false" text="3 stars" />
-                                    <CheckBox layoutX="16.0" layoutY="125.0" mnemonicParsing="false" text="4 stars" />
-                                    <CheckBox layoutX="16.0" layoutY="155.0" mnemonicParsing="false" text="5 stars" />
+                                    <CheckBox layoutX="16.0" layoutY="35.0" mnemonicParsing="false" onAction="#filterHandler" text="1 star" />
+                                    <CheckBox layoutX="16.0" layoutY="65.0" mnemonicParsing="false" onAction="#filterHandler" text="2 stars" />
+                                    <CheckBox layoutX="16.0" layoutY="95.0" mnemonicParsing="false" onAction="#filterHandler" text="3 stars" />
+                                    <CheckBox layoutX="16.0" layoutY="125.0" mnemonicParsing="false" onAction="#filterHandler" text="4 stars" />
+                                    <CheckBox layoutX="16.0" layoutY="155.0" mnemonicParsing="false" onAction="#filterHandler" text="5 stars" />
                                     <Label layoutX="16.0" layoutY="5.0" text="Filter by stars" />
                                  </children>
                               </Pane>
@@ -91,20 +83,71 @@
                         </VBox>
                         <VBox layoutX="620.0" layoutY="14.0" prefHeight="450.0" prefWidth="425.0">
                            <children>
-                              <Pane fx:id="fxHotelPopup" prefHeight="225.0" prefWidth="206.0" />
-                              <Pane prefHeight="225.0" prefWidth="206.0" />
+                              <Pane fx:id="fxHotelPopUp" prefHeight="225.0" prefWidth="206.0">
+                                 <children>
+                                    <Label fx:id="fxPopHotelName" layoutX="14.0" layoutY="8.0" text="Name of hotel">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="fxPopHotelDescr" alignment="TOP_LEFT" layoutX="14.0" layoutY="42.0" prefHeight="117.0" prefWidth="170.0" text="A long winded description of the daytrip or perhaps a photo or nothing, I don't know..." wrapText="true" />
+                                    <Label layoutX="14.0" layoutY="184.0" text="Price:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="fxPopHotelPrice" layoutX="71.0" layoutY="183.0" text="Price of stay">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button layoutX="293.0" layoutY="174.0" mnemonicParsing="false" onAction="#hotelBookHandler" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #32C520;" text="Confirm" />
+                                    <Label layoutX="226.0" layoutY="15.0" text="1 person room" />
+                                    <Button layoutX="313.0" layoutY="10.0" mnemonicParsing="false" text="-" />
+                                    <Button layoutX="313.0" layoutY="45.0" mnemonicParsing="false" text="-" />
+                                    <Button layoutX="373.0" layoutY="10.0" mnemonicParsing="false" text="+" />
+                                    <Button layoutX="373.0" layoutY="45.0" mnemonicParsing="false" text="+" />
+                                    <Label layoutX="350.0" layoutY="15.0" text="1" />
+                                    <Label layoutX="350.0" layoutY="50.0" text="1" />
+                                    <Label layoutX="226.0" layoutY="140.0" text="Date:" />
+                                    <Label layoutX="226.0" layoutY="50.0" text="2 person room" />
+                                    <Label layoutX="226.0" layoutY="85.0" text="3 person room" />
+                                    <Button layoutX="313.0" layoutY="80.0" mnemonicParsing="false" text="-" />
+                                    <Button layoutX="373.0" layoutY="80.0" mnemonicParsing="false" text="+" />
+                                    <Label layoutX="350.0" layoutY="85.0" text="1" />
+                                    <Label fx:id="fxPopHotelDateFrom" layoutX="265.0" layoutY="140.0" text="Dates" />
+                                    <Label fx:id="fxPopHotelNights" layoutX="226.0" layoutY="115.0" text="X number of guests for x nights" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="fxBookedHotel" prefHeight="225.0" prefWidth="206.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" text="Your hotel booking">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="14.0" layoutY="60.0" text="Hotel name" />
+                                    <Label layoutX="14.0" layoutY="90.0" text="Dates" />
+                                    <Label layoutX="15.0" layoutY="120.0" text="Nights" />
+                                    <Label layoutX="15.0" layoutY="150.0" text="Guests" />
+                                    <Label layoutX="15.0" layoutY="180.0" text="Total Price">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children></Pane>
                            </children>
                         </VBox>
                      </children></AnchorPane>
             </content>
           </Tab>
-            <Tab fx:id="fxDayTripsTab" disable="true" style="-fx-font-size: 16px; -fx-color: #FFF5BD; -fx-background-color: #FFF5BD;" text="Day Trips">
+            <Tab fx:id="fxDayTripsTab" disable="true" onSelectionChanged="#tabChangeHandler" style="-fx-font-size: 16px; -fx-color: #FFF5BD; -fx-background-color: #FFF5BD;" text="Day Trips">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <ScrollPane layoutX="178.0" layoutY="14.0" prefHeight="450.0" prefWidth="425.0">
                            <content>
-                              <VBox fx:id="fxDayTripsCont" onMouseClicked="#openDayTripHandler" prefHeight="448.0" prefWidth="409.0" />
+                              <VBox fx:id="fxDayTripsCont" prefHeight="448.0" prefWidth="409.0" />
                            </content>
                         </ScrollPane>
                         <Button fx:id="fxDayTripConfirm" layoutX="700.0" layoutY="474.0" mnemonicParsing="false" onAction="#dayTripConfirmHandler" text="Confirm" />
@@ -114,14 +157,13 @@
                               <Pane prefHeight="103.0" prefWidth="174.0">
                                  <children>
                                     <ComboBox fx:id="fxSortDT" layoutX="16.0" layoutY="14.0" prefWidth="150.0" promptText="Sort by:" />
-                                    <ComboBox layoutX="16.0" layoutY="52.0" prefWidth="150.0" promptText="Sort by Rating" />
                                  </children>
                               </Pane>
                               <Pane prefHeight="149.0" prefWidth="174.0">
                                  <children>
-                                    <CheckBox fx:id="fxGym1" layoutX="16.0" layoutY="40.0" mnemonicParsing="false" onAction="#fxFilterHotels" text="Easy" />
-                                    <CheckBox fx:id="fxWifi1" layoutX="16.0" layoutY="70.0" mnemonicParsing="false" onAction="#fxFilterHotels" text="Medium" />
-                                    <CheckBox fx:id="fxBreakfast1" layoutX="16.0" layoutY="100.0" mnemonicParsing="false" onAction="#fxFilterHotels" text="Hard" />
+                                    <CheckBox fx:id="fxEasy" layoutX="16.0" layoutY="40.0" mnemonicParsing="false" onAction="#filterHandler" text="Easy" />
+                                    <CheckBox fx:id="fxMed" layoutX="16.0" layoutY="70.0" mnemonicParsing="false" onAction="#filterHandler" text="Medium" />
+                                    <CheckBox fx:id="fxHard" layoutX="16.0" layoutY="100.0" mnemonicParsing="false" onAction="#filterHandler" text="Hard" />
                                     <Label layoutX="16.0" layoutY="10.0" text="Filter by Difficulty" />
                                  </children>
                               </Pane>
@@ -129,7 +171,36 @@
                         </VBox>
                         <VBox layoutX="620.0" layoutY="14.0" prefHeight="450.0" prefWidth="420.0">
                            <children>
-                              <Pane fx:id="fxDayTripPopup" prefHeight="225.0" prefWidth="206.0" />
+                              <Pane fx:id="fxDayTripPopup" prefHeight="225.0" prefWidth="206.0">
+                                 <children>
+                                    <Label fx:id="fxPopDTName" layoutX="17.0" layoutY="29.0" text="Name of DayTrip">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="fxPopDTDescr" alignment="TOP_LEFT" layoutX="17.0" layoutY="67.0" prefHeight="117.0" prefWidth="170.0" text="A long winded description of the daytrip or perhaps a photo or nothing, I don't know..." wrapText="true" />
+                                    <Label layoutX="17.0" layoutY="184.0" text="Price:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="fxPopDTPrice" layoutX="64.0" layoutY="183.0" text="Price of Day Trip">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button layoutX="293.0" layoutY="174.0" mnemonicParsing="false" onAction="#fxBookDayTrip" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #32C520;" text="Book Trip" />
+                                    <DatePicker fx:id="fxPopDTDate" layoutX="262.0" layoutY="100.0" prefHeight="25.0" prefWidth="138.0" />
+                                    <Label layoutX="224.0" layoutY="29.0" text="Adults" />
+                                    <Label layoutX="224.0" layoutY="58.0" text="Children" />
+                                    <Button layoutX="313.0" layoutY="25.0" mnemonicParsing="false" onAction="#popDTAdMinusHandler" text="-" />
+                                    <Button layoutX="313.0" layoutY="54.0" mnemonicParsing="false" onAction="#popDTChMinusHandler" text="-" />
+                                    <Button layoutX="373.0" layoutY="25.0" mnemonicParsing="false" onAction="#popDTAdPlusHandler" text="+" />
+                                    <Button layoutX="373.0" layoutY="54.0" mnemonicParsing="false" onAction="#popDTChPlusHandler" text="+" />
+                                    <Label fx:id="fxPopDTAdCnt" layoutX="351.0" layoutY="29.0" text="1" />
+                                    <Label fx:id="fxPopDTChCnt" layoutX="351.0" layoutY="58.0" text="1" />
+                                    <Label layoutX="224.0" layoutY="104.0" text="Date:" />
+                                 </children></Pane>
                               <Pane prefHeight="225.0" prefWidth="206.0" />
                            </children>
                         </VBox>

@@ -5,7 +5,9 @@ import com.example.tripplanner.Classes.VacationDeal;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableSet;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
@@ -17,39 +19,33 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class BookingProcessController implements Initializable {
+
     @FXML
-    private CheckBox fxIcelandair, fxErnir, fxXX;
+    private Label fxPopHotelName, fxPopHotelNights, fxPopHotelDateFrom, fxPopHotelDateTo;
+    @FXML
+    private Label fxPopDTAdCnt, fxPopDTChCnt, fxPopDTName;
     @FXML
     private Button fxDayTripConfirm, fxHotelConfirm, fxFlightsConfirm;
     @FXML
-    private VBox fxFlightsDepCont, fxFlightsRetCont;
-
+    private VBox fxFlightsDepCont, fxFlightsRetCont, fxHotelCont, fxDayTripsCont;
     @FXML
-    private VBox fxHotelCont;
-    @FXML
-    private Pane fxDayTripPopup;
+    private Pane fxDayTripPopup, fxHotelPopUp, fxBookedHotel;
     @FXML
     private TabPane fxTabCont;
     @FXML
     private Tab fxDayTripsTab, fxHotelsTab, fxFlightsTab;
     @FXML
     private ComboBox<String> fxSortFlights, fxSortDT, fxSortHotels;
-    @FXML
-    private VBox fxDayTripsCont;
-
 
     private VacationDeal vd;
-
     private DayTrip chosenDayTrip;
-
-    private FrontPageController fpg = new FrontPageController();
-
-
     private final String[] COMBOSORT = {"Price: Low to High", "Price: High to Low", "Ratings"};
-
     private ObservableSet<CheckBox> selectedCheckBoxes = FXCollections.observableSet();
     private ObservableSet<CheckBox> unselectedCheckBoxes = FXCollections.observableSet();
-
+    private FXMLLoader loader;
+    private int totalPeople;
+    private int totalAdult;
+    private int totalChildren;
 
 
 
@@ -66,127 +62,40 @@ public class BookingProcessController implements Initializable {
         fxSortDT.getItems().addAll(COMBOSORT);
         fxSortHotels.getItems().addAll(COMBOSORT);
 
-        configureCheckBox(fxIcelandair);
-        configureCheckBox(fxErnir);
-        configureCheckBox(fxXX);
         fxDayTripPopup.setVisible(false);
+        fxHotelPopUp.setVisible(false);
+        fxBookedHotel.setVisible(false);
 
     }
 
-    private void configureCheckBox(CheckBox checkBox) {
-
-        if (checkBox.isSelected()) {
-            selectedCheckBoxes.add(checkBox);
-        } else {
-            unselectedCheckBoxes.add(checkBox);
-        }
-
-        checkBox.selectedProperty().addListener((obs, wasSelected, isNowSelected) -> {
-            if (isNowSelected) {
-                unselectedCheckBoxes.remove(checkBox);
-                selectedCheckBoxes.add(checkBox);
-
-                System.out.println(checkBox.getText());
-            } else {
-                selectedCheckBoxes.remove(checkBox);
-                unselectedCheckBoxes.add(checkBox);
-
-                System.out.println(checkBox.getText());
-            }
-
-        });
-
-    }
 
     public void setVacationDeal(VacationDeal vd) {
         this.vd=vd;
+        totalPeople = vd.getAdultCount() + vd.getChildCount();
+        totalAdult = vd.getAdultCount();
+        totalChildren = vd.getChildCount();
     }
 
-
-    public void dayTripConfirmHandler(ActionEvent actionEvent) throws IOException {
-        SceneController sc = new SceneController();
-        sc.switchToSceneReview(actionEvent);
+    public void setThisLoader(FXMLLoader loader) {
+        this.loader = loader;
     }
 
-    public void dayTripSkipHandler(ActionEvent actionEvent) throws IOException {
-        SceneController sc = new SceneController();
-        sc.switchToSceneReview(actionEvent);
+    public void setHotelPopUp(String title) {
+        //Taka inn hotel hlut, upphafsstilla hann sem chosenHotel
+        fxPopHotelName.setText(title);
+        fxPopHotelDateFrom.setText(vd.getDateFrom().toString() + " - " + vd.getDateTo().toString());
+
+        fxPopHotelNights.setText(totalPeople + " guests for " + vd.getVacationDuration() + " nights");
+        fxHotelPopUp.setVisible(true);
     }
 
-    public void fxFilterFlights(ActionEvent actionEvent) {
-
-    }
-
-    public void fxFilterHotels(ActionEvent actionEvent) {
-    }
-
-    public void hotelConfirmHandler(ActionEvent actionEvent) throws IOException {
-        try {
-            loadDTCards();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-        fxDayTripsTab.setDisable(false);
-        fxTabCont.getSelectionModel().selectNext();
-    }
-
-    public void hotelSkipHandler(ActionEvent actionEvent) throws IOException {
-        try {
-            loadDTCards();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-        fxDayTripsTab.setDisable(false);
-        fxTabCont.getSelectionModel().selectNext();
-
-    }
-
-
-    public void loadDTCards() throws IOException {
-
-        ArrayList<DayTripCardController> listi = new ArrayList<DayTripCardController>();
-        DayTripCardController dt = new DayTripCardController("Fyrsti");
-        DayTripCardController dtt = new DayTripCardController("Annar");
-        DayTripCardController dta = new DayTripCardController("Fyrsti");
-        DayTripCardController dtta = new DayTripCardController("Annar");
-        DayTripCardController dtb = new DayTripCardController("Fyrsti");
-        DayTripCardController dttb = new DayTripCardController("Annar");
-
-        listi.add(dt);
-        listi.add(dtt);
-        listi.add(dta);
-        listi.add(dtta);
-        listi.add(dtb);
-        listi.add(dttb);
-        fxDayTripsCont.getChildren().addAll(listi);
-
-    }
-
-    public void openDayTripHandler(ActionEvent actionEvent) {
-        DayTripCardController dt = (DayTripCardController) actionEvent.getSource();
-        this.chosenDayTrip = dt.getDayTrip();
-        DayTripPopUpController dtpu = new DayTripPopUpController(this.chosenDayTrip);
-        fxDayTripPopup.getChildren().addAll(dtpu);
-
-    }
-    public void loadHotelCards() throws IOException {
-
-        ArrayList<HotelCardController> listi = new ArrayList<HotelCardController>();
-        HotelCardController h = new HotelCardController("Hótel Selfoss");
-        HotelCardController h1 = new HotelCardController("Hótel RVK");
-        HotelCardController h2 = new HotelCardController("Radison");
-        HotelCardController h3 = new HotelCardController("Stúdó");
-
-
-        listi.add(h);
-        listi.add(h1);
-        listi.add(h2);
-        listi.add(h3);
-
-        fxHotelCont.getChildren().addAll(listi);
-
+    public void setDTPopUp(String title) {
+        //Taka inn dayTrip hlut, upphafsstilla hann sem chosenDayTrip
+        //Ef ýtt er á confirm, ætti að fjarlægja þessa daytrip af listanum?
+        fxPopDTName.setText(title);
+        fxPopDTAdCnt.setText(String.valueOf(totalAdult));
+        fxPopDTChCnt.setText(String.valueOf(totalChildren));
+        fxDayTripPopup.setVisible(true);
     }
 
     public void loadFlightCards() throws IOException {
@@ -216,7 +125,47 @@ public class BookingProcessController implements Initializable {
 
     }
 
+    public void loadHotelCards() throws IOException {
+
+        ArrayList<HotelCardController> listi = new ArrayList<HotelCardController>();
+        HotelCardController h = new HotelCardController("Hótel Selfoss", loader.getController());
+        HotelCardController h1 = new HotelCardController("Hótel RVK", loader.getController());
+        HotelCardController h2 = new HotelCardController("Radison", loader.getController());
+        HotelCardController h3 = new HotelCardController("Stúdó", loader.getController());
+
+
+        listi.add(h);
+        listi.add(h1);
+        listi.add(h2);
+        listi.add(h3);
+
+        fxHotelCont.getChildren().addAll(listi);
+
+    }
+
+    public void loadDTCards() throws IOException {
+        //Hér köllum við á getDayTrips og fáum arraylista
+
+        ArrayList<DayTripCardController> listi = new ArrayList<DayTripCardController>();
+        DayTripCardController dt = new DayTripCardController("Fyrsti", loader.getController());
+        DayTripCardController dtt = new DayTripCardController("Annar", loader.getController());
+        DayTripCardController dta = new DayTripCardController("Fyrsti", loader.getController());
+        DayTripCardController dtta = new DayTripCardController("Annar", loader.getController());
+        DayTripCardController dtb = new DayTripCardController("Fyrsti", loader.getController());
+        DayTripCardController dttb = new DayTripCardController("Annar", loader.getController());
+
+        listi.add(dt);
+        listi.add(dtt);
+        listi.add(dta);
+        listi.add(dtta);
+        listi.add(dtb);
+        listi.add(dttb);
+        fxDayTripsCont.getChildren().addAll(listi);
+
+    }
+
     public void flightsConfirmHandler(ActionEvent actionEvent) throws IOException {
+        resetCheckBoxes();
         try {
             loadHotelCards();
         }
@@ -233,6 +182,7 @@ public class BookingProcessController implements Initializable {
     }
 
     public void flightsSkipHandler(ActionEvent actionEvent) {
+        resetCheckBoxes();
         try {
             loadHotelCards();
         }
@@ -241,18 +191,148 @@ public class BookingProcessController implements Initializable {
         }
         fxHotelsTab.setDisable(false);
         fxTabCont.getSelectionModel().selectNext();
+
     }
 
+    public void resetCheckBoxes() {
+        for (CheckBox c : selectedCheckBoxes) {
+            c.setSelected(false);
+        }
+        selectedCheckBoxes.clear();
+        unselectedCheckBoxes.clear();
+    }
 
+    public void hotelConfirmHandler(ActionEvent actionEvent) throws IOException {
+        resetCheckBoxes();
+        try {
+            loadDTCards();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        fxDayTripsTab.setDisable(false);
+        fxTabCont.getSelectionModel().selectNext();
+
+    }
+
+    public void hotelSkipHandler(ActionEvent actionEvent) throws IOException {
+        resetCheckBoxes();
+        try {
+            loadDTCards();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        fxDayTripsTab.setDisable(false);
+        fxTabCont.getSelectionModel().selectNext();
+
+    }
+
+    public void dayTripConfirmHandler(ActionEvent actionEvent) throws IOException {
+        SceneController sc = new SceneController();
+        sc.switchToSceneReview(actionEvent);
+
+    }
+
+    public void dayTripSkipHandler(ActionEvent actionEvent) throws IOException {
+        SceneController sc = new SceneController();
+        sc.switchToSceneReview(actionEvent);
+    }
+
+    /**
+     * Handler to decrement count of adults in daytrip. Makes sure not to decrement below 1.
+     * @param actionEvent Button click event
+     */
     public void popDTAdMinusHandler(ActionEvent actionEvent) {
+        int total = Integer.parseInt(fxPopDTAdCnt.getText());
+        if (total > 1) {
+            total--;
+            fxPopDTAdCnt.setText(String.valueOf(total));
+        }
     }
 
+    /**
+     * Handler to decrement count of children in daytrip. Makes sure not to decrement below 0.
+     * @param actionEvent Button click event
+     */
     public void popDTChMinusHandler(ActionEvent actionEvent) {
+        int total = Integer.parseInt(fxPopDTChCnt.getText());
+        if (total > 0) {
+            total--;
+            fxPopDTChCnt.setText(String.valueOf(total));
+        }
     }
 
+    /**
+     * Handler to add count of adults to daytrip. Makes sure not to add more than
+     * originally marked on front page.
+     * @param actionEvent Button click event
+     */
     public void popDTAdPlusHandler(ActionEvent actionEvent) {
+        int total = Integer.parseInt(fxPopDTAdCnt.getText());
+        if (total < totalAdult) {
+            total++;
+            fxPopDTAdCnt.setText(String.valueOf(total));
+        }
     }
 
+    /**
+     * Handler to add count of children to daytrip. Makes sure not to add more than
+     * originally marked on front page.
+     * @param actionEvent Button click event
+     */
     public void popDTChPlusHandler(ActionEvent actionEvent) {
+        int total = Integer.parseInt(fxPopDTChCnt.getText());
+        if (total < totalChildren) {
+            total++;
+            fxPopDTChCnt.setText(String.valueOf(total));
+        }
+    }
+
+    /**
+     * Method to handle Checkbox filtering. Adds checkboxes to ObservableSets depending on
+     * wether they are selected or unselected.
+     * @param actionEvent event of selecting or unselecting checkbox
+     */
+    public void filterHandler(ActionEvent actionEvent) {
+        CheckBox check = (CheckBox) actionEvent.getSource();
+
+        if (check.isSelected()) {
+            selectedCheckBoxes.add(check);
+            unselectedCheckBoxes.remove(check);
+            //System.out.println(check.getText());
+        }
+        else {
+            selectedCheckBoxes.remove(check);
+            unselectedCheckBoxes.add(check);
+            //System.out.println(check.getText());
+        }
+        String[] checked = new String[selectedCheckBoxes.size()];
+        int i = 0;
+
+        for (CheckBox c : selectedCheckBoxes) {
+            checked[i] = c.getText();
+            i++;
+        }
+
+        // Kalla á getDayTrips með strengjafylkinu sem parameter til að filtera, undir lyklinum
+        // difficulty
+        // Kalla á filteringsföll hjá hinum teymunum með strengjafylkinu
+
+    }
+
+    public void fxBookDayTrip(ActionEvent actionEvent) {
+        fxDayTripPopup.setVisible(false);
+        //Setja uppl úr popupinu í bókun / vacation deal hlutinn
+        //Fjarlægja valið og bókað daytrip af listanum?
+    }
+
+    public void tabChangeHandler(Event event) {
+        resetCheckBoxes();
+    }
+
+    public void hotelBookHandler(ActionEvent actionEvent) {
+        fxBookedHotel.setVisible(true);
+        fxHotelPopUp.setVisible(false);
     }
 }

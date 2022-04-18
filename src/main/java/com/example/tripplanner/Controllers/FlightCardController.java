@@ -16,6 +16,7 @@ public class FlightCardController extends SplitPane {
 
 
 
+
     public FlightCardController(String airline) {
         lesaVidburd();
         //Setja Flight hlut sem parameter í fallið, upphafsstilla fyrir tilviksbreytu hér fyrir neðan

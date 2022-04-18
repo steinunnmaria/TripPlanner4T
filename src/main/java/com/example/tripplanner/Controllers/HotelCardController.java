@@ -1,6 +1,7 @@
 package com.example.tripplanner.Controllers;
 
 import com.example.tripplanner.Classes.Hotel;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -13,10 +14,12 @@ public class HotelCardController extends SplitPane {
     private Label fxName;
 
     private Hotel hotel;
+    private BookingProcessController bpc;
 
 
 
-    public HotelCardController(String name) {
+    public HotelCardController(String name, BookingProcessController bookingProcessController) {
+        this.bpc = bookingProcessController;
         lesaVidburd();
         //Setja Hotel hlut sem parameter í fallið, upphafsstilla fyrir tilviksbreytu hér fyrir neðan
         //this.hotel=hotel;
@@ -24,6 +27,15 @@ public class HotelCardController extends SplitPane {
 
 
         fxName.setText(name);
+
+    }
+
+    public void selectHandler(ActionEvent actionEvent) {
+
+        bpc.setHotelPopUp(fxName.getText());
+
+        System.out.println("Valið hótel");
+        System.out.println(fxName.getText());
 
     }
 

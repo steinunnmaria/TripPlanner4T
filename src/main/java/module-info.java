@@ -1,6 +1,7 @@
 module com.example.tripplanner {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql.rowset;
 
 
     opens com.example.tripplanner to javafx.fxml;

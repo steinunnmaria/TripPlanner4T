@@ -1,6 +1,7 @@
 package com.example.tripplanner.Controllers;
 
 import com.example.tripplanner.Classes.DayTrip;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -16,11 +17,16 @@ public class DayTripCardController extends SplitPane {
     private Button fxOpenTrip;
 
     private DayTrip dayTrip;
+    private String title;
+
+    private BookingProcessController bpc;
 
 
 
-    public DayTripCardController(String title) {
-        lesaVidburd(title);
+    public DayTripCardController(String title, BookingProcessController bookingProcessController) {
+        bpc = bookingProcessController;
+        this.title = title;
+        readCard(title);
         //Setja DayTrip hlut sem parameter í fallið, upphafsstilla fyrir tilviksbreytu hér fyrir neðan
         //this.dayTrip=dayTrip;
         //setLabels(dayTrip);
@@ -40,9 +46,20 @@ public class DayTripCardController extends SplitPane {
         return(this.dayTrip);
     }
 
+    public void selectHandler(ActionEvent actionEvent) {
 
+        bpc.setDTPopUp(fxTitle.getText());
 
-    private void lesaVidburd(String title) {
+        System.out.println("Valin ferð");
+        System.out.println(fxTitle.getText());
+
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    private void readCard(String title) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/tripplanner/day-trip-card.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
