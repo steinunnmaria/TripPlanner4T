@@ -14,30 +14,43 @@ public class DayTripCardController extends SplitPane {
     @FXML
     private Label fxTitle;
     @FXML
+    private Label fxDate;
+    @FXML
+    private Label fxDiff;
+    @FXML
+    private Label fxCapacity;
+    @FXML
+    private Label fxPrice;
+    @FXML
     private Button fxOpenTrip;
+    @FXML
+    private Label fxDuration;
+
 
     private DayTrip dayTrip;
-    private String name;
 
     private BookingProcessController bpc;
 
 
 
     public DayTripCardController(DayTrip dt, BookingProcessController bookingProcessController) {
-        bpc = bookingProcessController;
-        this.name = dt.getName();
-        readCard(name);
+        bpc = bookingProcessController;;
+        readCard("LOL");
         //Setja DayTrip hlut sem parameter í fallið, upphafsstilla fyrir tilviksbreytu hér fyrir neðan
-        //this.dayTrip=dayTrip;
-        //setLabels(dayTrip);
-
-
-        fxTitle.setText(name);
+        this.dayTrip=dt;
+        setLabels(dayTrip);
 
     }
 
-    private void setLabels(DayTrip dt) {
+    private void setLabels(DayTrip dayTrip) {
         // sækja titil, dags, o.s.frv frá daytrip og setja í labels (setText)
+        fxTitle.setText(dayTrip.getName());
+        fxDate.setText(dayTrip.getDate().toString());
+        fxCapacity.setText(String.valueOf(dayTrip.getCapacity()) + " spots open");
+        fxDiff.setText(dayTrip.getDifficulty());
+        fxPrice.setText(String.valueOf(dayTrip.getPrice())+" kr.");
+        fxDuration.setText(dayTrip.getTimeStart() + " - " + dayTrip.getTimeEnd());
+
     }
 
     public DayTrip getDayTrip() {
@@ -48,15 +61,11 @@ public class DayTripCardController extends SplitPane {
 
     public void selectHandler(ActionEvent actionEvent) {
 
-        bpc.setDTPopUp(fxTitle.getText());
+        bpc.setDTPopUp(this.dayTrip);
 
         System.out.println("Valin ferð");
         System.out.println(fxTitle.getText());
 
-    }
-
-    public String getName() {
-        return name;
     }
 
     private void readCard(String title) {

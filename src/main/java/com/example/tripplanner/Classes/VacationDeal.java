@@ -25,6 +25,7 @@ public class VacationDeal {
     private Hotel myHotel;
     private final int adultCount;
     private final int childCount;
+    private final int totalPeople;
     private ArrayList<DayTrip> myDayTrips;
     private int totalPrice; /* double? */
 
@@ -36,6 +37,7 @@ public class VacationDeal {
         this.adultCount = adultCount;
         this.childCount = childCount;
         this.vacationDuration = ChronoUnit.DAYS.between(dateFrom, dateTo);
+        this.totalPeople = this.getAdultCount() + this.getChildCount();
     }
 
     /* Getters */
@@ -161,4 +163,5 @@ public class VacationDeal {
         this.customers.setCreditCard(cardFromView);
     }
 
+    public int getTotaCount() { return this.totalPeople; }
 }

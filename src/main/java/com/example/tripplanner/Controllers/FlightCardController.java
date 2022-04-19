@@ -1,6 +1,7 @@
 package com.example.tripplanner.Controllers;
 
 import com.example.tripplanner.FlightDataBase.Flight;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -9,27 +10,53 @@ import javafx.scene.control.SplitPane;
 import java.io.IOException;
 
 public class FlightCardController extends SplitPane {
+
     @FXML
-    private Label fxAirline;
+    private Label fxFlightPrice;
+    @FXML
+    private Label fxFlightDate;
+    @FXML
+    private Label fxFlightNo;
+    @FXML
+    private Label fxFlightDuration;
+    @FXML
+    private Label fxFromDest;
+    @FXML
+    private Label fxToDest;
 
     private Flight flight;
+    private boolean outTrip;
+    private BookingProcessController bpc;
 
 
 
 
-    public FlightCardController(Flight f) {
+    public FlightCardController(Flight f, BookingProcessController bookingProcessController, boolean outTrip) {
         lesaVidburd();
         //Setja Flight hlut sem parameter í fallið, upphafsstilla fyrir tilviksbreytu hér fyrir neðan
-        //this.flight=flight;
-        //setLabels(flight);
-
-
-        fxAirline.setText(f.getAirlineName());
+        this.flight=f;
+        this.bpc = bookingProcessController;
+        setLabels(flight);
+        this.outTrip = outTrip;
 
     }
 
-    private void setLabels(Flight f) {
+    public void selectHandler(ActionEvent actionEvent) {
+        if(outTrip) {
+            this.bpc.setOutFlightPopUp(this.flight);
+        } else {
+            this.bpc.setBackFlightPopUp(this.flight);
+        }
+    }
+
+    private void setLabels(Flight fl) {
         // sækja titil, dags, o.s.frv frá flight og setja í labels (setText)
+        fxFlightNo.setText(fl.getAirlineName() + " " + fl.getFlightNumber());
+        fxFlightPrice.setText(String.valueOf(fl.getPrice())+ " kr."); // eða fxFlightPrice.setText(String.valueOf(fl.getPrice() * bpc.getTotalPeople())+ " kr."); ?
+        fxFlightDate.setText(fl.getDate().toString());
+        fxFlightDuration.setText(String.valueOf(fl.getDuration()) + " klst.");
+        fxFromDest.setText(fl.getDeparture());
+        fxToDest.setText(fl.getDestination());
     }
 
 

@@ -169,6 +169,8 @@ public class FrontPageController implements Initializable {
         }
         fxToDest.setDisable(false);
         String from = fxFromDest.getValue();
+        fxToDest.getItems().clear();
+        fxToDest.getItems().addAll(location);
         fxToDest.getItems().remove(from);
     }
 

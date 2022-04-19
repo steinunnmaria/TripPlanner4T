@@ -147,5 +147,19 @@ public class HotelController {
         return connection.sortAllRoomsByPrice();
     }
 
+    public ArrayList<Room> getAvailableRoomsByHotelId(Integer hotelId, LocalDate from, LocalDate to) throws Exception {
+        ReservationController reservController = ReservationController.getInstance();
+        String fromString = from.toString();
+        String toString = to.toString();
+        ArrayList<Room> rooms = connection.getRoomsByHotelId(hotelId);
+        ArrayList<Room> availableRooms = new ArrayList<Room>();
+        for (Room room : rooms) {
+            if (reservController.isAvailable(room.getHotelId(), room.getRoomNum(), fromString, toString)) {
+                availableRooms.add(room);
+            }
+        }
+        return availableRooms;
+    }
+
 }
 

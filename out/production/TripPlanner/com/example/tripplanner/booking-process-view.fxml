@@ -20,7 +20,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.Controllers.BookingProcessController">
+<AnchorPane prefHeight="600.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.Controllers.BookingProcessController">
    <children>
       <TabPane fx:id="fxTabCont" layoutX="15.0" layoutY="39.0" prefHeight="546.0" prefWidth="1055.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -58,8 +58,6 @@
                               <Button mnemonicParsing="false" onAction="#prufuHandler" text="Button" />
                            </children>
                         </VBox>
-                        <Label layoutX="629.0" layoutY="479.0" text="Total price:" />
-                        <Label fx:id="fxFlightTotalPrice" layoutX="711.0" layoutY="479.0" text="Many money" />
                         <Label layoutX="178.0" layoutY="11.0" text="Flights out:" />
                         <Label layoutX="620.0" layoutY="11.0" text="Flights back:" />
                         <SplitPane fx:id="fxMyFlight1" dividerPositions="0.22512437810945274" layoutX="180.0" layoutY="388.0" prefHeight="80.0" prefWidth="422.0" style="-fx-border-color: #C8D9F0 #C8D9F0; -fx-border-width: 1.5;">
@@ -236,6 +234,23 @@
                               </AnchorPane>
                            </items>
                         </SplitPane>
+                        <GridPane layoutX="621.0" layoutY="472.0" prefHeight="30.0" prefWidth="244.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="10.0" prefWidth="70.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="130.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Total price:" />
+                              <Label fx:id="fxFlightTotalPrice" contentDisplay="RIGHT" text="0 kr." GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -321,15 +336,58 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="14.0" layoutY="60.0" text="Hotel name" />
-                                    <Label layoutX="14.0" layoutY="90.0" text="Dates" />
-                                    <Label layoutX="15.0" layoutY="120.0" text="Nights" />
-                                    <Label layoutX="15.0" layoutY="150.0" text="Guests" />
-                                    <Label layoutX="15.0" layoutY="180.0" text="Total Price">
-                                       <font>
-                                          <Font size="16.0" />
-                                       </font>
-                                    </Label>
+                                    <GridPane layoutX="14.0" layoutY="52.0" prefHeight="150.0" prefWidth="298.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="73.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="241.0" minWidth="10.0" prefWidth="225.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label fx:id="fxHotelBookedName" text="Hotel name" GridPane.columnIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label fx:id="fxHotelBookedDates" text="Dates" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label fx:id="fxHotelBookedRooms" text="Still being worked on..." GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label fx:id="fxHotelBookedGuests" text="Guests" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label fx:id="fxHotelBookedPriceTotal" text="Total Price" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label text="Hotel name:" />
+                                          <Label text="Period:" GridPane.rowIndex="1" />
+                                          <Label text="Rooms:" GridPane.rowIndex="2" />
+                                          <Label text="Guests:" GridPane.rowIndex="3" />
+                                          <Label fx:id="fxHotelBookedPriceTotal1" text="Total Price:" GridPane.rowIndex="4">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </GridPane>
                                  </children></Pane>
                            </children>
                         </VBox>
@@ -342,7 +400,21 @@
                      <children>
                         <ScrollPane layoutX="178.0" layoutY="14.0" prefHeight="450.0" prefWidth="425.0">
                            <content>
-                              <VBox fx:id="fxDayTripsCont" prefHeight="448.0" prefWidth="409.0" spacing="5.0" />
+                              <VBox fx:id="fxDayTripsCont" prefHeight="448.0" prefWidth="409.0" spacing="5.0">
+                                 <children>
+                                    <Pane prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <Label fx:id="fxNoDayTrips" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" prefHeight="201.0" prefWidth="424.0" style="-fx-background-color: lightgrey;" text="No trips available near your area today" textAlignment="CENTER" wrapText="true">
+                                             <font>
+                                                <Font size="42.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="20.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                 </children></VBox>
                            </content>
                         </ScrollPane>
                         <Button fx:id="fxDayTripConfirm" layoutX="968.0" layoutY="474.0" mnemonicParsing="false" onAction="#dayTripConfirmHandler" text="Confirm" />
@@ -418,21 +490,19 @@
                         </VBox>
                         <GridPane layoutX="179.0" layoutY="472.0" prefHeight="30.0" prefWidth="424.0">
                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="10.0" prefWidth="56.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="134.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="10.0" prefWidth="12.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="117.0" minWidth="10.0" prefWidth="117.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="99.0" minWidth="10.0" prefWidth="99.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="97.0" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.0" minWidth="10.0" prefWidth="103.0" />
                           </columnConstraints>
                           <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Button mnemonicParsing="false" text="&lt;&lt; Previous day" GridPane.halignment="LEFT" />
-                              <Button mnemonicParsing="false" text="Next day &gt;&gt;" GridPane.columnIndex="5" GridPane.halignment="RIGHT" />
-                              <Label text="Jump to:" GridPane.columnIndex="2" />
-                              <DatePicker prefHeight="26.0" prefWidth="139.0" GridPane.columnIndex="3" GridPane.halignment="RIGHT" />
+                              <Button fx:id="fxPrevDay" mnemonicParsing="false" onAction="#prevDayHandler" prefHeight="26.0" prefWidth="112.0" text="&lt;&lt; Previous day" GridPane.halignment="LEFT" />
+                              <Button fx:id="fxNextDay" mnemonicParsing="false" onAction="#nextDayHandler" text="Next day &gt;&gt;" GridPane.columnIndex="3" GridPane.halignment="RIGHT" />
+                              <DatePicker fx:id="fxPickADay" onAction="#pickDayHandler" prefHeight="26.0" prefWidth="139.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
+                              <Button fx:id="fxJumpButton" mnemonicParsing="false" onAction="#jumpToDateHandler" prefHeight="26.0" prefWidth="88.0" text="Jump to:" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
                            </children>
                         </GridPane>
                      </children></AnchorPane>
