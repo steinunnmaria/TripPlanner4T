@@ -1,156 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="652.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.Controllers.FrontPageController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="567.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.Controllers.FrontPageController">
 <children>
-    <HBox layoutX="8.0" layoutY="134.0" prefHeight="186.0" prefWidth="900.0">
-        <children>
-            <VBox prefHeight="125.0" prefWidth="300.0">
-                <children>
-                    <HBox prefHeight="62.5" prefWidth="300.0">
-                        <children>
-                            <Label text="From">
-                                <HBox.margin>
-                                    <Insets left="20.0" top="30.0" />
-                                </HBox.margin>
-                            </Label>
-                        <ComboBox fx:id="fxFromDest" onAction="#fromDestHandler" prefWidth="150.0">
-                           <HBox.margin>
-                              <Insets left="20.0" top="30.0" />
-                           </HBox.margin>
-                        </ComboBox>
-                        </children>
-                    </HBox>
-                    <HBox layoutX="10.0" layoutY="10.0" prefHeight="62.5" prefWidth="300.0">
-                        <children>
-                            <Label text="To">
-                                <HBox.margin>
-                                    <Insets left="20.0" top="30.0" />
-                                </HBox.margin>
-                            </Label>
-                        <ComboBox fx:id="fxToDest" onAction="#toDestHandler" prefWidth="150.0">
-                           <HBox.margin>
-                              <Insets left="30.0" top="30.0" />
-                           </HBox.margin>
-                        </ComboBox>
-                        </children>
-                    </HBox>
-                </children>
-            </VBox>
-            <VBox layoutX="10.0" layoutY="10.0" prefHeight="250.0" prefWidth="300.0">
-                <children>
-                    <HBox prefHeight="62.5" prefWidth="300.0">
-                        <children>
-                            <Label text="Adults">
-                                <HBox.margin>
-                                    <Insets left="20.0" top="30.0" />
-                                </HBox.margin>
-                            </Label>
-                            <Button mnemonicParsing="false" onAction="#adultsMinusHandler" text="-">
-                                <HBox.margin>
-                                    <Insets left="55.0" top="30.0" />
-                                </HBox.margin>
-                            </Button>
-                        <Label fx:id="fxAdultCount" text="1">
-                           <HBox.margin>
-                              <Insets left="10.0" top="30.0" />
-                           </HBox.margin>
-                        </Label>
-                            <Button mnemonicParsing="false" onAction="#adultsPlusHandler" text="+">
-                                <HBox.margin>
-                                    <Insets left="10.0" top="30.0" />
-                                </HBox.margin>
-                            </Button>
-                        </children>
-                    </HBox>
-                    <HBox layoutX="10.0" layoutY="10.0" prefHeight="62.5" prefWidth="300.0">
-                        <children>
-                            <Label text="Children">
-                                <HBox.margin>
-                                    <Insets left="20.0" top="30.0" />
-                                </HBox.margin>
-                            </Label>
-                            <Button mnemonicParsing="false" onAction="#childrenMinusHandler" text="-">
-                                <HBox.margin>
-                                    <Insets left="45.0" top="30.0" />
-                                </HBox.margin>
-                            </Button>
-                        <Label fx:id="fxChildrenCount" text="0">
-                           <HBox.margin>
-                              <Insets left="10.0" top="30.0" />
-                           </HBox.margin>
-                        </Label>
-                            <Button mnemonicParsing="false" onAction="#childrenPlusHandler" text="+">
-                                <HBox.margin>
-                                    <Insets left="10.0" top="30.0" />
-                                </HBox.margin>
-                            </Button>
-                        </children>
-                    </HBox>
-                </children>
-            </VBox>
-            <VBox layoutX="310.0" layoutY="10.0" prefHeight="250.0" prefWidth="300.0">
-                <children>
-                    <HBox prefHeight="62.5" prefWidth="300.0">
-                        <children>
-                            <Label text="Departure">
-                                <HBox.margin>
-                                    <Insets left="20.0" top="30.0" />
-                                </HBox.margin>
-                            </Label>
-                            <DatePicker fx:id="fxDepartureDate" onAction="#departureDateHandler">
-                                <HBox.margin>
-                                    <Insets left="10.0" top="30.0" />
-                                </HBox.margin>
-                            </DatePicker>
-                        </children>
-                    </HBox>
-                    <HBox prefHeight="62.5" prefWidth="300.0">
-                        <children>
-                            <Label text="Return">
-                                <HBox.margin>
-                                    <Insets left="20.0" top="30.0" />
-                                </HBox.margin>
-                            </Label>
-                            <DatePicker fx:id="fxReturnDate" onAction="#returnDateHandler">
-                                <HBox.margin>
-                                    <Insets left="30.0" top="30.0" />
-                                </HBox.margin>
-                            </DatePicker>
-                        </children>
-                    </HBox>
-                    <HBox prefHeight="62.5" prefWidth="300.0">
-                        <children>
-                            <RadioButton fx:id="fxReturn" mnemonicParsing="false" onAction="#returnHandler" selected="true" text="Return">
-                                <HBox.margin>
-                                    <Insets left="20.0" top="20.0" />
-                                </HBox.margin>
-                            </RadioButton>
-                            <RadioButton fx:id="fxOneWay" mnemonicParsing="false" onAction="#oneWayHandler" text="One-way">
-                                <HBox.margin>
-                                    <Insets left="20.0" top="20.0" />
-                                </HBox.margin>
-                            </RadioButton>
-                            <Button fx:id="fxConfirm" mnemonicParsing="false" onAction="#searchHandler" text="Search">
-                                <HBox.margin>
-                                    <Insets left="45.0" top="20.0" />
-                                </HBox.margin>
-                            </Button>
-                        </children>
-                    </HBox>
-                </children>
-            </VBox>
-        </children>
-    </HBox>
-      <Label layoutX="749.0" layoutY="427.0" text="Don't forget to bring a towel..." />
+          <Label layoutX="99.0" layoutY="105.0" text="Flying from">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+          </Label>
+      <ComboBox fx:id="fxFromDest" layoutX="50.0" layoutY="137.0" onAction="#fromDestHandler" prefHeight="25.0" prefWidth="217.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" />
+      <ComboBox fx:id="fxToDest" layoutX="296.0" layoutY="137.0" onAction="#toDestHandler" prefHeight="25.0" prefWidth="217.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" />
+          <Label layoutX="302.0" layoutY="250.0" text="Adults">
+         <font>
+            <Font size="14.0" />
+         </font>
+          </Label>
+          <Button layoutX="359.0" layoutY="247.0" mnemonicParsing="false" onAction="#adultsMinusHandler" text="-" />
+      <Label fx:id="fxAdultCount" layoutX="405.0" layoutY="251.0" text="1" />
+          <Button layoutX="437.0" layoutY="247.0" mnemonicParsing="false" onAction="#adultsPlusHandler" text="+" />
+          <Label layoutX="302.0" layoutY="295.0" text="Children">
+         <font>
+            <Font size="14.0" />
+         </font>
+          </Label>
+          <Button layoutX="359.0" layoutY="292.0" mnemonicParsing="false" onAction="#childrenMinusHandler" text="-" />
+      <Label fx:id="fxChildrenCount" layoutX="405.0" layoutY="295.0" text="0" />
+          <Button layoutX="437.0" layoutY="291.0" mnemonicParsing="false" onAction="#childrenPlusHandler" text="+" />
+          <DatePicker fx:id="fxDepartureDate" layoutX="49.0" layoutY="232.0" onAction="#departureDateHandler" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" />
+          <DatePicker fx:id="fxReturnDate" layoutX="50.0" layoutY="306.0" onAction="#returnDateHandler" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" />
+          <RadioButton fx:id="fxReturn" layoutX="49.0" layoutY="349.0" mnemonicParsing="false" onAction="#returnHandler" selected="true" text="Return" />
+          <RadioButton fx:id="fxOneWay" layoutX="124.0" layoutY="349.0" mnemonicParsing="false" onAction="#oneWayHandler" text="One-way" />
+          <Button fx:id="fxConfirm" layoutX="449.0" layoutY="366.0" mnemonicParsing="false" onAction="#searchHandler" text="Search" />
+      <Label layoutX="261.0" layoutY="391.0" text="Don't forget to bring a towel..." />
+      <Label layoutX="187.0" layoutY="30.0" text="Welcome">
+         <font>
+            <Font name="System Bold" size="44.0" />
+         </font>
+      </Label>
+      <Label layoutX="359.0" layoutY="105.0" text="Flying to">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="82.0" layoutY="197.0" text="Departure">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="82.0" layoutY="279.0" text="Return">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="302.0" layoutY="197.0" text="Travellers">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
 </children>
 </Pane>
