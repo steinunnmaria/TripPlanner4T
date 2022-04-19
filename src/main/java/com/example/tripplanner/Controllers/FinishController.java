@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class FinishController implements Initializable {
+    // Gera fall sem setur price á textann
     @FXML
     private ComboBox<Integer> fxExpMonth, fxExpYear;
     @FXML

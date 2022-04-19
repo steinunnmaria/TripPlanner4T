@@ -28,6 +28,7 @@ public class SceneController {
         stage.setTitle("Booking process");
         stage.setScene(scene);
         stage.show();
+        bookingControl.loadFlightCards();
     }
     public void switchToSceneReview(ActionEvent actionEvent, VacationDeal vd) throws IOException {
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/com/example/tripplanner/review-booking-view.fxml")));
