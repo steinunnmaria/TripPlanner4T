@@ -20,7 +20,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.Controllers.BookingProcessController">
+<AnchorPane prefHeight="600.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.Controllers.BookingProcessController">
    <children>
       <TabPane fx:id="fxTabCont" layoutX="15.0" layoutY="39.0" prefHeight="546.0" prefWidth="1055.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -327,6 +327,11 @@
                                     <Label layoutX="350.0" layoutY="85.0" text="1" />
                                     <Label fx:id="fxPopHotelDateFrom" layoutX="265.0" layoutY="140.0" text="Dates" />
                                     <Label fx:id="fxPopHotelNights" layoutX="226.0" layoutY="115.0" text="X number of guests for x nights" />
+                                    <ScrollPane prefHeight="225.0" prefWidth="425.0">
+                                       <content>
+                                          <VBox fx:id="fxRoomCont" prefHeight="223.0" prefWidth="409.0" spacing="5.0" />
+                                       </content>
+                                    </ScrollPane>
                                  </children>
                               </Pane>
                               <Pane fx:id="fxBookedHotel" prefHeight="225.0" prefWidth="206.0">

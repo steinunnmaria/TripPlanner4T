@@ -42,12 +42,10 @@ public class HotelCardController extends SplitPane {
     }
 
     public void selectHandler(ActionEvent actionEvent) throws Exception {
-
-        bpc.setHotelPopUp(this.hotel);
+        bpc.loadHotelRoomCards(this.hotel);
 
         System.out.println("Valið hótel");
         System.out.println(fxName.getText());
-
     }
 
     private void setLabels(Hotel h) {

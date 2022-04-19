@@ -35,7 +35,7 @@ public class DayTripCardController extends SplitPane {
 
     public DayTripCardController(DayTrip dt, BookingProcessController bookingProcessController) {
         bpc = bookingProcessController;;
-        readCard("LOL");
+        readCard();
         //Setja DayTrip hlut sem parameter í fallið, upphafsstilla fyrir tilviksbreytu hér fyrir neðan
         this.dayTrip=dt;
         setLabels(dayTrip);
@@ -68,7 +68,7 @@ public class DayTripCardController extends SplitPane {
 
     }
 
-    private void readCard(String title) {
+    private void readCard() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/tripplanner/day-trip-card.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);

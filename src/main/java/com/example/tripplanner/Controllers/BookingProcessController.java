@@ -9,6 +9,7 @@ import com.example.tripplanner.FlightDataBase.CustomerController;
 import com.example.tripplanner.FlightDataBase.Flight;
 import com.example.tripplanner.HotelDataBase.Hotel;
 import com.example.tripplanner.HotelDataBase.HotelController;
+import com.example.tripplanner.HotelDataBase.ReservationController;
 import com.example.tripplanner.HotelDataBase.Room;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableSet;
@@ -53,7 +54,7 @@ public class BookingProcessController implements Initializable {
     @FXML
     private DatePicker fxPickADay;
     @FXML
-    private VBox fxFlightsDepCont, fxFlightsRetCont, fxHotelCont, fxDayTripsCont;
+    private VBox fxFlightsDepCont, fxFlightsRetCont, fxHotelCont, fxDayTripsCont, fxRoomCont;
     @FXML
     private Pane fxDayTripPopup, fxHotelPopUp, fxBookedHotel;
     @FXML
@@ -82,6 +83,7 @@ public class BookingProcessController implements Initializable {
     private Flight myFlightBack;
     private RoomBooking bookedRooms;
     private boolean datePickerOpened;
+    private ReservationController reservationController;
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -129,17 +131,7 @@ public class BookingProcessController implements Initializable {
         this.loader = loader;
     }
 
-    public void setHotelPopUp(Hotel h) throws Exception {
-        //Taka inn hotel hlut, upphafsstilla hann sem chosenHotel
-        fxPopHotelName.setText(h.getName());
-        fxPopHotelDateFrom.setText(vd.getDateFrom().toString() + " - " + vd.getDateTo().toString());
 
-        fxPopHotelNights.setText(totalPeople + " guests for " + vd.getVacationDuration() + " nights");
-        ArrayList<Room> rooms = hotelController.getAvailableRoomsByHotelId(h.getId(), vd.getDateFrom(), vd.getDateTo());
-        System.out.println(rooms.size());
-        fxHotelPopUp.setVisible(true);
-        this.chosenHotel = h;
-    }
 
     public void setDTPopUp(DayTrip dt) {
         //Taka inn dayTrip hlut, upphafsstilla hann sem chosenDayTrip
@@ -227,6 +219,34 @@ public class BookingProcessController implements Initializable {
         fxHotelCont.getChildren().addAll(listi);
 
     }
+    public void loadHotelRoomCards(Hotel h) throws Exception {
+        fxHotelPopUp.setVisible(true);
+
+        ArrayList<HotelRoomCardController> listi = new ArrayList<HotelRoomCardController>();
+
+        this.reservationController = ReservationController.getInstance();
+        ArrayList<Room> roomList= hotelController.getAvailableRoomsByHotelId(h.getId(), vd.getDateFrom(), vd.getDateTo());
+
+
+        for (Room room : roomList) {
+            HotelRoomCardController hrcc = new HotelRoomCardController(room, loader.getController());
+            listi.add(hrcc);
+        }
+
+        fxRoomCont.getChildren().addAll(listi);
+
+    }
+    public void setHotelPopUp(Hotel h) throws Exception {
+        //Taka inn hotel hlut, upphafsstilla hann sem chosenHotel
+        fxPopHotelName.setText(h.getName());
+        fxPopHotelDateFrom.setText(vd.getDateFrom().toString() + " - " + vd.getDateTo().toString());
+
+        fxPopHotelNights.setText(totalPeople + " guests for " + vd.getVacationDuration() + " nights");
+        ArrayList<Room> rooms = hotelController.getAvailableRoomsByHotelId(h.getId(), vd.getDateFrom(), vd.getDateTo());
+        System.out.println(rooms.size());
+        fxHotelPopUp.setVisible(true);
+        this.chosenHotel = h;
+    }
 
     public void loadDTCards() throws IOException {
         fxNoDayTrips.setDisable(true);
@@ -282,11 +302,11 @@ public class BookingProcessController implements Initializable {
             fxJumpButton.setText("Pick one ->");
         }
     }
+
     public void pickDayHandler(ActionEvent actionEvent) throws IOException {
         this.datePickerOpened = true;
         fxJumpButton.setText("Jump to:");
     }
-
 
     public void flightsConfirmHandler(ActionEvent actionEvent) throws IOException {
         resetCheckBoxes();
