@@ -3,6 +3,7 @@ package com.example.tripplanner.Classes;
 import com.example.tripplanner.DayTripDataBase.DayTrip;
 import com.example.tripplanner.FlightDataBase.Flight;
 import com.example.tripplanner.HotelDataBase.Hotel;
+import com.example.tripplanner.HotelDataBase.Room;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -15,9 +16,9 @@ public class VacationDeal {
     private final LocalDate dateFrom;
     private final LocalDate dateTo;
     private final long vacationDuration;
-    private boolean isFlight;
-    private boolean isHotel;
-    private boolean isDayTrip;
+    private boolean isFlight = true;
+    private boolean isHotel = true;
+    private boolean isDayTrip = true;
     private boolean isReturnTrip;
     private Customers customers;
     private Flight myFlightThere;
@@ -28,6 +29,7 @@ public class VacationDeal {
     private final int totalPeople;
     private final Integer localCode;
     private ArrayList<DayTrip> myDayTrips;
+    private ArrayList<Room> myRooms;
     private int totalPrice; /* double? */
 
     public VacationDeal(String destFrom, String destTo, LocalDate dateFrom, LocalDate dateTo, int adultCount, int childCount, Integer localCode) {
@@ -67,6 +69,14 @@ public class VacationDeal {
         return vacationDuration;
     }
 
+    public int getHotelPrice() {
+        int price = 0;
+        for (Room room : myRooms) {
+            price += (room.getPrice()*vacationDuration);
+        }
+        return price;
+    }
+
     public boolean isFlight() {
         return isFlight;
     }
@@ -99,6 +109,10 @@ public class VacationDeal {
         return myHotel;
     }
 
+    public ArrayList<Room> getMyRooms() {
+        return myRooms;
+    }
+
     public int getAdultCount() {
         return adultCount;
     }
@@ -127,6 +141,10 @@ public class VacationDeal {
 
     public void setHotel(boolean hotel) {
         isHotel = hotel;
+    }
+
+    public void setMyRooms(ArrayList<Room> myRooms) {
+        this.myRooms = myRooms;
     }
 
     public void setDayTrip(boolean dayTrip) {

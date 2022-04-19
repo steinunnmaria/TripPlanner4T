@@ -93,12 +93,6 @@ public class BookingProcessController implements Initializable {
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        /*try {
-            loadFlightCards();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }*/
         fxSortFlights.getItems().add(COMBOSORT[0]);
         fxSortFlights.getItems().add(COMBOSORT[1]);
         fxSortDT.getItems().addAll(COMBOSORT);
@@ -206,19 +200,14 @@ public class BookingProcessController implements Initializable {
     }
 
     public void loadHotelCards() throws Exception {
-
         ArrayList<HotelCardController> listi = new ArrayList<HotelCardController>();
 
         this.hotelController = HotelController.getInstance();
         this.hotelListi = hotelController.getAllAvailableHotels(vd.getLocalCode(), totalPeople, vd.getDateFrom(), vd.getDateTo());
-
-
         for (Hotel h : hotelListi) {
             HotelCardController hcc = new HotelCardController(h, loader.getController(), this.vd);
             listi.add(hcc);
         }
-
-
         fxHotelCont.getChildren().addAll(listi);
 
     }
@@ -342,6 +331,7 @@ public class BookingProcessController implements Initializable {
     }
 
     public void flightsConfirmHandler(ActionEvent actionEvent) throws IOException {
+        vd.setFlight(true);
         resetCheckBoxes();
         try {
             loadHotelCards();
@@ -363,6 +353,7 @@ public class BookingProcessController implements Initializable {
     }
 
     public void flightsSkipHandler(ActionEvent actionEvent) {
+        vd.setFlight(false);
         resetCheckBoxes();
         try {
             loadHotelCards();
@@ -386,6 +377,7 @@ public class BookingProcessController implements Initializable {
     }
 
     public void hotelConfirmHandler(ActionEvent actionEvent) throws IOException {
+        vd.setHotel(true);
         resetCheckBoxes();
         try {
             loadDTCards();
@@ -399,6 +391,7 @@ public class BookingProcessController implements Initializable {
     }
 
     public void hotelSkipHandler(ActionEvent actionEvent) throws IOException {
+        vd.setHotel(false);
         resetCheckBoxes();
         try {
             loadDTCards();
@@ -412,12 +405,34 @@ public class BookingProcessController implements Initializable {
     }
 
     public void dayTripConfirmHandler(ActionEvent actionEvent) throws IOException {
+        vd.setDayTrip(true);
+        if (vd.isFlight()) {
+            vd.setMyFlightThere(myFlightOut);
+            vd.setMyFlightBack(myFlightBack);
+        }
+        if (vd.isHotel()) {
+            vd.setMyHotel(chosenHotel);
+            vd.setMyRooms(bookedRooms);
+        }
+        if (vd.isDayTrip()) {vd.setMyDayTrips(chosenDayTrips);}
+
+
         SceneController sc = new SceneController();
         sc.switchToSceneReview(actionEvent, vd);
 
     }
 
     public void dayTripSkipHandler(ActionEvent actionEvent) throws IOException {
+        vd.setDayTrip(false);
+        if (vd.isFlight()) {
+            vd.setMyFlightThere(myFlightOut);
+            vd.setMyFlightBack(myFlightBack);
+        }
+        if (vd.isHotel()) {
+            vd.setMyHotel(chosenHotel);
+            vd.setMyRooms(bookedRooms);
+        }
+
         SceneController sc = new SceneController();
         sc.switchToSceneReview(actionEvent, vd);
     }
@@ -498,6 +513,7 @@ public class BookingProcessController implements Initializable {
             i++;
         }
 
+
         // Hvernig er ef allt er afcheckað? Fáum við ekki örugglega gamla listann til baka?
 
 
@@ -522,7 +538,9 @@ public class BookingProcessController implements Initializable {
     }*/
 
 
-    public void bookRoom(Room rm) {
+    public void bookRoom(Room rm) throws Exception {
+
+        this.chosenHotel = hotelController.getHotelByID(rm.getHotelId());
         System.out.println("Komst hingað");
         peopleBooked += rm.getCapacity();
         if (peopleBooked > totalPeople) {
