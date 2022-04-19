@@ -24,6 +24,8 @@ public class SceneController {
         bookingControl.setVacationDeal(vd);
         bookingControl.setThisLoader(loader);
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        stage.setX(100);
+        stage.setY(100);
         scene = new Scene((root));
         stage.setTitle("Booking process");
         stage.setScene(scene);
@@ -39,6 +41,7 @@ public class SceneController {
         scene = new Scene((root));
         stage.setTitle("Review Booking");
         stage.setScene(scene);
+
         stage.show();
         reviewBookingController.setOverview(vd);
     }
