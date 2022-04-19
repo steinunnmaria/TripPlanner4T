@@ -48,15 +48,15 @@ public class BookingProcessController implements Initializable {
     @FXML
     private SplitPane fxMyFlight1, fxMyFlight2;
     @FXML
-    private Label fxFlightTotalPrice, fxNoDayTrips;
+    private Label fxFlightTotalPrice, fxNoDayTrips,fxTotalDayTripsPrice;
     @FXML
     private Button fxDayTripConfirm, fxHotelConfirm, fxFlightsConfirm, fxNextDay, fxPrevDay, fxJumpButton;
     @FXML
     private DatePicker fxPickADay;
     @FXML
-    private VBox fxFlightsDepCont, fxFlightsRetCont, fxHotelCont, fxDayTripsCont, fxRoomCont;
+    private VBox fxFlightsDepCont, fxFlightsRetCont, fxHotelCont, fxDayTripsCont, fxRoomCont, fxBookedDayTripsList;
     @FXML
-    private Pane fxDayTripPopup, fxHotelPopUp, fxBookedHotel;
+    private Pane fxDayTripPopup, fxHotelPopUp, fxBookedHotel, fxBookedDayTrips;
     @FXML
     private TabPane fxTabCont;
     @FXML
@@ -65,7 +65,7 @@ public class BookingProcessController implements Initializable {
     private ComboBox<String> fxSortFlights, fxSortDT, fxSortHotels;
 
     private VacationDeal vd;
-    private DayTrip chosenDayTrip;
+    private ArrayList<DayTrip> chosenDayTrips;
     private Hotel chosenHotel;
     private final String[] COMBOSORT = {"Price: Low to High", "Price: High to Low", "Ratings"};
     private ObservableSet<CheckBox> selectedCheckBoxes = FXCollections.observableSet();
@@ -81,12 +81,14 @@ public class BookingProcessController implements Initializable {
     private HotelController hotelController;
     private Flight myFlightOut;
     private Flight myFlightBack;
+    private DayTrip openedDayTrip;
     //private RoomBooking bookedRooms;
     private boolean datePickerOpened;
     private ReservationController reservationController;
     private int roomCount = 0;
     private ArrayList<Room> bookedRooms = new ArrayList<>();
     private int peopleBooked = 0;
+    private int totalDayTripsPrice = 0;
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -136,12 +138,13 @@ public class BookingProcessController implements Initializable {
     public void setDTPopUp(DayTrip dt) {
         //Taka inn dayTrip hlut, upphafsstilla hann sem chosenDayTrip
         //Ef ýtt er á confirm, ætti að fjarlægja þessa daytrip af listanum?
+        this.openedDayTrip = dt;
         fxPopDTName.setText(dt.getName());
         fxPopDTAgeLimit.setText("Age limit: "+dt.getAgeLimit()+" years");
         fxPopDTDate.setText(dt.getDate().toString());
         fxPopDTTime.setText(dt.getTimeStart().toString()+" - "+dt.getTimeEnd().toString());
         fxPopDTDescr.setText(dt.getDescription());
-        fxPopDTPrice.setText(String.valueOf(dt.getPrice()));
+        fxPopDTPrice.setText(String.valueOf((int) dt.getPrice()));
         fxDayTripPopup.setVisible(true);
     }
 
@@ -207,7 +210,7 @@ public class BookingProcessController implements Initializable {
         ArrayList<HotelCardController> listi = new ArrayList<HotelCardController>();
 
         this.hotelController = HotelController.getInstance();
-        this.hotelListi = hotelController.getAllAvailableHotels(2, totalPeople, vd.getDateFrom(), vd.getDateTo());
+        this.hotelListi = hotelController.getAllAvailableHotels(vd.getLocalCode(), totalPeople, vd.getDateFrom(), vd.getDateTo());
 
 
         for (Hotel h : hotelListi) {
@@ -256,12 +259,14 @@ public class BookingProcessController implements Initializable {
 
     public void loadDTCards() throws IOException {
         fxNoDayTrips.setDisable(true);
+        fxBookedDayTrips.setVisible(false);
         ArrayList<DayTripCardController> listi = new ArrayList<DayTripCardController>();
         ArrayList<DayTrip> listiafDT = new ArrayList<DayTrip>();
+        this.chosenDayTrips = new ArrayList<DayTrip>();
         Hashtable<String, Object> params = new Hashtable<>();
         LocalDate[] fylki = {this.chosenDayForDayTrip, this.chosenDayForDayTrip};
         params.put("date", fylki);
-        params.put("localCode", 2);
+        params.put("localCode", vd.getLocalCode());
         listiafDT = DayTripController.getDayTrips(params);
         if(listiafDT.size() == 0) {
             fxNoDayTrips.setDisable(false);
@@ -274,6 +279,28 @@ public class BookingProcessController implements Initializable {
         fxDayTripsCont.getChildren().clear();
         fxDayTripsCont.getChildren().addAll(listi);
 
+    }
+
+    public void bookDayTripHandler(ActionEvent actionEvent) throws Exception {
+        DayTrip dt = openedDayTrip;
+        fxBookedDayTrips.setVisible(true);
+        int tickets = Integer.parseInt(fxPopDTAdCnt.getText());
+        this.chosenDayTrips.add(dt);
+        fxDayTripPopup.setVisible(false);
+
+        ArrayList<DayTripBookedCardController> listi = new ArrayList<DayTripBookedCardController>();
+
+        DayTripBookedCardController dtbcc = new DayTripBookedCardController(dt, loader.getController(), tickets);
+        this.totalDayTripsPrice += (int) dt.getPrice();
+        listi.add(dtbcc);
+        fxBookedDayTripsList.getChildren().addAll(listi);
+        fxTotalDayTripsPrice.setText(this.totalDayTripsPrice + " kr.");
+    }
+
+    public void unBookDayTrip(DayTrip dt, DayTripBookedCardController dtbcc) {
+        this.chosenDayTrips.remove(dt);
+        fxBookedDayTripsList.getChildren().remove(dtbcc);
+        fxTotalDayTripsPrice.setText(this.totalDayTripsPrice + " kr.");
     }
 
     public void nextDayHandler(ActionEvent actionEvent) throws IOException {
@@ -478,12 +505,6 @@ public class BookingProcessController implements Initializable {
         // difficulty
         // Kalla á filteringsföll hjá hinum teymunum með strengjafylkinu
 
-    }
-
-    public void fxBookDayTrip(ActionEvent actionEvent) {
-        fxDayTripPopup.setVisible(false);
-        //Setja uppl úr popupinu í bókun / vacation deal hlutinn
-        //Fjarlægja valið og bókað daytrip af listanum?
     }
 
     public void tabChangeHandler(Event event) {

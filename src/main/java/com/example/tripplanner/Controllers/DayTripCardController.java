@@ -18,9 +18,11 @@ public class DayTripCardController extends SplitPane {
     @FXML
     private Label fxDiff;
     @FXML
-    private Label fxCapacity;
+    private Button fxCapacity;
     @FXML
     private Label fxPrice;
+    @FXML
+    private Label fxLocation;
     @FXML
     private Button fxOpenTrip;
     @FXML
@@ -52,6 +54,7 @@ public class DayTripCardController extends SplitPane {
         fxDiff.setText(dayTrip.getDifficulty());
         fxPrice.setText(cost+" kr.");
         fxDuration.setText(dayTrip.getTimeStart() + " - " + dayTrip.getTimeEnd());
+        fxLocation.setText("Tel. " + dayTrip.getLocation());
 
     }
 

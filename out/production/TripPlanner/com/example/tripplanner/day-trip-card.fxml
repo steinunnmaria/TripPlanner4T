@@ -46,24 +46,18 @@
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="fxCapacity" alignment="CENTER" contentDisplay="CENTER" prefHeight="63.0" prefWidth="82.0" text="47 tickets left" textAlignment="CENTER" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="2147483647">
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="15.0" top="10.0" />
-                     </padding></Label>
                   <Label fx:id="fxPrice" text="Price kr." GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin></Label>
-                  <Label fx:id="fxDiff" text="Difficulty" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Label fx:id="fxDiff" text="Difficulty" GridPane.rowIndex="2">
                      <GridPane.margin>
-                        <Insets left="5.0" />
+                        <Insets />
                      </GridPane.margin></Label>
+                  <Label fx:id="fxLocation" text="Location" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <Button layoutX="198.0" mnemonicParsing="false" onAction="#selectHandler" prefHeight="60.0" prefWidth="70.0" style="-fx-background-color: radial-gradient(radius 180%, yellow, derive(yellow, -30%), derive(yellow, 30%))radial-gradient(radius 180%, yellow, derive(yellow, -30%), derive(yellow, 30%))radial-gradient(radius 180%, yellow, derive(yellow, -30%), derive(yellow, 30%))radial-gradient(radius 180%, yellow, derive(yellow, -30%), derive(yellow, 30%));" text="View daytrip" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="18.0">
+            <Button fx:id="fxCapacity" layoutX="198.0" mnemonicParsing="false" onAction="#selectHandler" prefHeight="60.0" prefWidth="70.0" style="-fx-background-color: radial-gradient(radius 180%, yellow, derive(yellow, -30%), derive(yellow, 30%))radial-gradient(radius 180%, yellow, derive(yellow, -30%), derive(yellow, 30%))radial-gradient(radius 180%, yellow, derive(yellow, -30%), derive(yellow, 30%))radial-gradient(radius 180%, yellow, derive(yellow, -30%), derive(yellow, 30%));" text="47 tickets left" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="18.0">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>
