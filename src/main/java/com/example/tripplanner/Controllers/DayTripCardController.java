@@ -61,7 +61,6 @@ public class DayTripCardController extends SplitPane {
         fxDiff.setText(dayTrip.getDifficulty());
         fxPrice.setText(String.format("%,.0f", dayTrip.getPrice())+" kr.");
         fxDuration.setText(dayTrip.getTimeStart() + " - " + dayTrip.getTimeEnd());
-        fxLocation.setText("Tel. " + dayTrip.getLocation());
 
     }
 

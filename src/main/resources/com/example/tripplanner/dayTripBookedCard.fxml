@@ -18,7 +18,7 @@
                   <Font name="Bodoni 72 Book" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="fxLocation" alignment="CENTER" layoutY="26.0" prefHeight="17.0" prefWidth="108.0" text="Tel. " textAlignment="CENTER" />
+            <Label fx:id="fxDate" alignment="CENTER" layoutY="26.0" prefHeight="17.0" prefWidth="108.0" text="Tel. " textAlignment="CENTER" />
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
