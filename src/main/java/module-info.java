@@ -2,6 +2,7 @@ module com.example.tripplanner {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql.rowset;
+    requires commons.dbutils;
 
 
     opens com.example.tripplanner to javafx.fxml;

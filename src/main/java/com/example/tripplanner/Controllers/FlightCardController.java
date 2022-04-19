@@ -1,6 +1,6 @@
 package com.example.tripplanner.Controllers;
 
-import com.example.tripplanner.Classes.Flight;
+import com.example.tripplanner.FlightDataBase.Flight;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -17,14 +17,14 @@ public class FlightCardController extends SplitPane {
 
 
 
-    public FlightCardController(String airline) {
+    public FlightCardController(Flight f) {
         lesaVidburd();
         //Setja Flight hlut sem parameter í fallið, upphafsstilla fyrir tilviksbreytu hér fyrir neðan
         //this.flight=flight;
         //setLabels(flight);
 
 
-        fxAirline.setText(airline);
+        fxAirline.setText(f.getAirlineName());
 
     }
 

@@ -1,6 +1,6 @@
 package com.example.tripplanner.Comparators;
 
-import com.example.tripplanner.Classes.Flight;
+import com.example.tripplanner.FlightDataBase.Flight;
 
 import java.util.Comparator;
 

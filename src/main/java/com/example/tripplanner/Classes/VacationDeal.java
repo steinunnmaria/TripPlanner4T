@@ -1,6 +1,7 @@
 package com.example.tripplanner.Classes;
 
 import com.example.tripplanner.DayTripDataBase.DayTrip;
+import com.example.tripplanner.FlightDataBase.Flight;
 import com.example.tripplanner.HotelDataBase.Hotel;
 
 import java.time.LocalDate;

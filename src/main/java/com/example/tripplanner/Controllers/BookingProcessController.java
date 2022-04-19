@@ -3,6 +3,9 @@ package com.example.tripplanner.Controllers;
 import com.example.tripplanner.Classes.VacationDeal;
 import com.example.tripplanner.DayTripDataBase.DayTrip;
 import com.example.tripplanner.DayTripDataBase.DayTripController;
+import com.example.tripplanner.FlightDataBase.Customer;
+import com.example.tripplanner.FlightDataBase.CustomerController;
+import com.example.tripplanner.FlightDataBase.Flight;
 import com.example.tripplanner.HotelDataBase.Hotel;
 import com.example.tripplanner.HotelDataBase.HotelController;
 import javafx.collections.FXCollections;
@@ -21,6 +24,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class BookingProcessController implements Initializable {
@@ -56,12 +60,12 @@ public class BookingProcessController implements Initializable {
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        try {
+        /*try {
             loadFlightCards();
         }
         catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
         fxSortFlights.getItems().add(COMBOSORT[0]);
         fxSortFlights.getItems().add(COMBOSORT[1]);
         fxSortDT.getItems().addAll(COMBOSORT);
@@ -105,7 +109,12 @@ public class BookingProcessController implements Initializable {
 
     public void loadFlightCards() throws IOException {
         ArrayList<FlightCardController> listi = new ArrayList<FlightCardController>();
-        FlightCardController f1 = new FlightCardController("Fyrsti");
+
+        CustomerController cc = new CustomerController(new Customer("", "", new ArrayList<>(), 1));
+        List<List<Flight>> allFlights = cc.searchRoundTrips(vd.getDateFrom(), vd.getDateTo(), vd.getDestFrom(), vd.getDestTo(), totalPeople);
+        List<Flight> depFlights = allFlights.get(0);
+        List<Flight> retFlights = allFlights.get(1);
+        /*FlightCardController f1 = new FlightCardController("Fyrsti");
         FlightCardController f2 = new FlightCardController("Annar");
         FlightCardController f3 = new FlightCardController("Þriðji");
         FlightCardController f4 = new FlightCardController("Fjórði");
@@ -113,11 +122,16 @@ public class BookingProcessController implements Initializable {
         listi.add(f1);
         listi.add(f2);
         listi.add(f3);
-        listi.add(f4);
+        listi.add(f4);*/
+
+        for (Flight f : depFlights) {
+            FlightCardController fcc = new FlightCardController(f);
+            listi.add(fcc);
+        }
         fxFlightsDepCont.getChildren().addAll(listi);
 
         ArrayList<FlightCardController> listi2 = new ArrayList<FlightCardController>();
-        FlightCardController f11 = new FlightCardController("10");
+        /*FlightCardController f11 = new FlightCardController("10");
         FlightCardController f22 = new FlightCardController("20");
         FlightCardController f33 = new FlightCardController("Icelandair");
         FlightCardController f44 = new FlightCardController("Ernir");
@@ -125,7 +139,11 @@ public class BookingProcessController implements Initializable {
         listi2.add(f11);
         listi2.add(f22);
         listi2.add(f33);
-        listi2.add(f44);
+        listi2.add(f44);*/
+        for (Flight f : retFlights) {
+            FlightCardController fcc = new FlightCardController(f);
+            listi2.add(fcc);
+        }
         fxFlightsRetCont.getChildren().addAll(listi2);
 
     }
@@ -342,5 +360,9 @@ public class BookingProcessController implements Initializable {
     public void hotelBookHandler(ActionEvent actionEvent) {
         fxBookedHotel.setVisible(true);
         fxHotelPopUp.setVisible(false);
+    }
+
+    public void prufuHandler(ActionEvent actionEvent) throws IOException {
+        loadFlightCards();
     }
 }
