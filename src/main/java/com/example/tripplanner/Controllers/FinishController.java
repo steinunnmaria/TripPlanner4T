@@ -1,6 +1,8 @@
 package com.example.tripplanner.Controllers;
 
 import com.example.tripplanner.Classes.VacationDeal;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -35,6 +37,8 @@ public class FinishController implements Initializable {
     private ArrayList<Integer> months = new ArrayList<>();
     private ArrayList<Integer> years = new ArrayList<>();
 
+
+
     public void initialize(URL url, ResourceBundle resourceBundle) {
         for (int i = 1;i < 13 ;i++ ) {
             months.add(i);
@@ -45,6 +49,46 @@ public class FinishController implements Initializable {
         fxConfirmAndPay.setDisable(true);
         fxExpMonth.getItems().addAll(months);
         fxExpYear.getItems().addAll(years);
+
+        fxSsn.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    fxSsn.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
+
+        fxCardNo.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d")) {
+                    fxCardNo.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
+
+        fxCvc.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    fxCvc.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
+
+        fxTelNo.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    fxTelNo.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
     }
 
     public void loadFinishCards() throws IOException {
@@ -82,4 +126,7 @@ public class FinishController implements Initializable {
 
         //Ath hvort allir reitir séu fylltir, þá af-disable-a confirm takkann
     }
+
+
+
 }
