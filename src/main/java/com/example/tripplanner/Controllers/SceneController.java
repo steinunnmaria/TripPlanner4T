@@ -33,13 +33,14 @@ public class SceneController {
     public void switchToSceneReview(ActionEvent actionEvent, VacationDeal vd) throws IOException {
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/com/example/tripplanner/review-booking-view.fxml")));
         root = loader.load();
-        ReviewBookingView reviewBookingView = loader.getController();
-        reviewBookingView.setVacationDeal(vd);
+        ReviewBookingController reviewBookingController = loader.getController();
+        reviewBookingController.setVacationDeal(vd);
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene((root));
         stage.setTitle("Review Booking");
         stage.setScene(scene);
         stage.show();
+        reviewBookingController.setOverview(vd);
     }
 
     public void switchToSceneFront(ActionEvent actionEvent) throws IOException {

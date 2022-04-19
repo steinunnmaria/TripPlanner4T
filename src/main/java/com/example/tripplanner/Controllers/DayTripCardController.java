@@ -39,7 +39,6 @@ public class DayTripCardController extends SplitPane {
         //Setja DayTrip hlut sem parameter í fallið, upphafsstilla fyrir tilviksbreytu hér fyrir neðan
         this.dayTrip=dt;
         setLabels(dayTrip);
-
     }
 
     private void setLabels(DayTrip dayTrip) {
