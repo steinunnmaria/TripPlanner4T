@@ -311,7 +311,7 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="293.0" layoutY="174.0" mnemonicParsing="false" onAction="#hotelBookHandler" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: radial-gradient(radius 180%, limegreen, derive(limegreen, -30%), derive(limegreen, 30%)) radial-gradient(radius 180%, limegreen, derive(limegreen, -30%), derive(limegreen, 30%)) radial-gradient(radius 180%, limegreen, derive(limegreen, -30%), derive(limegreen, 30%)) radial-gradient(radius 180%, limegreen, derive(limegreen, -30%), derive(limegreen, 30%));" text="Confirm" />
+                                    <Button layoutX="293.0" layoutY="174.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: radial-gradient(radius 180%, limegreen, derive(limegreen, -30%), derive(limegreen, 30%)) radial-gradient(radius 180%, limegreen, derive(limegreen, -30%), derive(limegreen, 30%)) radial-gradient(radius 180%, limegreen, derive(limegreen, -30%), derive(limegreen, 30%)) radial-gradient(radius 180%, limegreen, derive(limegreen, -30%), derive(limegreen, 30%));" text="Confirm" />
                                     <Label layoutX="226.0" layoutY="15.0" text="1 person room" />
                                     <Button layoutX="313.0" layoutY="10.0" mnemonicParsing="false" text="-" />
                                     <Button layoutX="313.0" layoutY="45.0" mnemonicParsing="false" text="-" />
@@ -511,6 +511,103 @@
                            </children>
                         </GridPane>
                      </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="fxFlightsTab1" onSelectionChanged="#tabChangeHandler" style="-fx-font-size: 16px; -fx-color: #C8D9F0; -fx-background-color: #C8D9F0;" text="Review Booking">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="Review your booking">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <SplitPane dividerPositions="0.5" layoutX="14.0" layoutY="76.0" prefHeight="90.0" prefWidth="846.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" text="Date: XX">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="14.0" layoutY="34.0" text="Departure at XX from LOCATION">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="14.0" layoutY="54.0" text="Arrival at XX in LOCATION">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="322.0" layoutY="36.0" text="FI123" />
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="54.0" text="Arrival at XX in LOCATION">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="14.0" layoutY="14.0" text="Date: XX">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="14.0" layoutY="34.0" text="Departure at XX from LOCATION">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="313.0" layoutY="38.0" text="FI123" />
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                        <Label layoutX="14.0" layoutY="50.0" text="Flying with AIRLINE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="433.0" layoutY="181.0" text="Day Trips">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <ScrollPane layoutX="433.0" layoutY="204.0" prefHeight="257.0" prefWidth="426.0">
+                           <content>
+                              <VBox fx:id="fxFlightsDepCont11" prefHeight="239.0" prefWidth="411.0" spacing="5.0" />
+                           </content>
+                        </ScrollPane>
+                        <Label layoutX="14.0" layoutY="184.0" text="Hotel NAME in LOCATION">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TabPane layoutX="14.0" layoutY="206.0" prefHeight="251.0" prefWidth="411.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Rooms booked">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="429.0">
+                                       <children>
+                                          <ScrollPane prefHeight="222.0" prefWidth="410.0">
+                                             <content>
+                                                <VBox fx:id="fxFlightsDepCont12" prefHeight="203.0" prefWidth="223.0" spacing="5.0" />
+                                             </content>
+                                          </ScrollPane>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                          </tabs>
+                        </TabPane>
+                        <Button layoutX="915.0" layoutY="474.0" mnemonicParsing="false" text="Confirm my booking" />
+                        <Button layoutX="817.0" layoutY="474.0" mnemonicParsing="false" text="Edit booking" />
+                        <VBox layoutX="870.0" layoutY="76.0" prefHeight="382.0" prefWidth="174.0" />
+                     </children>
+                  </AnchorPane>
                </content>
             </Tab>
         </tabs>

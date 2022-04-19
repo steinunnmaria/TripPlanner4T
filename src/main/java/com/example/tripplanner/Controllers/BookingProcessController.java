@@ -1,6 +1,5 @@
 package com.example.tripplanner.Controllers;
 
-import com.example.tripplanner.Classes.RoomBooking;
 import com.example.tripplanner.Classes.VacationDeal;
 import com.example.tripplanner.DayTripDataBase.DayTrip;
 import com.example.tripplanner.DayTripDataBase.DayTripController;
@@ -44,7 +43,8 @@ public class BookingProcessController implements Initializable {
     private Label fxMyFlightNo2, fxMyFlightDate2, fxMyAirline2, fxMyFlightDept2, fxMyFlightArr2,
             fxMyFlightPass2, fxMyFlightFrom2, fxMyFlightTo2, fxMyFlightPrice2;
     @FXML
-    private Label fxHotelBookedName, fxHotelBookedDates, fxHotelBookedRooms, fxHotelBookedGuests, fxHotelBookedPriceTotal;
+    private Label fxHotelBookedName, fxHotelBookedDates, fxHotelBookedRooms, fxHotelBookedGuests,
+            fxHotelBookedPriceTotal, fxCautionPeople;
     @FXML
     private SplitPane fxMyFlight1, fxMyFlight2;
     @FXML
@@ -81,9 +81,12 @@ public class BookingProcessController implements Initializable {
     private HotelController hotelController;
     private Flight myFlightOut;
     private Flight myFlightBack;
-    private RoomBooking bookedRooms;
+    //private RoomBooking bookedRooms;
     private boolean datePickerOpened;
     private ReservationController reservationController;
+    private int roomCount = 0;
+    private ArrayList<Room> bookedRooms = new ArrayList<>();
+    private int peopleBooked = 0;
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -107,7 +110,6 @@ public class BookingProcessController implements Initializable {
 
     }
 
-
     public void setVacationDeal(VacationDeal vd) {
         this.vd=vd;
         totalPeople = vd.getTotaCount();
@@ -130,8 +132,6 @@ public class BookingProcessController implements Initializable {
     public void setThisLoader(FXMLLoader loader) {
         this.loader = loader;
     }
-
-
 
     public void setDTPopUp(DayTrip dt) {
         //Taka inn dayTrip hlut, upphafsstilla hann sem chosenDayTrip
@@ -219,7 +219,9 @@ public class BookingProcessController implements Initializable {
         fxHotelCont.getChildren().addAll(listi);
 
     }
+
     public void loadHotelRoomCards(Hotel h) throws Exception {
+        this.chosenHotel = h;
         fxHotelPopUp.setVisible(true);
 
         ArrayList<HotelRoomCardController> listi = new ArrayList<HotelRoomCardController>();
@@ -236,7 +238,7 @@ public class BookingProcessController implements Initializable {
         fxRoomCont.getChildren().addAll(listi);
 
     }
-    public void setHotelPopUp(Hotel h) throws Exception {
+    /*public void setHotelPopUp(Hotel h) throws Exception {
         //Taka inn hotel hlut, upphafsstilla hann sem chosenHotel
         fxPopHotelName.setText(h.getName());
         fxPopHotelDateFrom.setText(vd.getDateFrom().toString() + " - " + vd.getDateTo().toString());
@@ -246,7 +248,7 @@ public class BookingProcessController implements Initializable {
         System.out.println(rooms.size());
         fxHotelPopUp.setVisible(true);
         this.chosenHotel = h;
-    }
+    }*/
 
     public void loadDTCards() throws IOException {
         fxNoDayTrips.setDisable(true);
@@ -484,13 +486,37 @@ public class BookingProcessController implements Initializable {
         resetCheckBoxes();
     }
 
-    public void hotelBookHandler(ActionEvent actionEvent) {
+    /*public void hotelBookHandler(ActionEvent actionEvent) {
+
         fxHotelBookedName.setText(chosenHotel.getName());
         fxHotelBookedDates.setText(vd.getDateFrom() + " - " + vd.getDateTo());
         //fxHotelBookedRooms.setText(this.bookedRooms.print()); hægt að nota bráðum...
-        fxHotelBookedGuests.setText(vd.getTotaCount() + " persons");
+        fxHotelBookedGuests.setText(totalPeople + " persons");
         fxBookedHotel.setVisible(true);
         fxHotelPopUp.setVisible(false);
+    }*/
+
+
+    public void bookRoom(Room rm) {
+        System.out.println("Komst hingað");
+        peopleBooked += rm.getCapacity();
+        if (peopleBooked > totalPeople) {
+            //Fjarlægja lista af herb. eða setja viðvörun um að búið sé að bóka fyrir alla
+
+        }
+        roomCount++;
+        bookedRooms.add(rm);
+        fxHotelBookedName.setText(chosenHotel.getName());
+        fxHotelBookedDates.setText(vd.getDateFrom() + " - " + vd.getDateTo());
+        fxHotelBookedRooms.setText(roomCount + " rooms, fit " + peopleBooked + " people");
+        fxHotelBookedGuests.setText(totalPeople + " people");
+        fxBookedHotel.setVisible(true);
+    }
+    public void unbookRoom(Room rm) {
+        peopleBooked -= rm.getCapacity();
+        roomCount--;
+        bookedRooms.remove(rm);
+        fxHotelBookedRooms.setText(roomCount + " rooms, fit " + peopleBooked + " people");
     }
 
     public void prufuHandler(ActionEvent actionEvent) throws IOException {
