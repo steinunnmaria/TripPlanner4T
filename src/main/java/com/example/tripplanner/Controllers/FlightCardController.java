@@ -8,6 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 public class FlightCardController extends SplitPane {
 
@@ -52,8 +54,9 @@ public class FlightCardController extends SplitPane {
     private void setLabels(Flight fl) {
         // sækja titil, dags, o.s.frv frá flight og setja í labels (setText)
         fxFlightNo.setText(fl.getAirlineName() + " " + fl.getFlightNumber());
-        fxFlightPrice.setText(String.valueOf(fl.getPrice())+ " kr. / person"); // eða fxFlightPrice.setText(String.valueOf(fl.getPrice() * bpc.getTotalPeople())+ " kr."); ?
-        fxFlightDate.setText(fl.getDate().toString());
+        fxFlightPrice.setText(String.format("%,.0f", (double) fl.getPrice()) + " kr. / person");
+        fxFlightDate.setText(fl.getDate().format(DateTimeFormatter
+                .ofLocalizedDate(FormatStyle.MEDIUM)));
         fxFlightDuration.setText(String.valueOf(fl.getDuration()) + " klst.");
         fxFromDest.setText(fl.getDeparture());
         fxToDest.setText(fl.getDestination());

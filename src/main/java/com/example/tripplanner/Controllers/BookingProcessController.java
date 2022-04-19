@@ -24,6 +24,8 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
@@ -82,7 +84,6 @@ public class BookingProcessController implements Initializable {
     private Flight myFlightOut;
     private Flight myFlightBack;
     private DayTrip openedDayTrip;
-    //private RoomBooking bookedRooms;
     private boolean datePickerOpened;
     private ReservationController reservationController;
     private int roomCount = 0;
@@ -136,8 +137,9 @@ public class BookingProcessController implements Initializable {
         this.openedDayTrip = dt;
         fxPopDTName.setText(dt.getName());
         fxPopDTAgeLimit.setText("Age limit: "+dt.getAgeLimit()+" years");
-        fxPopDTDate.setText(dt.getDate().toString());
-        fxPopDTTime.setText(dt.getTimeStart().toString()+" - "+dt.getTimeEnd().toString());
+        fxPopDTDate.setText(dt.getDate().format(DateTimeFormatter
+                .ofLocalizedDate(FormatStyle.MEDIUM)));
+        fxPopDTTime.setText(dt.getTimeStart().toString()+" - "+dt.getTimeEnd().toString()); /// XXXX LAGA
         fxPopDTDescr.setText(dt.getDescription());
         fxPopDTPrice.setText(String.valueOf((int) dt.getPrice()));
         fxDayTripPopup.setVisible(true);
@@ -151,12 +153,12 @@ public class BookingProcessController implements Initializable {
         fxMyFlightDept1.setText(fl.getDeparture());
         fxMyFlightArr1.setText(fl.getDestination());
         fxMyFlightPass1.setText(vd.getTotalCount() + " tickets");
-        fxMyFlightFrom1.setText(fl.getTime().toString());
+        fxMyFlightFrom1.setText(fl.getTime().toString()); ///// XXXX LAGA
         fxMyFlightTo1.setText(String.valueOf(fl.getDuration()));
         this.flightOutCost = fl.getPrice() * totalPeople;
-        fxMyFlightPrice1.setText(this.flightOutCost+" kr.");
+        fxMyFlightPrice1.setText(String.format("%,.0f", (double) this.flightOutCost)+" kr.");
         fxMyFlight1.setVisible(true);
-        fxFlightTotalPrice.setText(this.flightOutCost+this.flightBackCost+" kr.");
+        fxFlightTotalPrice.setText(String.format("%,.0f", (double) this.flightOutCost+this.flightBackCost)+" kr.");
         this.myFlightOut = fl;
     }
 
@@ -168,12 +170,12 @@ public class BookingProcessController implements Initializable {
         fxMyFlightDept2.setText(fl.getDeparture());
         fxMyFlightArr2.setText(fl.getDestination());
         fxMyFlightPass2.setText(vd.getTotalCount() + " tickets");
-        fxMyFlightFrom2.setText(fl.getTime().toString());
+        fxMyFlightFrom2.setText(fl.getTime().toString()); /////// XXXX LAGA
         fxMyFlightTo2.setText(String.valueOf(fl.getDuration()));
         this.flightBackCost = fl.getPrice() * totalPeople;
-        fxMyFlightPrice2.setText(this.flightBackCost+" kr.");
+        fxMyFlightPrice2.setText(String.format("%,.0f", (double) this.flightBackCost)+" kr.");
         fxMyFlight2.setVisible(true);
-        fxFlightTotalPrice.setText(this.flightOutCost+this.flightBackCost+" kr.");
+        fxFlightTotalPrice.setText(String.format("%,.0f", (double) this.flightOutCost+this.flightBackCost)+" kr.");
         this.myFlightBack = fl;
     }
 
@@ -282,7 +284,7 @@ public class BookingProcessController implements Initializable {
         this.totalDayTripsPrice += (int) dt.getPrice()*tickets;
         bookedDTCardsList.add(dtbcc);
         fxBookedDayTripsList.getChildren().add(dtbcc);
-        fxTotalDayTripsPrice.setText(this.totalDayTripsPrice + " kr.");
+        fxTotalDayTripsPrice.setText(String.format("%,.0f", (double) this.totalDayTripsPrice) + " kr.");
         vd.setBookedDTList(bookedDTCardsList);
     }
 
@@ -290,7 +292,7 @@ public class BookingProcessController implements Initializable {
         this.chosenDayTrips.remove(dt);
         fxBookedDayTripsList.getChildren().remove(dtbcc);
         bookedDTCardsList.remove(dtbcc);
-        fxTotalDayTripsPrice.setText(this.totalDayTripsPrice + " kr.");
+        fxTotalDayTripsPrice.setText(String.format("%,.0f", (double) this.totalDayTripsPrice) + " kr.");
     }
 
     public void nextDayHandler(ActionEvent actionEvent) throws IOException {
@@ -554,14 +556,14 @@ public class BookingProcessController implements Initializable {
         fxHotelBookedDates.setText(vd.getDateFrom() + " - " + vd.getDateTo());
         fxHotelBookedRooms.setText(printRooms(bookedRooms));
         fxHotelBookedGuests.setText("Rooms hold " + peopleBooked + " of " + totalPeople + " people");
-        fxHotelBookedPriceTotal.setText(getTotalRoomPrice(bookedRooms) + " kr.");
+        fxHotelBookedPriceTotal.setText(String.format("%,.0f", (double) getTotalRoomPrice(bookedRooms)) + " kr.");
         fxBookedHotel.setVisible(true);
     }
     public void unbookRoom(Room rm) {
         peopleBooked -= rm.getCapacity();
         roomCount--;
         bookedRooms.remove(rm);
-        fxHotelBookedPriceTotal.setText(getTotalRoomPrice(bookedRooms) + " kr.");
+        fxHotelBookedPriceTotal.setText(String.format("%,.0f", (double) getTotalRoomPrice(bookedRooms)) + " kr.");
         fxHotelBookedGuests.setText("Rooms hold " + peopleBooked + " of " + totalPeople + " people");
         fxHotelBookedRooms.setText(printRooms(bookedRooms));
     }

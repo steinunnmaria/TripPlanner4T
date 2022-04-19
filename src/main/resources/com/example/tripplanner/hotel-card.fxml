@@ -18,12 +18,18 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="45.0" prefWidth="130.0">
                      <children>
-                        <Label fx:id="fxInDate" alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="130.0" text="Check-in date" textAlignment="CENTER" />
+                        <Label fx:id="fxInDate" alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="130.0" text="Check-in date" textAlignment="CENTER">
+                           <font>
+                              <Font size="12.0" />
+                           </font></Label>
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="45.0" prefWidth="130.0">
                      <children>
-                        <Label fx:id="fxOutDate" alignment="CENTER" prefHeight="45.0" prefWidth="130.0" text="Check-out date" textAlignment="CENTER" />
+                        <Label fx:id="fxOutDate" alignment="CENTER" prefHeight="45.0" prefWidth="130.0" text="Check-out date" textAlignment="CENTER">
+                           <font>
+                              <Font size="12.0" />
+                           </font></Label>
                      </children>
                   </AnchorPane>
               </items>

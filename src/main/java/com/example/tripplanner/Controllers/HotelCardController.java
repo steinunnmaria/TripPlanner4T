@@ -9,6 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 public class HotelCardController extends SplitPane {
     @FXML
@@ -52,8 +54,10 @@ public class HotelCardController extends SplitPane {
         // sækja titil, dags, o.s.frv frá hotel og setja í labels (setText)
         fxName.setText(h.getName());
         fxCapacity.setText("Has capacity for at least "+vd.getTotalCount());
-        fxInDate.setText(this.vd.getDateFrom().toString());
-        fxOutDate.setText(this.vd.getDateTo().toString());
+        fxInDate.setText("Check-in: " + this.vd.getDateFrom().format(DateTimeFormatter
+                .ofLocalizedDate(FormatStyle.MEDIUM)));
+        fxOutDate.setText("Check-out: " + this.vd.getDateTo().format(DateTimeFormatter
+                .ofLocalizedDate(FormatStyle.MEDIUM)));
         fxLocation.setText(h.getTown());
     }
 

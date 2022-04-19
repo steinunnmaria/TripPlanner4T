@@ -55,7 +55,7 @@ public class HotelRoomCardController extends SplitPane {
         fxRoomNumber.setText(rm.getRoomNum().toString());
         fxCapacity.setText(rm.getCapacity().toString());
         fxNoBeds.setText(rm.getNumBeds().toString());
-        fxPricePerNight.setText(rm.getPrice() + " kr.");
+        fxPricePerNight.setText(String.format("%,.0f", (double) rm.getPrice()) + " kr.");
 
     }
 
