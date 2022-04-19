@@ -30,10 +30,11 @@ public class DayTripBookedCardController extends SplitPane {
         this.tickets = tickets;
         //Setja Hotel hlut sem parameter í fallið, upphafsstilla fyrir tilviksbreytu hér fyrir neðan
         this.dt=dt;
-        this.price = (int) dt.getPrice();
+        this.price = (int) dt.getPrice() * tickets;
         setLabels(dt);
 
     }
+
 
     private void setLabels(DayTrip dt) {
         // sækja titil, dags, o.s.frv frá hotel og setja í labels (setText)
@@ -41,11 +42,15 @@ public class DayTripBookedCardController extends SplitPane {
         fxLocation.setText("Tel. " + dt.getLocation());
         fxTickets.setText(String.valueOf(this.tickets));
         fxDifficulty.setText(dt.getDifficulty());
-        fxTotalPrice.setText(this.tickets * this.price + " kr.");
+        fxTotalPrice.setText(this.price + " kr.");
     }
 
     public void unBookHandler(ActionEvent actionEvent) throws Exception {
         this.bpc.unBookDayTrip(this.dt, this);
+    }
+
+    public int getPrice() {
+        return this.price;
     }
 
     private void readCard() {

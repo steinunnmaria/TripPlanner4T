@@ -29,6 +29,12 @@ public class HotelRoomCardController extends SplitPane {
         setLabels(rm);
     }
 
+    public HotelRoomCardController(Room rm) {
+        readCard();
+        this.room = rm;
+        setLabels(rm);
+    }
+
     public void selectHandler(ActionEvent actionEvent) throws Exception {
         if (fxBook.isSelected()) {
             bpc.bookRoom(this.room);

@@ -1,5 +1,6 @@
 package com.example.tripplanner.Classes;
 
+import com.example.tripplanner.Controllers.DayTripBookedCardController;
 import com.example.tripplanner.DayTripDataBase.DayTrip;
 import com.example.tripplanner.FlightDataBase.Flight;
 import com.example.tripplanner.HotelDataBase.Hotel;
@@ -31,6 +32,7 @@ public class VacationDeal {
     private ArrayList<DayTrip> myDayTrips;
     private ArrayList<Room> myRooms;
     private int totalPrice; /* double? */
+    private ArrayList<DayTripBookedCardController> bookedDTList;
 
     public VacationDeal(String destFrom, String destTo, LocalDate dateFrom, LocalDate dateTo, int adultCount, int childCount, Integer localCode) {
         this.destFrom = destFrom;
@@ -75,6 +77,22 @@ public class VacationDeal {
             price += (room.getPrice()*vacationDuration);
         }
         return price;
+    }
+
+    public int getDayTripsPrice() {
+        int price = 0;
+        for (DayTripBookedCardController dtbcc : bookedDTList) {
+            price += dtbcc.getPrice();
+        }
+        return price;
+    }
+
+    public int getTotalPassFlightPrice() {
+        return myFlightThere.getPrice() + myFlightBack.getPrice();
+    }
+
+    public int getTotalFlightPrice() {
+        return getTotalPassFlightPrice()*totalPeople;
     }
 
     public boolean isFlight() {
@@ -125,10 +143,6 @@ public class VacationDeal {
         return myDayTrips;
     }
 
-    public int getTotalPrice() {
-        return totalPrice;
-    }
-
     public Integer getLocalCode() {
         return localCode;
     }
@@ -175,6 +189,19 @@ public class VacationDeal {
         this.myDayTrips = myDayTrips;
     }
 
+    public int getTotalPrice() {
+        if (isFlight()) {
+            totalPrice+=getTotalFlightPrice();
+        }
+        if (isHotel()) {
+            totalPrice+=getHotelPrice();
+        }
+        if (isDayTrip()) {
+            totalPrice+=getDayTripsPrice();
+        }
+        return totalPrice;
+    }
+
     public void setTotalPrice(int totalPrice) {
         this.totalPrice = totalPrice;
     }
@@ -188,4 +215,12 @@ public class VacationDeal {
     }
 
     public int getTotalCount() { return this.totalPeople; }
+
+    public void setBookedDTList(ArrayList<DayTripBookedCardController> bookedDTList) {
+        this.bookedDTList = bookedDTList;
+    }
+
+    public ArrayList<DayTripBookedCardController> getBookedDTList() {
+        return bookedDTList;
+    }
 }

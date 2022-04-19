@@ -45,6 +45,13 @@ public class DayTripCardController extends SplitPane {
         setLabels(dayTrip);
     }
 
+    public DayTripCardController(DayTrip dt) {
+        readCard();
+        this.dayTrip = dt;
+        setLabels(dayTrip);
+        fxCapacity.setVisible(false);
+    }
+
     private void setLabels(DayTrip dayTrip) {
         // sækja titil, dags, o.s.frv frá daytrip og setja í labels (setText)
         fxTitle.setText(dayTrip.getName());

@@ -89,6 +89,7 @@ public class BookingProcessController implements Initializable {
     private ArrayList<Room> bookedRooms = new ArrayList<>();
     private int peopleBooked = 0;
     private int totalDayTripsPrice = 0;
+    private ArrayList<DayTripBookedCardController> bookedDTCardsList = new ArrayList<DayTripBookedCardController>();
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -152,8 +153,8 @@ public class BookingProcessController implements Initializable {
         fxMyFlightPass1.setText(vd.getTotalCount() + " tickets");
         fxMyFlightFrom1.setText(fl.getTime().toString());
         fxMyFlightTo1.setText(String.valueOf(fl.getDuration()));
-        this.flightBackCost = fl.getPrice() * totalPeople;
-        fxMyFlightPrice1.setText(this.flightBackCost+" kr.");
+        this.flightOutCost = fl.getPrice() * totalPeople;
+        fxMyFlightPrice1.setText(this.flightOutCost+" kr.");
         fxMyFlight1.setVisible(true);
         fxFlightTotalPrice.setText(this.flightOutCost+this.flightBackCost+" kr.");
         this.myFlightOut = fl;
@@ -277,18 +278,18 @@ public class BookingProcessController implements Initializable {
         this.chosenDayTrips.add(dt);
         fxDayTripPopup.setVisible(false);
 
-        ArrayList<DayTripBookedCardController> listi = new ArrayList<DayTripBookedCardController>();
-
         DayTripBookedCardController dtbcc = new DayTripBookedCardController(dt, loader.getController(), tickets);
-        this.totalDayTripsPrice += (int) dt.getPrice();
-        listi.add(dtbcc);
-        fxBookedDayTripsList.getChildren().addAll(listi);
+        this.totalDayTripsPrice += (int) dt.getPrice()*tickets;
+        bookedDTCardsList.add(dtbcc);
+        fxBookedDayTripsList.getChildren().add(dtbcc);
         fxTotalDayTripsPrice.setText(this.totalDayTripsPrice + " kr.");
+        vd.setBookedDTList(bookedDTCardsList);
     }
 
     public void unBookDayTrip(DayTrip dt, DayTripBookedCardController dtbcc) {
         this.chosenDayTrips.remove(dt);
         fxBookedDayTripsList.getChildren().remove(dtbcc);
+        bookedDTCardsList.remove(dtbcc);
         fxTotalDayTripsPrice.setText(this.totalDayTripsPrice + " kr.");
     }
 
@@ -404,7 +405,7 @@ public class BookingProcessController implements Initializable {
 
     }
 
-    public void dayTripConfirmHandler(ActionEvent actionEvent) throws IOException {
+    public void dayTripConfirmHandler(ActionEvent actionEvent) throws Exception {
         vd.setDayTrip(true);
         if (vd.isFlight()) {
             vd.setMyFlightThere(myFlightOut);
@@ -422,7 +423,7 @@ public class BookingProcessController implements Initializable {
 
     }
 
-    public void dayTripSkipHandler(ActionEvent actionEvent) throws IOException {
+    public void dayTripSkipHandler(ActionEvent actionEvent) throws Exception {
         vd.setDayTrip(false);
         if (vd.isFlight()) {
             vd.setMyFlightThere(myFlightOut);
@@ -582,10 +583,6 @@ public class BookingProcessController implements Initializable {
             total += r.getPrice()*this.vd.getVacationDuration();
         }
         return(total);
-    }
-
-    public void prufuHandler(ActionEvent actionEvent) throws IOException {
-        loadFlightCards();
     }
 
     public VacationDeal getVD() {

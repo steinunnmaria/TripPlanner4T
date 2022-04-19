@@ -32,7 +32,7 @@ public class SceneController {
         stage.show();
         bookingControl.loadFlightCards();
     }
-    public void switchToSceneReview(ActionEvent actionEvent, VacationDeal vd) throws IOException {
+    public void switchToSceneReview(ActionEvent actionEvent, VacationDeal vd) throws Exception {
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/com/example/tripplanner/review-booking-view.fxml")));
         root = loader.load();
         ReviewBookingController reviewBookingController = loader.getController();
