@@ -74,8 +74,8 @@ public class BookingProcessController implements Initializable {
     private int totalPeople;
     private int totalAdult;
     private int totalChildren;
-    private double flightOutCost;
-    private double flightBackCost = 0;
+    private int flightOutCost;
+    private int flightBackCost = 0;
     private LocalDate chosenDayForDayTrip;
     private ArrayList<Hotel> hotelListi;
     private HotelController hotelController;
@@ -112,7 +112,7 @@ public class BookingProcessController implements Initializable {
 
     public void setVacationDeal(VacationDeal vd) {
         this.vd=vd;
-        totalPeople = vd.getTotaCount();
+        totalPeople = vd.getTotalCount();
         totalAdult = vd.getAdultCount();
         totalChildren = vd.getChildCount();
         this.chosenDayForDayTrip = vd.getDateFrom();
@@ -152,11 +152,11 @@ public class BookingProcessController implements Initializable {
         fxMyAirline1.setText(fl.getAirlineName());
         fxMyFlightDept1.setText(fl.getDeparture());
         fxMyFlightArr1.setText(fl.getDestination());
-        fxMyFlightPass1.setText(vd.getTotaCount() + " tickets");
+        fxMyFlightPass1.setText(vd.getTotalCount() + " tickets");
         fxMyFlightFrom1.setText(fl.getTime().toString());
         fxMyFlightTo1.setText(String.valueOf(fl.getDuration()));
-        fxMyFlightPrice1.setText(fl.getPrice()+" kr.");
-        this.flightOutCost = fl.getPrice();
+        this.flightBackCost = fl.getPrice() * totalPeople;
+        fxMyFlightPrice1.setText(this.flightBackCost+" kr.");
         fxMyFlight1.setVisible(true);
         fxFlightTotalPrice.setText(this.flightOutCost+this.flightBackCost+" kr.");
         this.myFlightOut = fl;
@@ -169,11 +169,11 @@ public class BookingProcessController implements Initializable {
         fxMyAirline2.setText(fl.getAirlineName());
         fxMyFlightDept2.setText(fl.getDeparture());
         fxMyFlightArr2.setText(fl.getDestination());
-        fxMyFlightPass2.setText(vd.getTotaCount() + " tickets");
+        fxMyFlightPass2.setText(vd.getTotalCount() + " tickets");
         fxMyFlightFrom2.setText(fl.getTime().toString());
         fxMyFlightTo2.setText(String.valueOf(fl.getDuration()));
-        fxMyFlightPrice2.setText(fl.getPrice()+" kr.");
-        this.flightBackCost = fl.getPrice();
+        this.flightBackCost = fl.getPrice() * totalPeople;
+        fxMyFlightPrice2.setText(this.flightBackCost+" kr.");
         fxMyFlight2.setVisible(true);
         fxFlightTotalPrice.setText(this.flightOutCost+this.flightBackCost+" kr.");
         this.myFlightBack = fl;
@@ -222,6 +222,10 @@ public class BookingProcessController implements Initializable {
 
     public void loadHotelRoomCards(Hotel h) throws Exception {
         this.chosenHotel = h;
+        peopleBooked = 0;
+        bookedRooms.clear();
+        roomCount = 0;
+        fxBookedHotel.setVisible(false);
         fxHotelPopUp.setVisible(true);
 
         ArrayList<HotelRoomCardController> listi = new ArrayList<HotelRoomCardController>();
@@ -234,7 +238,7 @@ public class BookingProcessController implements Initializable {
             HotelRoomCardController hrcc = new HotelRoomCardController(room, loader.getController());
             listi.add(hrcc);
         }
-
+        fxRoomCont.getChildren().clear();
         fxRoomCont.getChildren().addAll(listi);
 
     }
@@ -508,15 +512,37 @@ public class BookingProcessController implements Initializable {
         bookedRooms.add(rm);
         fxHotelBookedName.setText(chosenHotel.getName());
         fxHotelBookedDates.setText(vd.getDateFrom() + " - " + vd.getDateTo());
-        fxHotelBookedRooms.setText(roomCount + " rooms, fit " + peopleBooked + " people");
-        fxHotelBookedGuests.setText(totalPeople + " people");
+        fxHotelBookedRooms.setText(printRooms(bookedRooms));
+        fxHotelBookedGuests.setText("Rooms hold " + peopleBooked + " of " + totalPeople + " people");
+        fxHotelBookedPriceTotal.setText(getTotalRoomPrice(bookedRooms) + " kr.");
         fxBookedHotel.setVisible(true);
     }
     public void unbookRoom(Room rm) {
         peopleBooked -= rm.getCapacity();
         roomCount--;
         bookedRooms.remove(rm);
-        fxHotelBookedRooms.setText(roomCount + " rooms, fit " + peopleBooked + " people");
+        fxHotelBookedPriceTotal.setText(getTotalRoomPrice(bookedRooms) + " kr.");
+        fxHotelBookedGuests.setText("Rooms hold " + peopleBooked + " of " + totalPeople + " people");
+        fxHotelBookedRooms.setText(printRooms(bookedRooms));
+    }
+
+    public String printRooms(ArrayList<Room> rooms) {
+        String s = "| ";
+        for (Room r: rooms) {
+            String c = r.getRoomNum() + " (holds "+r.getCapacity()+") | ";
+            //Ógeðslegt og eitthvað sem aldrei ætti að gera í Java
+            // en þetta er svo lítið...
+            s = s+c;
+        }
+        return(s);
+    }
+
+    public int getTotalRoomPrice(ArrayList<Room> rooms) {
+        int total = 0;
+        for (Room r: rooms) {
+            total += r.getPrice()*this.vd.getVacationDuration();
+        }
+        return(total);
     }
 
     public void prufuHandler(ActionEvent actionEvent) throws IOException {

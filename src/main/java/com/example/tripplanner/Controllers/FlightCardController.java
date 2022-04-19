@@ -52,7 +52,7 @@ public class FlightCardController extends SplitPane {
     private void setLabels(Flight fl) {
         // sækja titil, dags, o.s.frv frá flight og setja í labels (setText)
         fxFlightNo.setText(fl.getAirlineName() + " " + fl.getFlightNumber());
-        fxFlightPrice.setText(String.valueOf(fl.getPrice())+ " kr."); // eða fxFlightPrice.setText(String.valueOf(fl.getPrice() * bpc.getTotalPeople())+ " kr."); ?
+        fxFlightPrice.setText(String.valueOf(fl.getPrice())+ " kr. / person"); // eða fxFlightPrice.setText(String.valueOf(fl.getPrice() * bpc.getTotalPeople())+ " kr."); ?
         fxFlightDate.setText(fl.getDate().toString());
         fxFlightDuration.setText(String.valueOf(fl.getDuration()) + " klst.");
         fxFromDest.setText(fl.getDeparture());

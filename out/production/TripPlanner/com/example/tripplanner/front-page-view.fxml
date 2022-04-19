@@ -15,30 +15,38 @@
             <Font name="System Bold" size="22.0" />
          </font>
           </Label>
-      <ComboBox fx:id="fxFromDest" layoutX="50.0" layoutY="137.0" onAction="#fromDestHandler" prefHeight="25.0" prefWidth="217.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" />
-      <ComboBox fx:id="fxToDest" layoutX="296.0" layoutY="137.0" onAction="#toDestHandler" prefHeight="25.0" prefWidth="217.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" />
+      <ComboBox fx:id="fxFromDest" layoutX="50.0" layoutY="137.0" onAction="#fromDestHandler" prefHeight="25.0" prefWidth="217.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px;" />
+      <ComboBox fx:id="fxToDest" layoutX="296.0" layoutY="137.0" onAction="#toDestHandler" prefHeight="25.0" prefWidth="217.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px;" />
           <Label layoutX="302.0" layoutY="250.0" text="Adults">
          <font>
             <Font size="14.0" />
          </font>
           </Label>
-          <Button layoutX="359.0" layoutY="247.0" mnemonicParsing="false" onAction="#adultsMinusHandler" text="-" />
-      <Label fx:id="fxAdultCount" layoutX="405.0" layoutY="251.0" text="1" />
-          <Button layoutX="437.0" layoutY="247.0" mnemonicParsing="false" onAction="#adultsPlusHandler" text="+" />
+          <Button layoutX="359.0" layoutY="247.0" mnemonicParsing="false" onAction="#adultsMinusHandler" prefWidth="30.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-font-weight: bold; -fx-background-radius: 5px;" text="-" />
+      <Label fx:id="fxAdultCount" layoutX="405.0" layoutY="251.0" text="1">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+          <Button layoutX="437.0" layoutY="247.0" mnemonicParsing="false" onAction="#adultsPlusHandler" prefWidth="30.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-font-weight: bold; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="+" />
           <Label layoutX="302.0" layoutY="295.0" text="Children">
          <font>
             <Font size="14.0" />
          </font>
           </Label>
-          <Button layoutX="359.0" layoutY="292.0" mnemonicParsing="false" onAction="#childrenMinusHandler" text="-" />
-      <Label fx:id="fxChildrenCount" layoutX="405.0" layoutY="295.0" text="0" />
-          <Button layoutX="437.0" layoutY="291.0" mnemonicParsing="false" onAction="#childrenPlusHandler" text="+" />
-          <DatePicker fx:id="fxDepartureDate" layoutX="49.0" layoutY="232.0" onAction="#departureDateHandler" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" />
-          <DatePicker fx:id="fxReturnDate" layoutX="50.0" layoutY="306.0" onAction="#returnDateHandler" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" />
+          <Button layoutX="359.0" layoutY="292.0" mnemonicParsing="false" onAction="#childrenMinusHandler" prefWidth="30.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-font-weight: bold; -fx-background-radius: 5px;" text="-" />
+      <Label fx:id="fxChildrenCount" layoutX="405.0" layoutY="295.0" text="0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+          <Button layoutX="437.0" layoutY="291.0" mnemonicParsing="false" onAction="#childrenPlusHandler" prefWidth="30.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-font-weight: bold;" text="+" />
+          <DatePicker fx:id="fxDepartureDate" layoutX="49.0" layoutY="232.0" onAction="#departureDateHandler" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px;" />
+          <DatePicker fx:id="fxReturnDate" layoutX="50.0" layoutY="306.0" onAction="#returnDateHandler" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px;" />
           <RadioButton fx:id="fxReturn" layoutX="49.0" layoutY="349.0" mnemonicParsing="false" onAction="#returnHandler" selected="true" text="Return" />
           <RadioButton fx:id="fxOneWay" layoutX="124.0" layoutY="349.0" mnemonicParsing="false" onAction="#oneWayHandler" text="One-way" />
-          <Button fx:id="fxConfirm" layoutX="449.0" layoutY="366.0" mnemonicParsing="false" onAction="#searchHandler" text="Search" />
-      <Label layoutX="261.0" layoutY="391.0" text="Don't forget to bring a towel..." />
+          <Button fx:id="fxConfirm" layoutX="467.0" layoutY="366.0" mnemonicParsing="false" onAction="#searchHandler" text="Search" />
+      <Label layoutX="203.0" layoutY="391.0" text="Don't forget to bring a towel..." />
       <Label layoutX="187.0" layoutY="30.0" text="Welcome">
          <font>
             <Font name="System Bold" size="44.0" />

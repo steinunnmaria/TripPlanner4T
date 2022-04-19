@@ -51,7 +51,7 @@ public class HotelCardController extends SplitPane {
     private void setLabels(Hotel h) {
         // sækja titil, dags, o.s.frv frá hotel og setja í labels (setText)
         fxName.setText(h.getName());
-        fxCapacity.setText("Has capacity for at least "+vd.getTotaCount());
+        fxCapacity.setText("Has capacity for at least "+vd.getTotalCount());
         fxInDate.setText(this.vd.getDateFrom().toString());
         fxOutDate.setText(this.vd.getDateTo().toString());
         fxLocation.setText(h.getTown());

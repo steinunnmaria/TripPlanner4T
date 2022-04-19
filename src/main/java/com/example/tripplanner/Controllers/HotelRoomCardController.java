@@ -13,9 +13,11 @@ import java.io.IOException;
 public class HotelRoomCardController extends SplitPane {
 
     @FXML
-    private Label fxRoomNumber;
+    private Label fxRoomNumber, fxCapacity, fxNoBeds, fxPricePerNight;
     @FXML
     private ToggleButton fxBook;
+
+
     private Room room;
     private BookingProcessController bpc;
 
@@ -45,13 +47,9 @@ public class HotelRoomCardController extends SplitPane {
 
     private void setLabels(Room rm) {
         fxRoomNumber.setText(rm.getRoomNum().toString());
-        // sækja titil, dags, o.s.frv frá daytrip og setja í labels (setText)
-        //fxTitle.setText(dayTrip.getName());
-        //fxDate.setText(dayTrip.getDate().toString());
-        //fxCapacity.setText(String.valueOf(dayTrip.getCapacity()) + " spots open");
-        //fxDiff.setText(dayTrip.getDifficulty());
-        //fxPrice.setText(String.valueOf(dayTrip.getPrice())+" kr.");
-        //fxDuration.setText(dayTrip.getTimeStart() + " - " + dayTrip.getTimeEnd());
+        fxCapacity.setText(rm.getCapacity().toString());
+        fxNoBeds.setText(rm.getNumBeds().toString());
+        fxPricePerNight.setText(rm.getPrice() + " kr.");
 
     }
 

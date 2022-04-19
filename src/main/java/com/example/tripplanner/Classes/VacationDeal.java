@@ -163,5 +163,5 @@ public class VacationDeal {
         this.customers.setCreditCard(cardFromView);
     }
 
-    public int getTotaCount() { return this.totalPeople; }
+    public int getTotalCount() { return this.totalPeople; }
 }
