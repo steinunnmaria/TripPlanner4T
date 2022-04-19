@@ -24,8 +24,6 @@ public class DayTripCardController extends SplitPane {
     @FXML
     private Label fxPrice;
     @FXML
-    private Label fxLocation;
-    @FXML
     private Button fxOpenTrip;
     @FXML
     private Label fxDuration;
