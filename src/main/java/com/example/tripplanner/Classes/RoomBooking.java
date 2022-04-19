@@ -6,7 +6,12 @@ import java.util.ArrayList;
 
 public class RoomBooking {
 
+    public RoomBooking(long vd) {
+        this.vacationDuration = vd;
+    }
+
     private ArrayList<Room> roomsBooked;
+    private long vacationDuration;
 
     public void addRoom(Room r) {
         roomsBooked.add(r);
@@ -20,5 +25,13 @@ public class RoomBooking {
             s = s+c;
         }
         return(s);
+    }
+
+    public double getPriceTotal() {
+        double total = 0;
+        for (Room r: roomsBooked) {
+            total += r.getPrice()*this.vacationDuration;
+        }
+        return(total);
     }
 }

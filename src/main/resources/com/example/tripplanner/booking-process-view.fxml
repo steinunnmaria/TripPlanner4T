@@ -20,7 +20,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.Controllers.BookingProcessController">
+<AnchorPane prefHeight="600.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.Controllers.BookingProcessController">
    <children>
       <TabPane fx:id="fxTabCont" layoutX="15.0" layoutY="39.0" prefHeight="546.0" prefWidth="1055.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -341,10 +341,10 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <GridPane layoutX="14.0" layoutY="52.0" prefHeight="150.0" prefWidth="298.0">
+                                    <GridPane layoutX="14.0" layoutY="52.0" prefHeight="150.0" prefWidth="364.0">
                                       <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="73.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="241.0" minWidth="10.0" prefWidth="225.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="98.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="10.0" prefWidth="266.0" />
                                       </columnConstraints>
                                       <rowConstraints>
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -461,7 +461,7 @@
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="293.0" layoutY="174.0" mnemonicParsing="false" onAction="#fxBookDayTrip" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: radial-gradient(radius 180%, GOLD, derive(GOLD, -30%), derive(GOLD, 30%))radial-gradient(radius 180%, GOLD, derive(GOLD, -30%), derive(GOLD, 30%));" text="Book Trip" />
+                                    <Button fx:id="fxBookDayTrip" layoutX="289.0" layoutY="161.0" mnemonicParsing="false" onAction="#bookDayTripHandler" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: radial-gradient(radius 180%, GOLD, derive(GOLD, -30%), derive(GOLD, 30%))radial-gradient(radius 180%, GOLD, derive(GOLD, -30%), derive(GOLD, 30%));" text="Book Trip" />
                                     <Label fx:id="fxPopDTAgeLimit" layoutX="17.0" layoutY="67.0" text="Age limit: 8 years" textFill="RED" />
                                     <GridPane layoutX="222.0" layoutY="55.0" prefHeight="83.0" prefWidth="184.0">
                                       <columnConstraints>
@@ -490,7 +490,17 @@
                                        </children>
                                     </GridPane>
                                  </children></Pane>
-                              <Pane prefHeight="225.0" prefWidth="206.0" />
+                              <Pane fx:id="fxBookedDayTrips" prefHeight="225.0" prefWidth="206.0" style="-fx-border-color: gold; -fx-border-radius: 5;">
+                                 <children>
+                                    <Label layoutX="21.0" layoutY="12.0" text="Your daytrips:" />
+                                    <Label layoutX="118.0" layoutY="197.0" text="Total price:" />
+                                    <ScrollPane layoutX="1.0" layoutY="36.0" prefHeight="154.0" prefWidth="418.0">
+                                       <content>
+                                          <VBox fx:id="fxBookedDayTripsList" prefHeight="153.0" prefWidth="400.0" spacing="2.0" />
+                                       </content>
+                                    </ScrollPane>
+                                    <Label fx:id="fxTotalDayTripsPrice" layoutX="195.0" layoutY="197.0" text="Label" />
+                                 </children></Pane>
                            </children>
                         </VBox>
                         <GridPane layoutX="179.0" layoutY="472.0" prefHeight="30.0" prefWidth="424.0">

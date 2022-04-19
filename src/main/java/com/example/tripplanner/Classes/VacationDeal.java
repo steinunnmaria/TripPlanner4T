@@ -26,10 +26,11 @@ public class VacationDeal {
     private final int adultCount;
     private final int childCount;
     private final int totalPeople;
+    private final Integer localCode;
     private ArrayList<DayTrip> myDayTrips;
     private int totalPrice; /* double? */
 
-    public VacationDeal(String destFrom, String destTo, LocalDate dateFrom, LocalDate dateTo, int adultCount, int childCount) {
+    public VacationDeal(String destFrom, String destTo, LocalDate dateFrom, LocalDate dateTo, int adultCount, int childCount, Integer localCode) {
         this.destFrom = destFrom;
         this.destTo = destTo;
         this.dateFrom = dateFrom;
@@ -38,6 +39,7 @@ public class VacationDeal {
         this.childCount = childCount;
         this.vacationDuration = ChronoUnit.DAYS.between(dateFrom, dateTo);
         this.totalPeople = this.getAdultCount() + this.getChildCount();
+        this.localCode = localCode;
     }
 
     /* Getters */
@@ -113,6 +115,10 @@ public class VacationDeal {
         return totalPrice;
     }
 
+    public Integer getLocalCode() {
+        return localCode;
+    }
+
     /* Setters */
 
     public void setFlight(boolean flight) {
@@ -163,5 +169,5 @@ public class VacationDeal {
         this.customers.setCreditCard(cardFromView);
     }
 
-    public int getTotaCount() { return this.totalPeople; }
+    public int getTotalCount() { return this.totalPeople; }
 }

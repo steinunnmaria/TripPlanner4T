@@ -18,9 +18,11 @@ public class DayTripCardController extends SplitPane {
     @FXML
     private Label fxDiff;
     @FXML
-    private Label fxCapacity;
+    private Button fxCapacity;
     @FXML
     private Label fxPrice;
+    @FXML
+    private Label fxLocation;
     @FXML
     private Button fxOpenTrip;
     @FXML
@@ -30,6 +32,7 @@ public class DayTripCardController extends SplitPane {
     private DayTrip dayTrip;
 
     private BookingProcessController bpc;
+    private int cost;
 
 
 
@@ -38,6 +41,7 @@ public class DayTripCardController extends SplitPane {
         readCard();
         //Setja DayTrip hlut sem parameter í fallið, upphafsstilla fyrir tilviksbreytu hér fyrir neðan
         this.dayTrip=dt;
+        cost = (int) dayTrip.getPrice();
         setLabels(dayTrip);
     }
 
@@ -45,10 +49,11 @@ public class DayTripCardController extends SplitPane {
         // sækja titil, dags, o.s.frv frá daytrip og setja í labels (setText)
         fxTitle.setText(dayTrip.getName());
         fxDate.setText(dayTrip.getDate().toString());
-        fxCapacity.setText(String.valueOf(dayTrip.getCapacity()) + " spots open");
+        fxCapacity.setText(dayTrip.getCapacity() + " spots open");
         fxDiff.setText(dayTrip.getDifficulty());
-        fxPrice.setText(String.valueOf(dayTrip.getPrice())+" kr.");
+        fxPrice.setText(cost+" kr.");
         fxDuration.setText(dayTrip.getTimeStart() + " - " + dayTrip.getTimeEnd());
+        fxLocation.setText("Tel. " + dayTrip.getLocation());
 
     }
 

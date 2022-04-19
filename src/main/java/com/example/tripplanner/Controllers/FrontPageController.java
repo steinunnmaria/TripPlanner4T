@@ -9,9 +9,7 @@ import javafx.scene.control.*;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class FrontPageController implements Initializable {
     @FXML
@@ -30,6 +28,7 @@ public class FrontPageController implements Initializable {
     private final int MAXPEOPLE = 9;
     private int totalAdult;
     private int totalChildren;
+    private Map<String, Integer> map = new HashMap<String, Integer>();
 
     private ArrayList<String> location = new ArrayList<>();
 
@@ -64,6 +63,12 @@ public class FrontPageController implements Initializable {
         fxReturnDate.setDisable(true);
 
         fxConfirm.setDisable(true);
+        map.put("Ísafjörður", 1);
+        map.put("Stykkishólmur", 2);
+        map.put("Reykjavík", 3);
+        map.put("Vestmannaeyjar", 4);
+        map.put("Egilsstaðir", 5);
+        map.put("Akureyri", 6);
 
     }
 
@@ -156,8 +161,7 @@ public class FrontPageController implements Initializable {
         String toDest = fxToDest.getValue();
         LocalDate fromDate = fxDepartureDate.getValue();
         LocalDate returnDate = fxReturnDate.getValue();
-        vd = new VacationDeal(fromDest, toDest, fromDate, returnDate, totalAdult, totalChildren);
-
+        vd = new VacationDeal(fromDest, toDest, fromDate, returnDate, totalAdult, totalChildren, map.get(toDest));
         SceneController sc = new SceneController();
         sc.switchToSceneBooking(actionEvent, vd);
 
