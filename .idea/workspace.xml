@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3faa3c8f-6dae-4916-8435-b835f09856f0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TripPlanner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TripPlanner.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Comparators/DayTripDifficultyComparator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Comparators/DayTripPriceComparator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Comparators/FlightPriceComparator.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/BookingProcessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/BookingProcessController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/HotelCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/HotelCardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tripplanner/booking-process-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/tripplanner/booking-process-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tripplanner/hotel-card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/tripplanner/hotel-card.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/DayTripBookedCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/DayTripBookedCardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tripplanner/dayTripBookedCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/tripplanner/dayTripBookedCard.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

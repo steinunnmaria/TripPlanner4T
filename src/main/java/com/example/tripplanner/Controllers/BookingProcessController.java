@@ -73,7 +73,7 @@ public class BookingProcessController implements Initializable {
     private int totalPeople;
     private int totalAdult;
     private int totalChildren;
-    private int flightOutCost;
+    private int flightOutCost = 0;
     private int flightBackCost = 0;
     private LocalDate chosenDayForDayTrip;
     private ArrayList<Hotel> hotelListi;
@@ -109,6 +109,9 @@ public class BookingProcessController implements Initializable {
         fxSortHotels.setDisable(true);
         fxNoDayTrips.setDisable(true);
         fxBookedDayTrips.setVisible(false);
+        fxFlightsConfirm.setDisable(true);
+        fxHotelConfirm.setDisable(true);
+        fxDayTripConfirm.setDisable(true);
 
     }
 
@@ -167,6 +170,9 @@ public class BookingProcessController implements Initializable {
         fxMyFlight1.setVisible(true);
         fxFlightTotalPrice.setText(String.format("%,.0f", (double) this.flightOutCost+this.flightBackCost)+" kr.");
         this.myFlightOut = fl;
+        if(this.flightBackCost > 0) {
+            fxFlightsConfirm.setDisable(false);
+        }
     }
 
     public void setBackFlightPopUp(Flight fl) {
@@ -185,6 +191,9 @@ public class BookingProcessController implements Initializable {
         fxMyFlight2.setVisible(true);
         fxFlightTotalPrice.setText(String.format("%,.0f", (double) this.flightOutCost+this.flightBackCost)+" kr.");
         this.myFlightBack = fl;
+        if(this.flightOutCost > 0) {
+            fxFlightsConfirm.setDisable(false);
+        }
     }
 
     public void loadFlightCards() throws IOException {
@@ -362,6 +371,7 @@ public class BookingProcessController implements Initializable {
         fxBookedDayTripsList.getChildren().add(dtbcc);
         fxTotalDayTripsPrice.setText(String.format("%,.0f", (double) this.totalDayTripsPrice) + " kr.");
         vd.setBookedDTList(bookedDTCardsList);
+        fxDayTripConfirm.setDisable(false);
     }
 
     public void unBookDayTrip(DayTrip dt, DayTripBookedCardController dtbcc) {
@@ -369,6 +379,9 @@ public class BookingProcessController implements Initializable {
         fxBookedDayTripsList.getChildren().remove(dtbcc);
         bookedDTCardsList.remove(dtbcc);
         fxTotalDayTripsPrice.setText(String.format("%,.0f", (double) this.totalDayTripsPrice) + " kr.");
+        if(chosenDayTrips.size() == 0) {
+            fxDayTripConfirm.setDisable(true);
+        }
     }
 
     public void nextDayHandler(ActionEvent actionEvent) throws IOException {
@@ -422,8 +435,6 @@ public class BookingProcessController implements Initializable {
         }
         fxHotelsTab.setDisable(false);
         fxTabCont.getSelectionModel().selectNext();
-        vd.setMyFlightThere(this.myFlightOut);
-        vd.setMyFlightBack(this.myFlightBack);
 
         System.out.println(vd.getAdultCount());
         System.out.println(vd.getDestFrom());
@@ -726,10 +737,14 @@ public class BookingProcessController implements Initializable {
         fxHotelBookedGuests.setText("Rooms hold " + peopleBooked + " of " + totalPeople + " people");
         fxHotelBookedPriceTotal.setText(String.format("%,.0f", (double) getTotalRoomPrice(bookedRooms)) + " kr.");
         fxBookedHotel.setVisible(true);
+        fxHotelConfirm.setDisable(false);
     }
 
     public void unbookRoom(Room rm) {
         peopleBooked -= rm.getCapacity();
+        if(peopleBooked == 0) {
+            fxHotelConfirm.setDisable(true);
+        }
         roomCount--;
         bookedRooms.remove(rm);
         fxHotelBookedPriceTotal.setText(String.format("%,.0f", (double) getTotalRoomPrice(bookedRooms)) + " kr.");

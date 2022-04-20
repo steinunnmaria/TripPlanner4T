@@ -17,6 +17,8 @@ public class DayTripBookedCardController extends SplitPane {
     @FXML
     private Label fxDayTripName, fxDate, fxTickets, fxDifficulty, fxTotalPrice;
     @FXML
+    private Label fxShowDifficulty, fxShowDifficultyReview, fxDifficultyReview;
+    @FXML
     private ToggleButton fxUnBook;
 
     private BookingProcessController bpc;
@@ -53,6 +55,11 @@ public class DayTripBookedCardController extends SplitPane {
     public void setAsReviewCard() {
         fxUnBook.setVisible(false);
         fxUnBook.setDisable(true);
+        fxDifficultyReview.setText(dt.getDifficulty());
+        fxDifficultyReview.setVisible(true);
+        fxDifficulty.setVisible(false);
+        fxShowDifficultyReview.setVisible(true);
+        fxShowDifficulty.setVisible(false);
     }
 
     public double getPrice() {
