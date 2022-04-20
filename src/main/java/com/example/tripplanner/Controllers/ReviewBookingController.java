@@ -6,6 +6,8 @@ import com.example.tripplanner.HotelDataBase.Room;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
+import javafx.scene.control.Tab;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -15,17 +17,25 @@ import java.util.ArrayList;
 
 public class ReviewBookingController {
     @FXML
+    private Tab fxHotelTab, fxDtTab;
+    @FXML
+    private SplitPane fxMyFlight1, fxMyFlight2;
+    @FXML
+    private VBox fxVBox1, fxVBox2;
+    @FXML
     private VBox fxDayTripsCont, fxRoomsCont;
     @FXML
     private Label fxHotelOverview, fxHotelPrice, fxFlightsPassPrice, fxFlightsTotalPrice,
-            fxDayTripsCount, fxDayTripsPrice, fxTotalPrice;
+            fxDayTripsCount, fxDayTripsPrice, fxTotalPrice, fxNoFlights;
     @FXML
     private Label fxOutDate, fxBackDate, fxOutFlightNo, fxBackFlightNo, fxOutAirline, fxBackAirline,
             fxOutDepTime, fxOutArrTime, fxBackDepTime, fxBackArrTime, fxOutTickets, fxBackTickets,
             fxOutPrice, fxBackPrice, fxOutDepLoc, fxOutArrLoc, fxBackDepLoc, fxBackArrLoc;
     private VacationDeal vd;
 
-    public void editHandler(ActionEvent actionEvent) {
+    public void startOverHandler(ActionEvent actionEvent) throws IOException {
+        SceneController sc = new SceneController();
+        sc.switchToSceneFront(actionEvent);
     }
 
     public void setVacationDeal(VacationDeal vd) {
@@ -42,6 +52,9 @@ public class ReviewBookingController {
 
     public void setFlights() {
         if (vd.isFlight()) {
+            fxNoFlights.setVisible(false);
+            fxOutTickets.setText(vd.getTotalCount() + " tickets");
+            fxBackTickets.setText(vd.getTotalCount() + " tickets");
             fxFlightsTotalPrice.setVisible(true);
             fxFlightsPassPrice.setText("Price per passanger: " +
                     String.format("%,.0f", (double) vd.getTotalPassFlightPrice()) + " kr.");
@@ -52,6 +65,11 @@ public class ReviewBookingController {
         }
         else {
             fxFlightsPassPrice.setText("No flight booking");
+            fxVBox1.setVisible(false);
+            fxVBox2.setVisible(false);
+            fxMyFlight1.setVisible(false);
+            fxMyFlight2.setVisible(false);
+            fxNoFlights.setVisible(true);
             fxFlightsTotalPrice.setVisible(false);
         }
 
@@ -68,6 +86,7 @@ public class ReviewBookingController {
             loadHotelRoomCards();
         }
         else {
+            fxHotelTab.setDisable(true);
             fxHotelOverview.setText("No hotel booking");
             fxHotelPrice.setVisible(false);
         }
@@ -75,13 +94,15 @@ public class ReviewBookingController {
 
     public void setDayTrips() throws IOException {
         if (vd.isDayTrip()) {
+
             fxDayTripsPrice.setVisible(true);
-            fxDayTripsCount.setText(vd.getMyDayTrips().size() + " day trips booked");
+            fxDayTripsCount.setText(vd.getBookedDTList().size() + " day trips booked");
             fxDayTripsPrice.setText("Total price of day trips: " +
                     String.format("%,.0f", (double) vd.getDayTripsPrice()) + " kr.");
             loadDTCards();
         }
         else {
+            fxDtTab.setDisable(true);
             fxDayTripsCount.setText("No day trip booking");
             fxDayTripsPrice.setVisible(false);
         }
@@ -96,7 +117,7 @@ public class ReviewBookingController {
         fxOutFlightNo.setText(f.getFlightNumber());
         fxOutDepTime.setText(f.getTime().format(DateTimeFormatter.ofPattern("HH:mm")));
         fxOutArrTime.setText(f.getTime().plusHours((long) f.getDuration()).format(DateTimeFormatter.ofPattern("HH:mm")));
-        fxOutPrice.setText(String.format("%,.0f", (double) f.getPrice()) + " kr.");
+        fxOutPrice.setText(String.format("%,.0f", (double) f.getPrice()*vd.getTotalCount()) + " kr.");
     }
     public void setFlightBack(Flight f) {
         fxBackDate.setText(f.getDate().format(DateTimeFormatter
@@ -107,7 +128,7 @@ public class ReviewBookingController {
         fxBackFlightNo.setText(f.getFlightNumber());
         fxBackDepTime.setText(f.getTime().format(DateTimeFormatter.ofPattern("HH:mm")));
         fxBackArrTime.setText(f.getTime().plusHours((long) f.getDuration()).format(DateTimeFormatter.ofPattern("HH:mm")));
-        fxBackPrice.setText(String.format("%,.0f", (double) f.getPrice()) + " kr.");
+        fxBackPrice.setText(String.format("%,.0f", (double) f.getPrice()*vd.getTotalCount()) + " kr.");
     }
 
     public void confirmHandler(ActionEvent actionEvent) throws IOException {

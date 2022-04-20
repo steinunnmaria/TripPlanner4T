@@ -190,15 +190,17 @@ public class VacationDeal {
     }
 
     public int getTotalPrice() {
+        int price = 0;
         if (isFlight()) {
-            totalPrice+=getTotalFlightPrice();
+            price+=getTotalFlightPrice();
         }
         if (isHotel()) {
-            totalPrice+=getHotelPrice();
+            price+=getHotelPrice();
         }
         if (isDayTrip()) {
-            totalPrice+=getDayTripsPrice();
+            price+=getDayTripsPrice();
         }
+        totalPrice=price;
         return totalPrice;
     }
 

@@ -6,10 +6,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -32,6 +29,8 @@ public class FinishController implements Initializable {
     private Pane PaymentCont;
     @FXML
     private Button fxConfirmAndPay;
+    @FXML
+    private Label fxTotalPrice;
 
     private VacationDeal vd;
     private int totalPeople;
@@ -108,6 +107,10 @@ public class FinishController implements Initializable {
         totalPeople = vd.getAdultCount() + vd.getChildCount();
     }
 
+    public void setPrice(int price) {
+        fxTotalPrice.setText("Total price for trip: " + String.format("%,.0f", (double) price) + " kr.");
+    }
+
 
 
     public void consentHandler(ActionEvent actionEvent) {
@@ -120,12 +123,25 @@ public class FinishController implements Initializable {
     }
 
     public void confirmHandler(ActionEvent actionEvent) {
+        SceneController sc = new SceneController();
+        sc.closeButtonAction(actionEvent);
         //Senda uppl á teymin
     }
 
     public void filledOutHandler(ActionEvent actionEvent) {
+        if (checkFilled()) {
+            fxConfirmAndPay.setDisable(false);
+        }
+
 
         //Ath hvort allir reitir séu fylltir, þá af-disable-a confirm takkann
+    }
+
+    public boolean checkFilled() {
+        return fxName.getText() != null && !fxName.getText().equals("Cardholder Name") &&
+                fxEmail.getText() != null && !fxEmail.getText().equals("Email") && fxSsn.getText() != null &&
+                fxCardNo.getText() != null && fxCvc.getText() != null && fxTelNo.getText() != null &&
+                fxExpYear.getValue() != null && fxExpMonth.getValue() != null;
     }
 
 

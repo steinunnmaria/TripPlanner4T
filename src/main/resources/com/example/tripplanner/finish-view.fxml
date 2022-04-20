@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.Controllers.FinishController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.Controllers.FinishController">
    <children>
       <ScrollPane layoutX="41.0" layoutY="59.0" prefHeight="320.0" prefWidth="425.0">
          <content>
@@ -21,17 +21,17 @@
       <Pane fx:id="PaymentCont" layoutX="503.0" layoutY="63.0" prefHeight="307.0" prefWidth="282.0" style="-fx-background-color: radial-gradient(radius 180%, #bf92e4, derive(#bf92e4, -30%), derive(#bf92e4, 30%))radial-gradient(radius 180%, #bf92e4, derive(#bf92e4, -30%), derive(#bf92e4, 30%)); -fx-background-radius: 10px;">
          <children>
             <TextField fx:id="fxName" layoutX="14.0" layoutY="23.0" onAction="#filledOutHandler" prefHeight="25.0" prefWidth="251.0" promptText="Cardholder Name" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-font-family: Arial;" />
-            <TextField fx:id="fxCardNo" layoutX="14.0" layoutY="154.0" onAction="#filledOutHandler" prefHeight="25.0" prefWidth="251.0" promptText="Card Number" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-font-family: arial;" />
-            <TextField fx:id="fxCvc" layoutX="14.0" layoutY="257.0" onAction="#filledOutHandler" prefHeight="25.0" prefWidth="84.0" promptText="CVC" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-font-family: arial;" />
             <TextField fx:id="fxEmail" layoutX="14.0" layoutY="55.0" onAction="#filledOutHandler" prefHeight="25.0" prefWidth="251.0" promptText="Email" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-font-family: arial;" />
             <TextField fx:id="fxTelNo" layoutX="14.0" layoutY="88.0" onAction="#filledOutHandler" prefHeight="25.0" prefWidth="251.0" promptText="Phone Number" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-font-family: arial;" />
+            <TextField fx:id="fxSsn" layoutX="14.0" layoutY="121.0" onAction="#filledOutHandler" prefHeight="25.0" prefWidth="251.0" promptText="Ssn Number" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-font-family: arial;" />
+            <TextField fx:id="fxCardNo" layoutX="14.0" layoutY="154.0" onAction="#filledOutHandler" prefHeight="25.0" prefWidth="251.0" promptText="Card Number" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-font-family: arial;" />
             <ComboBox fx:id="fxExpMonth" layoutX="14.0" layoutY="220.0" onAction="#filledOutHandler" prefHeight="25.0" prefWidth="84.0" promptText="Month" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
+            <ComboBox fx:id="fxExpYear" layoutX="106.0" layoutY="220.0" onAction="#filledOutHandler" prefHeight="25.0" prefWidth="84.0" promptText="Year" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px;" />
+            <TextField fx:id="fxCvc" layoutX="14.0" layoutY="257.0" onInputMethodTextChanged="#filledOutHandler" prefHeight="25.0" prefWidth="84.0" promptText="CVC" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-font-family: arial;" />
             <Label layoutX="14.0" layoutY="196.0" style="-fx-font-weight: bold;" text="Card expiration date">
                <font>
                   <Font name="Arial" size="13.0" />
                </font></Label>
-            <ComboBox fx:id="fxExpYear" layoutX="106.0" layoutY="220.0" onAction="#filledOutHandler" prefHeight="25.0" prefWidth="84.0" promptText="Year" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px;" />
-            <TextField fx:id="fxSsn" layoutX="14.0" layoutY="121.0" onAction="#filledOutHandler" prefHeight="25.0" prefWidth="251.0" promptText="Ssn Number" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-font-family: arial;" />
          </children>
       </Pane>
       <CheckBox fx:id="fxConsent" layoutX="41.0" layoutY="32.0" mnemonicParsing="false" onAction="#consentHandler" style="-fx-font-family: arial;" text="I consent to providing information on all passengers for safety reasons.">
@@ -39,7 +39,7 @@
             <Font name="Arial" size="12.0" />
          </font></CheckBox>
       <Button fx:id="fxConfirmAndPay" layoutX="644.0" layoutY="388.0" mnemonicParsing="false" onAction="#confirmHandler" style="-fx-background-color: radial-gradient(radius 180%, #bf92e4, derive(#bf92e4, -30%), derive(#bf92e4, 30%))radial-gradient(radius 180%, #bf92e4, derive(#bf92e4, -30%), derive(#bf92e4, 30%)); -fx-font-weight: bold; -fx-font-family: arial; -fx-font-size: 15px;" text="Confirm and pay" textFill="WHITE" />
-      <Label fx:id="fxTotalPrice" layoutX="279.0" layoutY="390.0" style="-fx-font-family: arial;" text="Total price for trip: xx">
+      <Label fx:id="fxTotalPrice" layoutX="41.0" layoutY="390.0" style="-fx-font-family: arial;" text="Total price for trip: 0 kr">
          <font>
             <Font size="20.0" />
          </font>

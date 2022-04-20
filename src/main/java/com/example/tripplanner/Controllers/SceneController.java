@@ -41,7 +41,6 @@ public class SceneController {
         scene = new Scene((root));
         stage.setTitle("Review Booking");
         stage.setScene(scene);
-
         stage.show();
         reviewBookingController.setOverview(vd);
     }
@@ -66,6 +65,7 @@ public class SceneController {
         stage.setTitle("Trip Planner");
         stage.setScene(scene);
         stage.show();
+        finishController.setPrice(vd.getTotalPrice());
     }
 
     public void closeButtonAction(ActionEvent actionEvent){
