@@ -145,7 +145,7 @@ public class BookingProcessController implements Initializable {
                 .ofLocalizedDate(FormatStyle.MEDIUM)));
         fxPopDTTime.setText(dt.getTimeStart().format(DateTimeFormatter.ofPattern("HH:mm")) + " - " + dt.getTimeEnd().format(DateTimeFormatter.ofPattern("HH:mm"))); /// XXXX LAGA
         fxPopDTDescr.setText(dt.getDescription());
-        fxPopDTPrice.setText(String.valueOf((int) dt.getPrice()));
+        fxPopDTPrice.setText(String.format("%,.0f", dt.getPrice())+" kr.");
         fxPopDTAdCnt.setText("1");
         fxDayTripPopup.setVisible(true);
     }
@@ -620,7 +620,9 @@ public class BookingProcessController implements Initializable {
             else {
                 loadFlightByFilter(checked);
             }
-            sortFlights();
+            if(!fxSortFlights.getValue().equals("Sort by:")) {
+                sortFlights();
+            }
         }
         else if (selIndex==2) {
             System.out.println("Erum í DayTrips tab");
@@ -631,8 +633,9 @@ public class BookingProcessController implements Initializable {
             else {
                 loadDtByFilter(checked);
             }
-            sortDayTrips();
-
+            if(!fxSortDT.getValue().equals("Sort by:")) {
+                sortDayTrips();
+            }
         }
 
     }
