@@ -56,9 +56,9 @@ public class HotelCardController extends SplitPane {
         // sækja titil, dags, o.s.frv frá hotel og setja í labels (setText)
         fxName.setText(h.getName());
 
-        fxInDate.setText("Check-in: " + this.vd.getDateFrom().format(DateTimeFormatter
+        fxInDate.setText("Ch-in: " + this.vd.getDateFrom().format(DateTimeFormatter
                 .ofLocalizedDate(FormatStyle.MEDIUM)));
-        fxOutDate.setText("Check-out: " + this.vd.getDateTo().format(DateTimeFormatter
+        fxOutDate.setText("Ch-out: " + this.vd.getDateTo().format(DateTimeFormatter
                 .ofLocalizedDate(FormatStyle.MEDIUM)));
         fxLocation.setText(h.getTown());
 
