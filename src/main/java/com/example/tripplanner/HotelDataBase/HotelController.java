@@ -60,13 +60,13 @@ public class HotelController {
         for (Hotel hotel : hotels) {
             Boolean check = true;
             for (String s: constrs) {
-                if(s.contains("gym") && !hotel.getHotelInfo().getGym()){
+                if(s.contains("Gym") && !hotel.getHotelInfo().getGym()){
                     check = false;
                 }
-                if(s.contains("wifi") && !hotel.getHotelInfo().getWifi()){
+                if(s.contains("Wifi") && !hotel.getHotelInfo().getWifi()){
                     check = false;
                 }
-                if(s.contains("breakfast") && !hotel.getHotelInfo().getRestaurant()){
+                if(s.contains("Breakfast") && !hotel.getHotelInfo().getRestaurant()){
                     check = false;
                 }
             }
@@ -84,6 +84,9 @@ public class HotelController {
      * @throws Exception
      */
     public ArrayList<Hotel> filterByStars(ArrayList<Hotel> hotels, Integer[] constrs) throws Exception {
+        if(constrs.length==0){
+            return hotels;
+        }
         ArrayList<Hotel> availableHotels = new ArrayList<Hotel>();
         for (Hotel hotel : hotels) {
             Boolean check = false;
