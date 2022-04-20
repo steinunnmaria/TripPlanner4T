@@ -134,6 +134,9 @@ public class ReviewBookingController {
     public void loadDTCards() throws IOException {
         ArrayList<DayTripBookedCardController> booked = vd.getBookedDTList();
 
+        for(DayTripBookedCardController dt : booked) {
+            dt.setAsReviewCard();
+        }
         fxDayTripsCont.getChildren().clear();
         fxDayTripsCont.getChildren().addAll(booked);
 

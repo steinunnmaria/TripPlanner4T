@@ -23,12 +23,10 @@ public class FinishCardController extends Pane {
 
 
 
-    public FinishCardController(String name) {
+    public FinishCardController() {
 
 
         readCard();
-        this.name = name;
-        fxName.setText(name);
 
         //Setja DayTrip hlut sem parameter í fallið, upphafsstilla fyrir tilviksbreytu hér fyrir neðan
         //this.dayTrip=dayTrip;

@@ -66,7 +66,7 @@ public class BookingProcessController implements Initializable {
     private VacationDeal vd;
     private ArrayList<DayTrip> chosenDayTrips;
     private Hotel chosenHotel;
-    private final String[] COMBOSORT = {"Price: Low to High", "Price: High to Low", "Ratings"};
+    private final String[] COMBOSORT = {"Price: Low to High", "Price: High to Low", "Capacity: Low to high", "Capacity: High to low"};
     private ObservableSet<CheckBox> selectedCheckBoxes = FXCollections.observableSet();
     private ObservableSet<CheckBox> unselectedCheckBoxes = FXCollections.observableSet();
     private FXMLLoader loader;
@@ -88,6 +88,10 @@ public class BookingProcessController implements Initializable {
     private int peopleBooked = 0;
     private int totalDayTripsPrice = 0;
     private ArrayList<DayTripBookedCardController> bookedDTCardsList = new ArrayList<DayTripBookedCardController>();
+    private List<Flight> depFlights;
+    private List<Flight> retFlights;
+    private ArrayList<Room> loadedRoomList;
+    private ArrayList<DayTrip> loadedDayTrips;
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -102,6 +106,9 @@ public class BookingProcessController implements Initializable {
         fxBookedHotel.setVisible(false);
         fxMyFlight1.setVisible(false);
         fxMyFlight2.setVisible(false);
+        fxSortHotels.setDisable(true);
+        fxNoDayTrips.setDisable(true);
+        fxBookedDayTrips.setVisible(false);
 
     }
 
@@ -136,22 +143,25 @@ public class BookingProcessController implements Initializable {
         fxPopDTAgeLimit.setText("Age limit: "+dt.getAgeLimit()+" years");
         fxPopDTDate.setText(dt.getDate().format(DateTimeFormatter
                 .ofLocalizedDate(FormatStyle.MEDIUM)));
-        fxPopDTTime.setText(dt.getTimeStart().toString()+" - "+dt.getTimeEnd().toString()); /// XXXX LAGA
+        fxPopDTTime.setText(dt.getTimeStart().format(DateTimeFormatter.ofPattern("HH:mm")) + " - " + dt.getTimeEnd().format(DateTimeFormatter.ofPattern("HH:mm"))); /// XXXX LAGA
         fxPopDTDescr.setText(dt.getDescription());
         fxPopDTPrice.setText(String.valueOf((int) dt.getPrice()));
+        fxPopDTAdCnt.setText("1");
         fxDayTripPopup.setVisible(true);
     }
+
 
     public void setOutFlightPopUp(Flight fl) {
         //Taka inn Flight hlut, upphafsstilla hann sem chosenFlightOut
         fxMyFlightNo1.setText(fl.getFlightNumber());
-        fxMyFlightDate1.setText(fl.getDate().toString());
+        fxMyFlightDate1.setText(fl.getDate().format(DateTimeFormatter
+                .ofLocalizedDate(FormatStyle.MEDIUM)));
         fxMyAirline1.setText(fl.getAirlineName());
-        fxMyFlightDept1.setText(fl.getDeparture());
-        fxMyFlightArr1.setText(fl.getDestination());
+        fxMyFlightDept1.setText(fl.getTime().format(DateTimeFormatter.ofPattern("HH:mm")));
+        fxMyFlightArr1.setText(fl.getTime().plusHours((long) fl.getDuration()).format(DateTimeFormatter.ofPattern("HH:mm")));
         fxMyFlightPass1.setText(vd.getTotalCount() + " tickets");
-        fxMyFlightFrom1.setText(fl.getTime().toString()); ///// XXXX LAGA
-        fxMyFlightTo1.setText(String.valueOf(fl.getDuration()));
+        fxMyFlightFrom1.setText(fl.getDeparture());
+        fxMyFlightTo1.setText(fl.getDestination());
         this.flightOutCost = fl.getPrice() * totalPeople;
         fxMyFlightPrice1.setText(String.format("%,.0f", (double) this.flightOutCost)+" kr.");
         fxMyFlight1.setVisible(true);
@@ -162,13 +172,14 @@ public class BookingProcessController implements Initializable {
     public void setBackFlightPopUp(Flight fl) {
         //Taka inn Flight hlut, upphafsstilla hann sem chosenFlightOut
         fxMyFlightNo2.setText(fl.getFlightNumber());
-        fxMyFlightDate2.setText(fl.getDate().toString());
+        fxMyFlightDate2.setText(fl.getDate().format(DateTimeFormatter
+                .ofLocalizedDate(FormatStyle.MEDIUM)));
         fxMyAirline2.setText(fl.getAirlineName());
-        fxMyFlightDept2.setText(fl.getDeparture());
-        fxMyFlightArr2.setText(fl.getDestination());
+        fxMyFlightDept2.setText(fl.getTime().format(DateTimeFormatter.ofPattern("HH:mm")));
+        fxMyFlightArr2.setText(fl.getTime().plusHours((long) fl.getDuration()).format(DateTimeFormatter.ofPattern("HH:mm")));
         fxMyFlightPass2.setText(vd.getTotalCount() + " tickets");
-        fxMyFlightFrom2.setText(fl.getTime().toString()); /////// XXXX LAGA
-        fxMyFlightTo2.setText(String.valueOf(fl.getDuration()));
+        fxMyFlightFrom2.setText(fl.getDeparture());
+        fxMyFlightTo2.setText(fl.getDestination());
         this.flightBackCost = fl.getPrice() * totalPeople;
         fxMyFlightPrice2.setText(String.format("%,.0f", (double) this.flightBackCost)+" kr.");
         fxMyFlight2.setVisible(true);
@@ -181,8 +192,8 @@ public class BookingProcessController implements Initializable {
 
         CustomerController cc = new CustomerController(new Customer("", "", new ArrayList<>(), 1));
         List<List<Flight>> allFlights = cc.searchRoundTrips(vd.getDateFrom(), vd.getDateTo(), vd.getDestFrom(), vd.getDestTo(), totalPeople);
-        List<Flight> depFlights = allFlights.get(0);
-        List<Flight> retFlights = allFlights.get(1);
+        depFlights = allFlights.get(0);
+        retFlights = allFlights.get(1);
         for (Flight f : depFlights) {
             FlightCardController fcc = new FlightCardController(f, loader.getController(), true);
             listi.add(fcc);
@@ -201,6 +212,36 @@ public class BookingProcessController implements Initializable {
 
     }
 
+    public void sortFlightsHandler(ActionEvent actionEvent) throws Exception {
+        sortFlights();
+    }
+
+    public void sortFlights() {
+        Comparator<Flight> fpc;
+        String sortChoice = fxSortFlights.getValue();
+        ArrayList<FlightCardController> listi = new ArrayList<FlightCardController>();
+        fpc = Comparator.comparing(Flight::getPrice);
+        Collections.sort(depFlights, fpc);
+        Collections.sort(retFlights, fpc);
+        if(sortChoice.equals(COMBOSORT[1])) {
+            Collections.reverse(depFlights);
+            Collections.reverse(retFlights);
+        }
+        for (Flight fl : depFlights) {
+            FlightCardController fcc = new FlightCardController(fl, loader.getController(), true);
+            listi.add(fcc);
+        }
+        fxFlightsDepCont.getChildren().clear();
+        fxFlightsDepCont.getChildren().addAll(listi);
+        listi.clear();
+        for (Flight fl : retFlights) {
+            FlightCardController fcc = new FlightCardController(fl, loader.getController(), false);
+            listi.add(fcc);
+        }
+        fxFlightsRetCont.getChildren().clear();
+        fxFlightsRetCont.getChildren().addAll(listi);
+    }
+
     public void loadHotelCards() throws Exception {
         ArrayList<HotelCardController> listi = new ArrayList<HotelCardController>();
 
@@ -210,12 +251,14 @@ public class BookingProcessController implements Initializable {
             HotelCardController hcc = new HotelCardController(h, loader.getController(), this.vd);
             listi.add(hcc);
         }
-        fxHotelCont.getChildren().clear();
         fxHotelCont.getChildren().addAll(listi);
 
     }
 
+
     public void loadHotelRoomCards(Hotel h) throws Exception {
+        fxSortHotels.setDisable(false);
+        fxSortHotels.setValue("Sort rooms by:");
         this.chosenHotel = h;
         peopleBooked = 0;
         bookedRooms.clear();
@@ -226,10 +269,10 @@ public class BookingProcessController implements Initializable {
         ArrayList<HotelRoomCardController> listi = new ArrayList<HotelRoomCardController>();
 
         this.reservationController = ReservationController.getInstance();
-        ArrayList<Room> roomList= hotelController.getAvailableRoomsByHotelId(h.getId(), vd.getDateFrom(), vd.getDateTo());
+        loadedRoomList = hotelController.getAvailableRoomsByHotelId(h.getId(), vd.getDateFrom(), vd.getDateTo());
 
 
-        for (Room room : roomList) {
+        for (Room room : loadedRoomList) {
             HotelRoomCardController hrcc = new HotelRoomCardController(room, loader.getController());
             listi.add(hrcc);
         }
@@ -237,42 +280,73 @@ public class BookingProcessController implements Initializable {
         fxRoomCont.getChildren().addAll(listi);
 
     }
-    /*public void setHotelPopUp(Hotel h) throws Exception {
-        //Taka inn hotel hlut, upphafsstilla hann sem chosenHotel
-        fxPopHotelName.setText(h.getName());
-        fxPopHotelDateFrom.setText(vd.getDateFrom().toString() + " - " + vd.getDateTo().toString());
 
-        fxPopHotelNights.setText(totalPeople + " guests for " + vd.getVacationDuration() + " nights");
-        ArrayList<Room> rooms = hotelController.getAvailableRoomsByHotelId(h.getId(), vd.getDateFrom(), vd.getDateTo());
-        System.out.println(rooms.size());
-        fxHotelPopUp.setVisible(true);
-        this.chosenHotel = h;
-    }*/
+    public void sortRoomsHandler(ActionEvent actionEvent) throws Exception {
+        Comparator<Room> rpc;
+        String sortChoice = fxSortHotels.getValue();
+        ArrayList<HotelRoomCardController> listi = new ArrayList<HotelRoomCardController>();
+        if(sortChoice.equals(COMBOSORT[0]) || sortChoice.equals(COMBOSORT[1])) {
+            rpc = Comparator.comparing(Room::getPrice);
+        } else {
+            rpc = Comparator.comparing(Room::getCapacity);
+        }
+        Collections.sort(loadedRoomList, rpc);
+        if(sortChoice.equals(COMBOSORT[1]) || sortChoice.equals(COMBOSORT[3])) {
+            Collections.reverse(loadedRoomList);
+        }
+        for (Room room : loadedRoomList) {
+            HotelRoomCardController hrcc = new HotelRoomCardController(room, loader.getController());
+            listi.add(hrcc);
+        }
+        fxRoomCont.getChildren().clear();
+        fxRoomCont.getChildren().addAll(listi);
+    }
 
     public void loadDTCards() throws IOException {
-        fxNoDayTrips.setDisable(true);
-        fxBookedDayTrips.setVisible(false);
-        this.chosenDayTrips = new ArrayList<DayTrip>();
-
         ArrayList<DayTripCardController> listi = new ArrayList<DayTripCardController>();
-
+        loadedDayTrips = new ArrayList<DayTrip>();
+        this.chosenDayTrips = new ArrayList<DayTrip>();
         Hashtable<String, Object> params = new Hashtable<>();
-        LocalDate[] dates = {this.chosenDayForDayTrip, this.chosenDayForDayTrip};
-        params.put("date", dates);
+        LocalDate[] fylki = {this.chosenDayForDayTrip, this.chosenDayForDayTrip};
+        params.put("date", fylki);
         params.put("localCode", vd.getLocalCode());
-
-        ArrayList<DayTrip> listiafDT = DayTripController.getDayTrips(params);
-        if(listiafDT.size() == 0) {
+        loadedDayTrips = DayTripController.getDayTrips(params);
+        if(loadedDayTrips.size() == 0) {
             fxNoDayTrips.setDisable(false);
         }
-
-        for (DayTrip dt : listiafDT) {
+        System.out.println(loadedDayTrips.size());
+        for (DayTrip dt : loadedDayTrips) {
             DayTripCardController dtc = new DayTripCardController(dt, loader.getController());
             listi.add(dtc);
         }
         fxDayTripsCont.getChildren().clear();
         fxDayTripsCont.getChildren().addAll(listi);
 
+    }
+
+    public void sortDayTripsHandler(ActionEvent actionEvent) throws Exception {
+        sortDayTrips();
+    }
+
+    public void sortDayTrips() {
+        Comparator<DayTrip> dpc;
+        String sortChoice = fxSortDT.getValue();
+        ArrayList<DayTripCardController> listi = new ArrayList<DayTripCardController>();
+        if(sortChoice.equals(COMBOSORT[0]) || sortChoice.equals(COMBOSORT[1])) {
+            dpc = Comparator.comparing(DayTrip::getPrice);
+        } else {
+            dpc = Comparator.comparing(DayTrip::getCapacity);
+        }
+        Collections.sort(loadedDayTrips, dpc);
+        if(sortChoice.equals(COMBOSORT[1]) || sortChoice.equals(COMBOSORT[3])) {
+            Collections.reverse(loadedDayTrips);
+        }
+        for (DayTrip dt : loadedDayTrips) {
+            DayTripCardController dtcc = new DayTripCardController(dt, loader.getController());
+            listi.add(dtcc);
+        }
+        fxDayTripsCont.getChildren().clear();
+        fxDayTripsCont.getChildren().addAll(listi);
     }
 
     public void bookDayTripHandler(ActionEvent actionEvent) throws Exception {
@@ -546,6 +620,7 @@ public class BookingProcessController implements Initializable {
             else {
                 loadFlightByFilter(checked);
             }
+            sortFlights();
         }
         else if (selIndex==2) {
             System.out.println("Erum í DayTrips tab");
@@ -556,6 +631,7 @@ public class BookingProcessController implements Initializable {
             else {
                 loadDtByFilter(checked);
             }
+            sortDayTrips();
 
         }
 
@@ -568,8 +644,8 @@ public class BookingProcessController implements Initializable {
         CustomerController cc = new CustomerController(new Customer("", "", new ArrayList<>(), 1));
         List<List<Flight>> flights = cc.searchRoundTripsByAirline(vd.getDateFrom(), vd.getDateTo(), vd.getDestFrom(), vd.getDestTo(), totalPeople, Arrays.asList(checked));
 
-        List<Flight> depFlights = flights.get(0);
-        List<Flight> retFlights = flights.get(1);
+        depFlights = flights.get(0);
+        retFlights = flights.get(1);
         for (Flight f : depFlights) {
             FlightCardController fcc = new FlightCardController(f, loader.getController(), true);
             listi.add(fcc);
@@ -611,12 +687,12 @@ public class BookingProcessController implements Initializable {
         params.put("localCode", vd.getLocalCode());
         params.put("difficulty", checked);
 
-        ArrayList<DayTrip> listiafDT = DayTripController.getDayTrips(params);
-        if(listiafDT.size() == 0) {
+        loadedDayTrips = DayTripController.getDayTrips(params);
+        if(loadedDayTrips.size() == 0) {
             fxNoDayTrips.setDisable(false);
         }
 
-        for (DayTrip dt : listiafDT) {
+        for (DayTrip dt : loadedDayTrips) {
             DayTripCardController dtc = new DayTripCardController(dt, loader.getController());
             listi.add(dtc);
         }
@@ -640,7 +716,9 @@ public class BookingProcessController implements Initializable {
         roomCount++;
         bookedRooms.add(rm);
         fxHotelBookedName.setText(chosenHotel.getName());
-        fxHotelBookedDates.setText(vd.getDateFrom() + " - " + vd.getDateTo());
+        fxHotelBookedDates.setText(vd.getDateFrom().format(DateTimeFormatter
+                .ofLocalizedDate(FormatStyle.MEDIUM)) + " - " + vd.getDateTo().format(DateTimeFormatter
+                .ofLocalizedDate(FormatStyle.MEDIUM)));
         fxHotelBookedRooms.setText(printRooms(bookedRooms));
         fxHotelBookedGuests.setText("Rooms hold " + peopleBooked + " of " + totalPeople + " people");
         fxHotelBookedPriceTotal.setText(String.format("%,.0f", (double) getTotalRoomPrice(bookedRooms)) + " kr.");
@@ -683,3 +761,7 @@ public class BookingProcessController implements Initializable {
         return this.totalPeople;
     }
 }
+
+
+
+

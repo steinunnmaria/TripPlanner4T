@@ -16,7 +16,7 @@ import java.time.format.FormatStyle;
 public class HotelRoomCardController extends SplitPane {
 
     @FXML
-    private Label fxRoomNumber, fxCapacity, fxNoBeds, fxPricePerNight,fxLengthOfStay;
+    private Label fxRoomNumber, fxCapacity, fxNoBeds, fxPricePerNight, fxCheckIn, fxCheckOut, fxShowCheckIn, fxShowCheckOut;;
     @FXML
     private ToggleButton fxBook;
 
@@ -63,11 +63,15 @@ public class HotelRoomCardController extends SplitPane {
     }
 
     public void setToReviewCard(LocalDate from, LocalDate to) {
-        fxLengthOfStay.setText(from.format(DateTimeFormatter
-                .ofLocalizedDate(FormatStyle.MEDIUM))+" - "+to.format(DateTimeFormatter
+        fxCheckIn.setText(from.format(DateTimeFormatter
+                .ofLocalizedDate(FormatStyle.MEDIUM)));
+        fxCheckOut.setText(to.format(DateTimeFormatter
                 .ofLocalizedDate(FormatStyle.MEDIUM)));
         fxBook.setVisible(false);
-        fxLengthOfStay.setVisible(true);
+        fxCheckIn.setVisible(true);
+        fxCheckOut.setVisible(true);
+        fxShowCheckIn.setVisible(true);
+        fxShowCheckOut.setVisible(true);
     }
 
     private void readCard() {

@@ -96,7 +96,7 @@ public class FinishController implements Initializable {
         ArrayList<FinishCardController> listi = new ArrayList<FinishCardController>();
         if (totalPeople > 1) {
             for (int i = 0; i < totalPeople-1; i++) {
-                FinishCardController fch = new FinishCardController("Fyrsti");
+                FinishCardController fch = new FinishCardController();
                 listi.add(fch);
             }
         }

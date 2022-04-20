@@ -22,6 +22,8 @@ public class DayTripCardController extends SplitPane {
     @FXML
     private Button fxCapacity;
     @FXML
+    private Label fxLocation;
+    @FXML
     private Label fxPrice;
     @FXML
     private Button fxOpenTrip;
@@ -55,11 +57,11 @@ public class DayTripCardController extends SplitPane {
         fxTitle.setText(dayTrip.getName());
         fxDate.setText(dayTrip.getDate().format(DateTimeFormatter
                 .ofLocalizedDate(FormatStyle.MEDIUM)));
+        fxLocation.setText(dayTrip.getLocation());
         fxCapacity.setText(dayTrip.getCapacity() + " spots open");
         fxDiff.setText(dayTrip.getDifficulty());
         fxPrice.setText(String.format("%,.0f", dayTrip.getPrice())+" kr.");
-        fxDuration.setText(dayTrip.getTimeStart() + " - " + dayTrip.getTimeEnd());
-
+        fxDuration.setText(dayTrip.getTimeStart().format(DateTimeFormatter.ofPattern("HH:mm")) + " - " + dayTrip.getTimeEnd().format(DateTimeFormatter.ofPattern("HH:mm")));
     }
 
     public DayTrip getDayTrip() {

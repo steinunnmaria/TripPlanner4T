@@ -50,6 +50,11 @@ public class DayTripBookedCardController extends SplitPane {
         this.bpc.unBookDayTrip(this.dt, this);
     }
 
+    public void setAsReviewCard() {
+        fxUnBook.setVisible(false);
+        fxUnBook.setDisable(true);
+    }
+
     public double getPrice() {
         return this.price;
     }

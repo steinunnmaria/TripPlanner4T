@@ -54,7 +54,7 @@
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin></Label>
-                  <Label fx:id="fxDate" text="Location" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
+                  <Label fx:id="fxLocation" text="Location" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <Button fx:id="fxCapacity" layoutX="198.0" mnemonicParsing="false" onAction="#selectHandler" prefHeight="60.0" prefWidth="70.0" style="-fx-background-color: radial-gradient(radius 180%, yellow, derive(yellow, -30%), derive(yellow, 30%))radial-gradient(radius 180%, yellow, derive(yellow, -30%), derive(yellow, 30%))radial-gradient(radius 180%, yellow, derive(yellow, -30%), derive(yellow, 30%))radial-gradient(radius 180%, yellow, derive(yellow, -30%), derive(yellow, 30%));" text="47 tickets left" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="18.0">

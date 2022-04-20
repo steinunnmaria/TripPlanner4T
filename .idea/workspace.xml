@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3faa3c8f-6dae-4916-8435-b835f09856f0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TripPlanner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TripPlanner.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/BookingProcessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/BookingProcessController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/DayTripBookedCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/DayTripBookedCardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/DayTripCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/DayTripCardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/FinishCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/FinishCardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/FinishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/FinishController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/HotelCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/HotelCardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/HotelRoomCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/HotelRoomCardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/ReviewBookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tripplanner/Controllers/ReviewBookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tripplanner/booking-process-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/tripplanner/booking-process-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tripplanner/day-trip-card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/tripplanner/day-trip-card.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tripplanner/hotel-card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/tripplanner/hotel-card.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tripplanner/hotel-room-card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/tripplanner/hotel-room-card.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,15 +102,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.HelloApplication">
-    <configuration default="true" type="TestNG">
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="DayTripController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.tripplanner.DayTripDataBase.DayTripController" />
       <module name="TripPlanner" />
@@ -139,6 +144,15 @@
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
