@@ -51,6 +51,7 @@
                   <Label fx:id="fxCapacity" text="3" GridPane.columnIndex="1" />
                   <Label fx:id="fxNoBeds" text="2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <ToggleButton fx:id="fxBook" mnemonicParsing="false" onAction="#selectHandler" prefHeight="26.0" prefWidth="101.0" style="-fx-background-color: radial-gradient(radius 180%, LIGHTGREEN, derive(LIGHTGREEN, -30%), derive(LIGHTGREEN, 30%))radial-gradient(radius 180%, LIGHTGREEN, derive(LIGHTGREEN, -30%), derive(LIGHTGREEN, 30%));" text="Book Room" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Label fx:id="fxLengthOfStay" text="Label" visible="false" GridPane.rowIndex="2" />
                </children>
             </GridPane>
          </children></AnchorPane>

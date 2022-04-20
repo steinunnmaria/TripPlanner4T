@@ -1,6 +1,5 @@
 package com.example.tripplanner.Controllers;
 
-import com.example.tripplanner.Classes.VacationDeal;
 import com.example.tripplanner.DayTripDataBase.DayTrip;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,7 +20,6 @@ public class DayTripBookedCardController extends SplitPane {
     private ToggleButton fxUnBook;
 
     private BookingProcessController bpc;
-    private VacationDeal vd;
     private DayTrip dt;
     private int tickets;
     private double price;

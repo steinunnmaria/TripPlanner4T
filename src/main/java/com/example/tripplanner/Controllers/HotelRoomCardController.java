@@ -9,11 +9,14 @@ import javafx.scene.control.SplitPane;
 import javafx.scene.control.ToggleButton;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 public class HotelRoomCardController extends SplitPane {
 
     @FXML
-    private Label fxRoomNumber, fxCapacity, fxNoBeds, fxPricePerNight;
+    private Label fxRoomNumber, fxCapacity, fxNoBeds, fxPricePerNight,fxLengthOfStay;
     @FXML
     private ToggleButton fxBook;
 
@@ -57,6 +60,14 @@ public class HotelRoomCardController extends SplitPane {
         fxNoBeds.setText(rm.getNumBeds().toString());
         fxPricePerNight.setText(String.format("%,.0f", (double) rm.getPrice()) + " kr.");
 
+    }
+
+    public void setToReviewCard(LocalDate from, LocalDate to) {
+        fxLengthOfStay.setText(from.format(DateTimeFormatter
+                .ofLocalizedDate(FormatStyle.MEDIUM))+" - "+to.format(DateTimeFormatter
+                .ofLocalizedDate(FormatStyle.MEDIUM)));
+        fxBook.setVisible(false);
+        fxLengthOfStay.setVisible(true);
     }
 
     private void readCard() {

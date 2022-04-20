@@ -57,7 +57,7 @@ public class FlightCardController extends SplitPane {
         fxFlightPrice.setText(String.format("%,.0f", (double) fl.getPrice()) + " kr. / person");
         fxFlightDate.setText(fl.getDate().format(DateTimeFormatter
                 .ofLocalizedDate(FormatStyle.MEDIUM)));
-        fxFlightDuration.setText(String.valueOf(fl.getDuration()) + " klst.");
+        fxFlightDuration.setText(fl.getTime().format(DateTimeFormatter.ofPattern("HH:mm"))+" - "+fl.getTime().plusHours((long) fl.getDuration()).format(DateTimeFormatter.ofPattern("HH:mm")));
         fxFromDest.setText(fl.getDeparture());
         fxToDest.setText(fl.getDestination());
     }

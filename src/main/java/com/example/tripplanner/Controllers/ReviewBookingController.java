@@ -9,6 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 
 public class ReviewBookingController {
@@ -86,23 +88,25 @@ public class ReviewBookingController {
     }
 
     public void setFlightOut(Flight f) {
-        fxOutDate.setText(f.getDate().toString());
+        fxOutDate.setText(f.getDate().format(DateTimeFormatter
+                .ofLocalizedDate(FormatStyle.MEDIUM)));
         fxOutDepLoc.setText(f.getDeparture());
         fxOutArrLoc.setText(f.getDestination());
         fxOutAirline.setText(f.getAirlineName());
         fxOutFlightNo.setText(f.getFlightNumber());
-        fxOutDepTime.setText(f.getTime().toString());
-        fxOutArrTime.setText(f.getTime().plusHours((long) f.getDuration()).toString());
+        fxOutDepTime.setText(f.getTime().format(DateTimeFormatter.ofPattern("HH:mm")));
+        fxOutArrTime.setText(f.getTime().plusHours((long) f.getDuration()).format(DateTimeFormatter.ofPattern("HH:mm")));
         fxOutPrice.setText(String.format("%,.0f", (double) f.getPrice()) + " kr.");
     }
     public void setFlightBack(Flight f) {
-        fxBackDate.setText(f.getDate().toString());
+        fxBackDate.setText(f.getDate().format(DateTimeFormatter
+                .ofLocalizedDate(FormatStyle.MEDIUM)));
         fxBackDepLoc.setText(f.getDeparture());
         fxBackArrLoc.setText(f.getDestination());
         fxBackAirline.setText(f.getAirlineName());
         fxBackFlightNo.setText(f.getFlightNumber());
-        fxBackDepTime.setText(f.getTime().toString());
-        fxBackArrTime.setText(f.getTime().plusHours((long) f.getDuration()).toString());
+        fxBackDepTime.setText(f.getTime().format(DateTimeFormatter.ofPattern("HH:mm")));
+        fxBackArrTime.setText(f.getTime().plusHours((long) f.getDuration()).format(DateTimeFormatter.ofPattern("HH:mm")));
         fxBackPrice.setText(String.format("%,.0f", (double) f.getPrice()) + " kr.");
     }
 
@@ -119,6 +123,7 @@ public class ReviewBookingController {
 
         for (Room room : roomList) {
             HotelRoomCardController hrcc = new HotelRoomCardController(room);
+            hrcc.setToReviewCard(vd.getDateFrom(), vd.getDateTo());
             listi.add(hrcc);
         }
         fxRoomsCont.getChildren().clear();
