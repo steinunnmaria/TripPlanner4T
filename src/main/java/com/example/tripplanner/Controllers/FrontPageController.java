@@ -18,8 +18,6 @@ public class FrontPageController implements Initializable {
     private ComboBox<String> fxFromDest, fxToDest;
     @FXML
     private DatePicker fxReturnDate, fxDepartureDate;
-    @FXML
-    private RadioButton fxOneWay, fxReturn;
     //Redda að má ekki skrifa strengi - Steinunn Breyting
     @FXML
     private Label fxChildrenCount, fxAdultCount;
@@ -102,22 +100,6 @@ public class FrontPageController implements Initializable {
     }
 
 
-    public void returnHandler(ActionEvent actionEvent) {
-        fxOneWay.setSelected(false);
-        fxReturnDate.setDisable(false);
-        if (isFilledOut()) {
-            fxConfirm.setDisable(false);
-        }
-    }
-
-    public void oneWayHandler(ActionEvent actionEvent) {
-        fxReturn.setSelected(false);
-        fxReturnDate.setDisable(true);
-        if (isFilledOut()) {
-            fxConfirm.setDisable(false);
-        }
-    }
-
     public void departureDateHandler(ActionEvent actionEvent) {
         //LocalDate depDate = fxDepartureDate.getValue();
         fxReturnDate.setDayCellFactory(picker -> new DateCell() {
@@ -136,14 +118,8 @@ public class FrontPageController implements Initializable {
     }
 
     public boolean isFilledOut() {
-        if (fxReturn.isSelected()) {
-            return fxReturnDate.getValue() != null && fxDepartureDate.getValue() != null
-                    && fxFromDest.getValue() != null && fxToDest.getValue() != null;
-        }
-        else {
-            return fxDepartureDate.getValue() != null
-                    && fxFromDest.getValue() != null && fxToDest.getValue() != null;
-        }
+        return fxReturnDate.getValue() != null && fxDepartureDate.getValue() != null
+                && fxFromDest.getValue() != null && fxToDest.getValue() != null;
     }
 
     public void returnDateHandler(ActionEvent actionEvent) {
