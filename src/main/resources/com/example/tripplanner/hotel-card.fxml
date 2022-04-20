@@ -40,10 +40,10 @@
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <GridPane alignment="CENTER" layoutX="14.0" layoutY="4.0" prefHeight="53.0" prefWidth="166.0">
+            <GridPane alignment="CENTER" layoutX="14.0" layoutY="4.0" prefHeight="53.0" prefWidth="153.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="76.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.0" minWidth="10.0" prefWidth="89.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="109.0" minWidth="10.0" prefWidth="109.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.0" minWidth="10.0" prefWidth="44.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -63,6 +63,21 @@
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Label>
+                  <GridPane prefHeight="27.0" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label fx:id="fxGym" text="G" visible="false" GridPane.halignment="CENTER" />
+                        <Label fx:id="fxWifi" text="W" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                        <Label fx:id="fxBreakfast" text="B" visible="false" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                     </children>
+                  </GridPane>
                </children>
             </GridPane>
             <Button fx:id="fxBookHotel" layoutX="198.0" mnemonicParsing="false" onAction="#selectHandler" prefHeight="60.0" prefWidth="70.0" style="-fx-background-color: radial-gradient(radius 180%, LIGHTGREEN, derive(LIGHTGREEN, -30%), derive(LIGHTGREEN, 30%))radial-gradient(radius 180%, LIGHTGREEN, derive(LIGHTGREEN, -30%), derive(LIGHTGREEN, 30%)); -fx-background-radius: 10px;" text="View hotel" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" wrapText="true" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="18.0">

@@ -25,6 +25,8 @@ public class HotelCardController extends SplitPane {
     @FXML
     private Label fxHotelID;
     @FXML
+    private Label fxWifi, fxGym, fxBreakfast;
+    @FXML
     private ImageView fx1Star, fx2Star, fx3Star, fx4Star, fx5Star;
 
 
@@ -64,6 +66,15 @@ public class HotelCardController extends SplitPane {
 
         int stars = h.getHotelInfo().getStarRating();
         showStars(stars);
+        if(h.getHotelInfo().getGym()) {
+            fxGym.setVisible(true);
+        }
+        if(h.getHotelInfo().getRestaurant()) {
+            fxBreakfast.setVisible(true);
+        }
+        if(h.getHotelInfo().getWifi()) {
+            fxWifi.setVisible(true);
+        }
 
     }
 

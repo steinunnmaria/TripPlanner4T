@@ -604,13 +604,20 @@ public class BookingProcessController implements Initializable {
             i++;
         }
         int j = 0;
-
+        int info_i = 0;
         if (selIndex==1) {
             if (selectedCheckBoxes.size() == 0) {
                 loadHotelCards();
             }
             else {
-                Integer[] stars = new Integer[selectedCheckBoxes.size()];
+                int cnt = 0;
+                for (CheckBox c : selectedCheckBoxes) {
+                    if(c.getText().equals("Gym") || c.getText().equals("Wifi") || c.getText().equals("Breakfast")) {
+                        cnt++;
+                    }
+                }
+                Integer[] stars = new Integer[selectedCheckBoxes.size()-cnt];
+                String[] info = new String[cnt];
                 for (CheckBox c : selectedCheckBoxes) {
                     String ch = c.getText();
                     if (ch.equals("1 star") || ch.equals("2 stars") || ch.equals("3 stars") ||
@@ -618,8 +625,12 @@ public class BookingProcessController implements Initializable {
                         stars[j] = Integer.parseInt(String.valueOf(ch.charAt(0)));
                         j++;
                     }
+                    if (ch.equals("Gym") || ch.equals("Wifi") || ch.equals("Breakfast")) {
+                        info[info_i] = ch;
+                        info_i++;
+                    }
                 }
-                loadHotelByFilter(stars);
+                loadHotelByFilter(stars, info);
             }
         }
 
@@ -678,11 +689,11 @@ public class BookingProcessController implements Initializable {
 
     }
 
-    public void loadHotelByFilter(Integer[] stars) throws Exception {
+    public void loadHotelByFilter(Integer[] stars, String[] info) throws Exception {
         ArrayList<HotelCardController> listi = new ArrayList<HotelCardController>();
 
         this.hotelController = HotelController.getInstance();
-        ArrayList<Hotel> filteredHotels = hotelController.filterByStars(hotelListi, stars);
+        ArrayList<Hotel> filteredHotels = hotelController.filterHotels(hotelListi, stars, info);
         for (Hotel h : filteredHotels) {
             HotelCardController hcc = new HotelCardController(h, loader.getController(), this.vd);
             listi.add(hcc);
