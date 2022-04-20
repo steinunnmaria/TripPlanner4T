@@ -15,7 +15,7 @@ import java.time.format.FormatStyle;
 
 public class HotelCardController extends SplitPane {
     @FXML
-    private Label fxName;
+    private Label fxName, fxStars;
     @FXML
     private Label fxInDate;
     @FXML
@@ -61,7 +61,9 @@ public class HotelCardController extends SplitPane {
         fxOutDate.setText("Check-out: " + this.vd.getDateTo().format(DateTimeFormatter
                 .ofLocalizedDate(FormatStyle.MEDIUM)));
         fxLocation.setText(h.getTown());
+
         int stars = h.getHotelInfo().getStarRating();
+        fxStars.setText(stars + " stars");
         showStars(stars);
 
     }
@@ -71,7 +73,7 @@ public class HotelCardController extends SplitPane {
         for (int i = 0;i < imgs.length ;i++ ) {
             imgs[i].setVisible(false);
         }
-        for (int i = 0; i < stars-1; i++) {
+        for (int i = 0; i < stars; i++) {
             imgs[i].setVisible(true);
         }
 
