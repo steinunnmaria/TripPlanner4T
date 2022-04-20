@@ -34,12 +34,15 @@
             </font>
         </Label>
         <Button layoutX="437.0" layoutY="291.0" mnemonicParsing="false" onAction="#childrenPlusHandler" prefWidth="30.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-font-weight: bold;" text="+" />
-        <DatePicker fx:id="fxDepartureDate" layoutX="50.0" layoutY="238.0" onAction="#departureDateHandler" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px;" />
-        <DatePicker fx:id="fxReturnDate" layoutX="50.0" layoutY="306.0" onAction="#returnDateHandler" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px;" />
+        <DatePicker fx:id="fxDepartureDate" layoutX="50.0" layoutY="238.0" onAction="#departureDateHandler" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-font-family: arial;" />
+        <DatePicker fx:id="fxReturnDate" layoutX="50.0" layoutY="306.0" onAction="#returnDateHandler" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-font-family: arial;" />
         <RadioButton fx:id="fxReturn" layoutX="49.0" layoutY="349.0" mnemonicParsing="false" onAction="#returnHandler" selected="true" style="-fx-font-family: arial;" text="Return" />
         <RadioButton fx:id="fxOneWay" layoutX="124.0" layoutY="349.0" mnemonicParsing="false" onAction="#oneWayHandler" style="-fx-font-family: arial;" text="One-way" />
-        <Button fx:id="fxConfirm" layoutX="424.0" layoutY="366.0" mnemonicParsing="false" onAction="#searchHandler" prefHeight="23.0" prefWidth="99.0" style="-fx-background-color: radial-gradient(radius 180%, #bf92e4, derive(#bf92e4, -30%), derive(#bf92e4, 30%))radial-gradient(radius 180%, #bf92e4, derive(#bf92e4, -30%), derive(#bf92e4, 30%)); -fx-font-weight: bold; -fx-font-family: arial; -fx-font-size: 15px;" text="Search" />
-        <Label layoutX="203.0" layoutY="391.0" text="Don't forget to bring a towel..." />
+        <Button fx:id="fxConfirm" layoutX="424.0" layoutY="366.0" mnemonicParsing="false" onAction="#searchHandler" prefHeight="23.0" prefWidth="99.0" style="-fx-background-color: radial-gradient(radius 180%, #bf92e4, derive(#bf92e4, -30%), derive(#bf92e4, 30%))radial-gradient(radius 180%, #bf92e4, derive(#bf92e4, -30%), derive(#bf92e4, 30%)); -fx-font-weight: bold; -fx-font-family: arial; -fx-font-size: 15px;" text="Search" textFill="WHITE" />
+        <Label layoutX="203.0" layoutY="391.0" text="Don't forget to bring a towel...">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font></Label>
         <Label layoutX="187.0" layoutY="30.0" text="Welcome">
             <font>
                 <Font name="System Bold" size="44.0" />
@@ -67,13 +70,13 @@
                         <Font name="Arial Bold" size="22.0" />
                     </font>
                 </Label>
-                <ComboBox fx:id="fxFromDest" layoutX="14.0" layoutY="49.0" onAction="#fromDestHandler" prefHeight="25.0" prefWidth="217.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-background-radius: 6px;" />
+                <ComboBox fx:id="fxFromDest" layoutX="14.0" layoutY="49.0" onAction="#fromDestHandler" prefHeight="27.0" prefWidth="217.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-background-radius: 6px; -fx-font-family: arial;" />
                 <Label layoutX="328.0" layoutY="14.0" style="-fx-font-family: arial;" text="Flying to">
                     <font>
                         <Font name="System Bold" size="22.0" />
                     </font>
                 </Label>
-                <ComboBox fx:id="fxToDest" layoutX="265.0" layoutY="49.0" onAction="#toDestHandler" prefHeight="25.0" prefWidth="217.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
+                <ComboBox fx:id="fxToDest" layoutX="265.0" layoutY="49.0" onAction="#toDestHandler" prefHeight="27.0" prefWidth="217.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-font-family: arial;" />
             </children>
         </Pane>
     </children>

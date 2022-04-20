@@ -20,22 +20,22 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.Controllers.BookingProcessController">
+<AnchorPane prefHeight="600.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.Controllers.BookingProcessController">
    <children>
       <TabPane fx:id="fxTabCont" layoutX="15.0" layoutY="39.0" prefHeight="546.0" prefWidth="1055.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab fx:id="fxFlightsTab" onSelectionChanged="#tabChangeHandler" style="-fx-font-size: 16px; -fx-color: #C8D9F0; -fx-background-color: #C8D9F0;" text="Flights">
+          <Tab fx:id="fxFlightsTab" onSelectionChanged="#tabChangeHandler" style="-fx-font-size: 16px; -fx-color: radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%))radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%)); -fx-background-color: radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%))radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%)); -fx-font-family: arial;" text="Flights">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ScrollPane layoutX="178.0" layoutY="29.0" prefHeight="353.0" prefWidth="425.0">
+                        <ScrollPane layoutX="178.0" layoutY="29.0" prefHeight="353.0" prefWidth="425.0" style="-fx-border-color: #000000; -fx-border-radius: 2px;">
                            <content>
                               <VBox fx:id="fxFlightsDepCont" prefHeight="346.0" prefWidth="423.0" spacing="5.0" />
                            </content>
                         </ScrollPane>
-                        <Button fx:id="fxFlightsConfirm" layoutX="968.0" layoutY="474.0" mnemonicParsing="false" onAction="#flightsConfirmHandler" text="Confirm" />
-                        <Button layoutX="900.0" layoutY="474.0" mnemonicParsing="false" onAction="#flightsSkipHandler" text="Skip" />
-                        <ScrollPane layoutX="620.0" layoutY="29.0" prefHeight="353.0" prefWidth="425.0">
+                        <Button fx:id="fxFlightsConfirm" layoutX="963.0" layoutY="474.0" mnemonicParsing="false" onAction="#flightsConfirmHandler" style="-fx-background-color: radial-gradient(radius 180%, LIGHTGREEN, derive(LIGHTGREEN, -30%), derive(LIGHTGREEN, 30%))radial-gradient(radius 180%, LIGHTGREEN, derive(LIGHTGREEN, -30%), derive(LIGHTGREEN, 30%)); -fx-font-family: arial; -fx-font-size: 15px; -fx-font-weight: bold;" text="Confirm" textFill="WHITE" />
+                        <Button layoutX="900.0" layoutY="474.0" mnemonicParsing="false" onAction="#flightsSkipHandler" style="-fx-background-color: radial-gradient(radius 180%, #bf92e4, derive(#bf92e4, -30%), derive(#bf92e4, 30%))radial-gradient(radius 180%, #bf92e4, derive(#bf92e4, -30%), derive(#bf92e4, 30%)); -fx-font-family: arial; -fx-font-size: 15px; -fx-font-weight: bold;" text="Skip" textFill="WHITE" />
+                        <ScrollPane layoutX="620.0" layoutY="29.0" prefHeight="353.0" prefWidth="425.0" style="-fx-border-color: #000000; -fx-border-radius: 2px;">
                            <content>
                               <VBox fx:id="fxFlightsRetCont" prefHeight="351.0" prefWidth="423.0" spacing="5.0" />
                            </content>
@@ -44,22 +44,22 @@
                            <children>
                               <Pane prefHeight="69.0" prefWidth="174.0">
                                  <children>
-                                    <ComboBox fx:id="fxSortFlights" layoutX="16.0" layoutY="14.0" onAction="#sortFlightsHandler" prefWidth="150.0" promptText="Sort by:" />
+                                    <ComboBox fx:id="fxSortFlights" layoutX="16.0" layoutY="14.0" onAction="#sortFlightsHandler" prefWidth="150.0" promptText="Sort by:" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-font-family: arial;" />
                                  </children>
                               </Pane>
                               <Pane prefHeight="149.0" prefWidth="174.0">
                                  <children>
-                                    <CheckBox fx:id="fxIcelandair" layoutX="16.0" layoutY="40.0" mnemonicParsing="false" onAction="#filterHandler" text="Icelandair" />
-                                    <CheckBox fx:id="fxErnir" layoutX="16.0" layoutY="70.0" mnemonicParsing="false" onAction="#filterHandler" text="Ernir" />
-                                    <CheckBox fx:id="fxFlugleidir" layoutX="16.0" layoutY="100.0" mnemonicParsing="false" onAction="#filterHandler" text="Flugleiðir" />
-                                    <Label layoutX="16.0" layoutY="10.0" text="Filter by Airline" />
+                                    <CheckBox fx:id="fxIcelandair" layoutX="16.0" layoutY="40.0" mnemonicParsing="false" onAction="#filterHandler" style="-fx-font-family: arial;" text="Icelandair" />
+                                    <CheckBox fx:id="fxErnir" layoutX="16.0" layoutY="70.0" mnemonicParsing="false" onAction="#filterHandler" style="-fx-font-family: arial;" text="Ernir" />
+                                    <CheckBox fx:id="fxFlugleidir" layoutX="16.0" layoutY="100.0" mnemonicParsing="false" onAction="#filterHandler" style="-fx-font-family: arial;" text="Flugleiðir" />
+                                    <Label layoutX="16.0" layoutY="10.0" style="-fx-font-family: arial; -fx-font-weight: bold; -fx-font-size: 15px;" text="Filter by Airline" />
                                  </children>
                               </Pane>
                            </children>
                         </VBox>
-                        <Label layoutX="178.0" layoutY="11.0" text="Flights out:" />
-                        <Label layoutX="620.0" layoutY="11.0" text="Flights back:" />
-                        <SplitPane fx:id="fxMyFlight1" dividerPositions="0.22512437810945274" layoutX="180.0" layoutY="388.0" prefHeight="80.0" prefWidth="422.0" style="-fx-border-color: #C8D9F0 #C8D9F0; -fx-border-width: 1.5;">
+                        <Label layoutX="178.0" layoutY="11.0" style="-fx-font-family: arial; -fx-font-weight: bold;" text="Flights out:" />
+                        <Label layoutX="620.0" layoutY="11.0" style="-fx-font-family: arial; -fx-font-weight: bold;" text="Flights back:" />
+                        <SplitPane fx:id="fxMyFlight1" dividerPositions="0.22512437810945274" layoutX="180.0" layoutY="388.0" prefHeight="80.0" prefWidth="422.0" style="-fx-border-color: skyblue; -fx-border-width: 1.5;">
                           <items>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="75.0" prefWidth="90.0">
                                  <children>
@@ -67,12 +67,12 @@
                                       <items>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="32.0" prefWidth="80.0">
                                              <children>
-                                                <Label fx:id="fxMyFlightNo1" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="86.0" text="FI-131" />
+                                                <Label fx:id="fxMyFlightNo1" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="86.0" style="-fx-font-family: arial;" text="FI-131" />
                                              </children>
                                           </AnchorPane>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="32.0" prefWidth="80.0">
                                              <children>
-                                                <Label fx:id="fxMyFlightDate1" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="86.0" text="22.04.2022" />
+                                                <Label fx:id="fxMyFlightDate1" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="86.0" style="-fx-font-family: arial;" text="22.04.2022" />
                                              </children>
                                           </AnchorPane>
                                       </items>
@@ -94,7 +94,7 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
-                                          <Label fx:id="fxMyFlightDept1" text="11:05" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                          <Label fx:id="fxMyFlightDept1" style="-fx-font-family: arial;" text="11:05" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets right="5.0" />
                                              </GridPane.margin>
@@ -104,17 +104,17 @@
                                                 <Image url="@images/takeoff-the-plane.png" />
                                              </image>
                                           </ImageView>
-                                          <Label fx:id="fxMyFlightFrom1" text="Reykjavík" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                          <Label fx:id="fxMyFlightFrom1" style="-fx-font-family: arial;" text="Reykjavík" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets left="5.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="fxMyFlightTo1" text="Egilsstaðir" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                          <Label fx:id="fxMyFlightTo1" style="-fx-font-family: arial;" text="Egilsstaðir" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                              <GridPane.margin>
                                                 <Insets left="5.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="fxMyFlightArr1" text="14:50" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                          <Label fx:id="fxMyFlightArr1" style="-fx-font-family: arial;" text="14:50" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                                              <padding>
                                                 <Insets right="5.0" />
                                              </padding>
@@ -124,29 +124,29 @@
                                                 <Image url="@images/plane-landing.png" />
                                              </image>
                                           </ImageView>
-                                          <Label fx:id="fxMyAirline1" text="Flugleiðir" GridPane.columnSpan="2" GridPane.halignment="LEFT">
+                                          <Label fx:id="fxMyAirline1" style="-fx-font-family: arial;" text="Flugleiðir" GridPane.columnSpan="2" GridPane.halignment="LEFT">
                                              <padding>
                                                 <Insets left="10.0" />
                                              </padding>
                                           </Label>
-                                          <Label fx:id="fxMyFlightPrice1" text="72.889 kr." GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                          <Label fx:id="fxMyFlightPrice1" style="-fx-font-family: arial;" text="72.889 kr." GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                                              <GridPane.margin>
                                                 <Insets right="20.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="fxMyFlightPass1" text="3 tickets" GridPane.columnIndex="2">
+                                          <Label fx:id="fxMyFlightPass1" style="-fx-font-family: arial;" text="3 tickets" GridPane.columnIndex="2">
                                              <GridPane.margin>
                                                 <Insets left="5.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="105.0" style="-fx-background-color: radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%))radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%));" text="Your flight out" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowSpan="2" />
+                                          <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="105.0" style="-fx-background-color: radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%))radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%)); -fx-font-family: arial;" text="Your flight out" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowSpan="2" />
                                        </children>
                                     </GridPane>
                                  </children>
                               </AnchorPane>
                           </items>
                         </SplitPane>
-                        <SplitPane fx:id="fxMyFlight2" dividerPositions="0.22512437810945274" layoutX="622.0" layoutY="388.0" prefHeight="80.0" prefWidth="422.0" style="-fx-border-color: #C8D9F0 #C8D9F0; -fx-border-width: 1.5;">
+                        <SplitPane fx:id="fxMyFlight2" dividerPositions="0.22512437810945274" layoutX="622.0" layoutY="388.0" prefHeight="80.0" prefWidth="422.0" style="-fx-border-color: skyblue; -fx-border-width: 1.5;">
                            <items>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="75.0" prefWidth="90.0">
                                  <children>
@@ -154,12 +154,12 @@
                                        <items>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="32.0" prefWidth="80.0">
                                              <children>
-                                                <Label fx:id="fxMyFlightNo2" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="86.0" text="FI-131" />
+                                                <Label fx:id="fxMyFlightNo2" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="86.0" style="-fx-font-family: arial;" text="FI-131" />
                                              </children>
                                           </AnchorPane>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="32.0" prefWidth="80.0">
                                              <children>
-                                                <Label fx:id="fxMyFlightDate2" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="86.0" text="22.04.2022" />
+                                                <Label fx:id="fxMyFlightDate2" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="86.0" style="-fx-font-family: arial;" text="22.04.2022" />
                                              </children>
                                           </AnchorPane>
                                        </items>
@@ -181,7 +181,7 @@
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <Label fx:id="fxMyFlightDept2" text="11:05" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                          <Label fx:id="fxMyFlightDept2" style="-fx-font-family: arial;" text="11:05" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets right="5.0" />
                                              </GridPane.margin>
@@ -191,17 +191,17 @@
                                                 <Image url="@images/takeoff-the-plane.png" />
                                              </image>
                                           </ImageView>
-                                          <Label fx:id="fxMyFlightFrom2" text="Reykjavík" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                          <Label fx:id="fxMyFlightFrom2" style="-fx-font-family: arial;" text="Reykjavík" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets left="5.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="fxMyFlightTo2" text="Egilsstaðir" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                          <Label fx:id="fxMyFlightTo2" style="-fx-font-family: arial;" text="Egilsstaðir" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                              <GridPane.margin>
                                                 <Insets left="5.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="fxMyFlightArr2" text="14:50" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                          <Label fx:id="fxMyFlightArr2" style="-fx-font-family: arial;" text="14:50" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                                              <padding>
                                                 <Insets right="5.0" />
                                              </padding>
@@ -211,22 +211,22 @@
                                                 <Image url="@images/plane-landing.png" />
                                              </image>
                                           </ImageView>
-                                          <Label fx:id="fxMyAirline2" text="Flugleiðir" GridPane.columnSpan="2" GridPane.halignment="LEFT">
+                                          <Label fx:id="fxMyAirline2" style="-fx-font-family: arial;" text="Flugleiðir" GridPane.columnSpan="2" GridPane.halignment="LEFT">
                                              <padding>
                                                 <Insets left="10.0" />
                                              </padding>
                                           </Label>
-                                          <Label fx:id="fxMyFlightPrice2" text="72.889 kr." GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                          <Label fx:id="fxMyFlightPrice2" style="-fx-font-family: arial;" text="72.889 kr." GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                                              <GridPane.margin>
                                                 <Insets right="20.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="fxMyFlightPass2" text="3 tickets" GridPane.columnIndex="2">
+                                          <Label fx:id="fxMyFlightPass2" style="-fx-font-family: arial;" text="3 tickets" GridPane.columnIndex="2">
                                              <GridPane.margin>
                                                 <Insets left="5.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="103.0" style="-fx-background-color: radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%))radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%));" text="Your flight back" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowSpan="2" />
+                                          <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="103.0" style="-fx-background-color: radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%))radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%)); -fx-font-family: arial;" text="Your flight back" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowSpan="2" />
                                        </children>
                                     </GridPane>
                                  </children>
@@ -242,8 +242,8 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label text="Total price:" />
-                              <Label fx:id="fxFlightTotalPrice" contentDisplay="RIGHT" text="0 kr." GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                              <Label style="-fx-font-family: arial;" text="Total price:" />
+                              <Label fx:id="fxFlightTotalPrice" contentDisplay="RIGHT" style="-fx-font-family: arial;" text="0 kr." GridPane.columnIndex="1" GridPane.halignment="RIGHT">
                                  <font>
                                     <Font size="21.0" />
                                  </font>
@@ -253,21 +253,21 @@
                      </children></AnchorPane>
             </content>
           </Tab>
-          <Tab fx:id="fxHotelsTab" disable="true" onSelectionChanged="#tabChangeHandler" style="-fx-color: #D9EDDD; -fx-background-color: #D9EDDD; -fx-font-size: 16px;" text="Hotels">
+          <Tab fx:id="fxHotelsTab" disable="true" onSelectionChanged="#tabChangeHandler" style="-fx-color: radial-gradient(radius 180%, LIGHTGREEN, derive(LIGHTGREEN, -30%), derive(LIGHTGREEN, 30%))radial-gradient(radius 180%, LIGHTGREEN, derive(LIGHTGREEN, -30%), derive(LIGHTGREEN, 30%)); -fx-background-color: radial-gradient(radius 180%, LIGHTGREEN, derive(LIGHTGREEN, -30%), derive(LIGHTGREEN, 30%))radial-gradient(radius 180%, LIGHTGREEN, derive(LIGHTGREEN, -30%), derive(LIGHTGREEN, 30%)); -fx-font-size: 16px; -fx-font-family: arial;" text="Hotels">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ScrollPane layoutX="178.0" layoutY="14.0" prefHeight="450.0" prefWidth="425.0">
+                        <ScrollPane layoutX="178.0" layoutY="14.0" prefHeight="450.0" prefWidth="425.0" style="-fx-border-color: #000000; -fx-border-radius: 2px;">
                            <content>
                               <VBox fx:id="fxHotelCont" prefHeight="448.0" prefWidth="409.0" spacing="5.0" />
                            </content></ScrollPane>
-                        <Button fx:id="fxHotelConfirm" layoutX="968.0" layoutY="474.0" mnemonicParsing="false" onAction="#hotelConfirmHandler" text="Confirm" />
-                        <Button layoutX="900.0" layoutY="474.0" mnemonicParsing="false" onAction="#hotelSkipHandler" text="Skip" />
+                        <Button fx:id="fxHotelConfirm" layoutX="963.0" layoutY="474.0" mnemonicParsing="false" onAction="#hotelConfirmHandler" style="-fx-background-color: radial-gradient(radius 180%, LIGHTGREEN, derive(LIGHTGREEN, -30%), derive(LIGHTGREEN, 30%))radial-gradient(radius 180%, LIGHTGREEN, derive(LIGHTGREEN, -30%), derive(LIGHTGREEN, 30%)); -fx-font-family: arial; -fx-font-size: 15px; -fx-font-weight: bold;" text="Confirm" textFill="WHITE" />
+                        <Button layoutX="900.0" layoutY="474.0" mnemonicParsing="false" onAction="#hotelSkipHandler" style="-fx-background-color: radial-gradient(radius 180%, #bf92e4, derive(#bf92e4, -30%), derive(#bf92e4, 30%))radial-gradient(radius 180%, #bf92e4, derive(#bf92e4, -30%), derive(#bf92e4, 30%)); -fx-font-family: arial; -fx-font-size: 15px; -fx-font-weight: bold;" text="Skip" textFill="WHITE" />
                         <VBox layoutY="14.0" prefHeight="448.0" prefWidth="174.0">
                            <children>
                               <Pane prefHeight="103.0" prefWidth="174.0">
                                  <children>
-                                    <ComboBox fx:id="fxSortHotels" layoutX="16.0" layoutY="14.0" onAction="#sortRoomsHandler" prefWidth="150.0" promptText="Sort rooms by:" />
+                                    <ComboBox fx:id="fxSortHotels" layoutX="16.0" layoutY="14.0" onAction="#sortRoomsHandler" prefWidth="150.0" promptText="Sort rooms by:" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-font-family: arial;" />
                                  </children>
                               </Pane>
                               <Pane prefHeight="149.0" prefWidth="174.0">
@@ -280,12 +280,12 @@
                               </Pane>
                               <Pane prefHeight="194.0" prefWidth="174.0">
                                  <children>
-                                    <CheckBox layoutX="16.0" layoutY="35.0" mnemonicParsing="false" onAction="#filterHandler" text="1 star" />
-                                    <CheckBox layoutX="16.0" layoutY="65.0" mnemonicParsing="false" onAction="#filterHandler" text="2 stars" />
-                                    <CheckBox layoutX="16.0" layoutY="95.0" mnemonicParsing="false" onAction="#filterHandler" text="3 stars" />
-                                    <CheckBox layoutX="16.0" layoutY="125.0" mnemonicParsing="false" onAction="#filterHandler" text="4 stars" />
-                                    <CheckBox layoutX="16.0" layoutY="155.0" mnemonicParsing="false" onAction="#filterHandler" text="5 stars" />
-                                    <Label layoutX="16.0" layoutY="5.0" text="Filter by stars" />
+                                    <CheckBox layoutX="16.0" layoutY="35.0" mnemonicParsing="false" onAction="#filterHandler" style="-fx-font-family: arial;" text="1 star" />
+                                    <CheckBox layoutX="16.0" layoutY="65.0" mnemonicParsing="false" onAction="#filterHandler" style="-fx-font-family: arial;" text="2 stars" />
+                                    <CheckBox layoutX="16.0" layoutY="95.0" mnemonicParsing="false" onAction="#filterHandler" style="-fx-font-family: arial;" text="3 stars" />
+                                    <CheckBox layoutX="16.0" layoutY="125.0" mnemonicParsing="false" onAction="#filterHandler" style="-fx-font-family: arial;" text="4 stars" />
+                                    <CheckBox layoutX="16.0" layoutY="155.0" mnemonicParsing="false" onAction="#filterHandler" style="-fx-font-family: arial;" text="5 stars" />
+                                    <Label layoutX="16.0" layoutY="5.0" style="-fx-font-family: arial; -fx-font-weight: bold; -fx-font-size: 15px;" text="Filter by stars" />
                                  </children>
                               </Pane>
                            </children>
@@ -335,7 +335,7 @@
                               </Pane>
                               <Pane fx:id="fxBookedHotel" prefHeight="225.0" prefWidth="206.0">
                                  <children>
-                                    <Label layoutX="14.0" layoutY="14.0" text="Your hotel booking">
+                                    <Label layoutX="14.0" layoutY="14.0" style="-fx-font-family: arial; -fx-font-weight: bold;" text="Your hotel booking">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -353,27 +353,27 @@
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
-                                          <Label fx:id="fxHotelBookedName" text="Hotel name" GridPane.columnIndex="1">
+                                          <Label fx:id="fxHotelBookedName" style="-fx-font-family: arial;" text="Hotel name" GridPane.columnIndex="1">
                                              <GridPane.margin>
                                                 <Insets left="10.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="fxHotelBookedDates" text="Dates" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <Label fx:id="fxHotelBookedDates" style="-fx-font-family: arial;" text="Dates" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets left="10.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="fxHotelBookedRooms" text="Still being worked on..." GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                          <Label fx:id="fxHotelBookedRooms" style="-fx-font-family: arial;" text="Still being worked on..." GridPane.columnIndex="1" GridPane.rowIndex="2">
                                              <GridPane.margin>
                                                 <Insets left="10.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="fxHotelBookedGuests" text="Guests" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                          <Label fx:id="fxHotelBookedGuests" style="-fx-font-family: arial;" text="Guests" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                              <GridPane.margin>
                                                 <Insets left="10.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="fxHotelBookedPriceTotal" text="Total Price" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                          <Label fx:id="fxHotelBookedPriceTotal" style="-fx-font-family: arial;" text="Total Price" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                              <font>
                                                 <Font size="16.0" />
                                              </font>
@@ -381,11 +381,11 @@
                                                 <Insets left="10.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label text="Hotel name:" />
-                                          <Label text="Period:" GridPane.rowIndex="1" />
-                                          <Label text="Rooms:" GridPane.rowIndex="2" />
-                                          <Label text="Guests:" GridPane.rowIndex="3" />
-                                          <Label fx:id="fxHotelBookedPriceTotal1" text="Total Price:" GridPane.rowIndex="4">
+                                          <Label style="-fx-font-family: arial;" text="Hotel name:" />
+                                          <Label style="-fx-font-family: arial;" text="Period:" GridPane.rowIndex="1" />
+                                          <Label style="-fx-font-family: arial;" text="Rooms:" GridPane.rowIndex="2" />
+                                          <Label style="-fx-font-family: arial;" text="Guests:" GridPane.rowIndex="3" />
+                                          <Label fx:id="fxHotelBookedPriceTotal1" style="-fx-font-family: arial;" text="Total Price:" GridPane.rowIndex="4">
                                              <font>
                                                 <Font size="15.0" />
                                              </font>
@@ -398,17 +398,17 @@
                      </children></AnchorPane>
             </content>
           </Tab>
-            <Tab fx:id="fxDayTripsTab" disable="true" onSelectionChanged="#tabChangeHandler" style="-fx-font-size: 16px; -fx-color: #FFF5BD; -fx-background-color: #FFF5BD;" text="Day Trips">
+            <Tab fx:id="fxDayTripsTab" disable="true" onSelectionChanged="#tabChangeHandler" style="-fx-font-size: 16px; -fx-color: #FFF5BD; -fx-background-color: radial-gradient(radius 180%, FEF34F, derive(FEF34F, -30%), derive(FEF34F, 30%))radial-gradient(radius 180%, FEF34F, derive(FEF34F, -30%), derive(FEF34F, 30%)); -fx-font-family: arial;" text="Day Trips">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ScrollPane layoutX="178.0" layoutY="14.0" prefHeight="450.0" prefWidth="425.0">
+                        <ScrollPane layoutX="178.0" layoutY="14.0" prefHeight="450.0" prefWidth="425.0" style="-fx-border-color: #000000; -fx-border-radius: 2px;">
                            <content>
                               <VBox fx:id="fxDayTripsCont" prefHeight="448.0" prefWidth="409.0" spacing="5.0">
                                  <children>
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Label fx:id="fxNoDayTrips" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" prefHeight="201.0" prefWidth="424.0" style="-fx-background-color: lightgrey;" text="No trips available near your area today" textAlignment="CENTER" wrapText="true">
+                                          <Label fx:id="fxNoDayTrips" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" prefHeight="201.0" prefWidth="424.0" style="-fx-background-color: lightgrey; -fx-font-family: arial; -fx-font-size: 44px;" text="No trips available near your area today" textAlignment="CENTER" wrapText="true">
                                              <font>
                                                 <Font size="42.0" />
                                              </font>
@@ -421,21 +421,21 @@
                                  </children></VBox>
                            </content>
                         </ScrollPane>
-                        <Button fx:id="fxDayTripConfirm" layoutX="968.0" layoutY="474.0" mnemonicParsing="false" onAction="#dayTripConfirmHandler" text="Confirm" />
-                        <Button layoutX="900.0" layoutY="474.0" mnemonicParsing="false" onAction="#dayTripSkipHandler" text="Skip" />
+                        <Button fx:id="fxDayTripConfirm" layoutX="962.0" layoutY="474.0" mnemonicParsing="false" onAction="#dayTripConfirmHandler" style="-fx-background-color: radial-gradient(radius 180%, LIGHTGREEN, derive(LIGHTGREEN, -30%), derive(LIGHTGREEN, 30%))radial-gradient(radius 180%, LIGHTGREEN, derive(LIGHTGREEN, -30%), derive(LIGHTGREEN, 30%)); -fx-font-family: arial; -fx-font-size: 15px; -fx-font-weight: bold;" text="Confirm" textFill="WHITE" />
+                        <Button layoutX="900.0" layoutY="474.0" mnemonicParsing="false" onAction="#dayTripSkipHandler" style="-fx-background-color: radial-gradient(radius 180%, #bf92e4, derive(#bf92e4, -30%), derive(#bf92e4, 30%))radial-gradient(radius 180%, #bf92e4, derive(#bf92e4, -30%), derive(#bf92e4, 30%)); -fx-font-family: arial; -fx-font-size: 15px; -fx-font-weight: bold;" text="Skip" textFill="WHITE" />
                         <VBox layoutY="14.0" prefHeight="448.0" prefWidth="174.0">
                            <children>
                               <Pane prefHeight="103.0" prefWidth="174.0">
                                  <children>
-                                    <ComboBox fx:id="fxSortDT" layoutX="16.0" layoutY="14.0" onAction="#sortDayTripsHandler" prefWidth="150.0" promptText="Sort by:" />
+                                    <ComboBox fx:id="fxSortDT" layoutX="16.0" layoutY="14.0" onAction="#sortDayTripsHandler" prefWidth="150.0" promptText="Sort by:" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-font-family: arial;" />
                                  </children>
                               </Pane>
                               <Pane prefHeight="149.0" prefWidth="174.0">
                                  <children>
-                                    <CheckBox fx:id="fxEasy" layoutX="16.0" layoutY="40.0" mnemonicParsing="false" onAction="#filterHandler" text="Easy" />
-                                    <CheckBox fx:id="fxMed" layoutX="16.0" layoutY="70.0" mnemonicParsing="false" onAction="#filterHandler" text="Medium" />
-                                    <CheckBox fx:id="fxHard" layoutX="16.0" layoutY="100.0" mnemonicParsing="false" onAction="#filterHandler" text="Hard" />
-                                    <Label layoutX="16.0" layoutY="10.0" text="Filter by Difficulty" />
+                                    <CheckBox fx:id="fxEasy" layoutX="16.0" layoutY="40.0" mnemonicParsing="false" onAction="#filterHandler" style="-fx-font-family: arial;" text="Easy" />
+                                    <CheckBox fx:id="fxMed" layoutX="16.0" layoutY="70.0" mnemonicParsing="false" onAction="#filterHandler" style="-fx-font-family: arial;" text="Medium" />
+                                    <CheckBox fx:id="fxHard" layoutX="16.0" layoutY="100.0" mnemonicParsing="false" onAction="#filterHandler" style="-fx-font-family: arial;" text="Hard" />
+                                    <Label layoutX="16.0" layoutY="10.0" style="-fx-font-family: arial; -fx-font-weight: bold; -fx-font-size: 15px;" text="Filter by Difficulty" />
                                  </children>
                               </Pane>
                            </children>
@@ -444,24 +444,24 @@
                            <children>
                               <Pane fx:id="fxDayTripPopup" prefHeight="225.0" prefWidth="206.0">
                                  <children>
-                                    <Label fx:id="fxPopDTName" layoutX="17.0" layoutY="29.0" text="Name of DayTrip">
+                                    <Label fx:id="fxPopDTName" layoutX="17.0" layoutY="29.0" style="-fx-font-family: arial; -fx-font-weight: bold;" text="Name of DayTrip">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="fxPopDTDescr" alignment="TOP_LEFT" layoutX="17.0" layoutY="91.0" prefHeight="93.0" prefWidth="170.0" text="A long winded description of the daytrip or perhaps a photo or nothing, I don't know..." wrapText="true" />
-                                    <Label layoutX="17.0" layoutY="184.0" text="Price:">
+                                    <Label fx:id="fxPopDTDescr" alignment="TOP_LEFT" layoutX="17.0" layoutY="91.0" prefHeight="93.0" prefWidth="170.0" style="-fx-font-family: arial;" text="A long winded description of the daytrip or perhaps a photo or nothing, I don't know..." wrapText="true" />
+                                    <Label layoutX="17.0" layoutY="184.0" style="-fx-font-family: arial;" text="Price:">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="fxPopDTPrice" layoutX="70.0" layoutY="184.0" text="Price of Day Trip">
+                                    <Label fx:id="fxPopDTPrice" layoutX="70.0" layoutY="184.0" style="-fx-font-family: arial;" text="Price of Day Trip">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="fxBookDayTrip" layoutX="289.0" layoutY="161.0" mnemonicParsing="false" onAction="#bookDayTripHandler" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: radial-gradient(radius 180%, GOLD, derive(GOLD, -30%), derive(GOLD, 30%))radial-gradient(radius 180%, GOLD, derive(GOLD, -30%), derive(GOLD, 30%));" text="Book Trip" />
-                                    <Label fx:id="fxPopDTAgeLimit" layoutX="17.0" layoutY="67.0" text="Age limit: 8 years" textFill="RED" />
+                                    <Button fx:id="fxBookDayTrip" layoutX="289.0" layoutY="161.0" mnemonicParsing="false" onAction="#bookDayTripHandler" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: radial-gradient(radius 180%, FEF34F, derive(FEF34F, -30%), derive(FEF34F, 30%))radial-gradient(radius 180%, FEF34F, derive(FEF34F, -30%), derive(FEF34F, 30%)); -fx-font-family: arial; -fx-font-weight: bold; -fx-font-size: 15px;" text="Book Trip" textFill="WHITE" />
+                                    <Label fx:id="fxPopDTAgeLimit" layoutX="17.0" layoutY="67.0" style="-fx-font-family: arial;" text="Age limit: 8 years" textFill="RED" />
                                     <GridPane layoutX="222.0" layoutY="55.0" prefHeight="83.0" prefWidth="184.0">
                                       <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="10.0" prefWidth="57.0" />
@@ -478,27 +478,27 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
-                                          <Label text="Tickets:" />
-                                          <Button mnemonicParsing="false" onAction="#popDTAdMinusHandler" text="-" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                                          <Label fx:id="fxPopDTAdCnt" text="1" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
-                                          <Button mnemonicParsing="false" onAction="#popDTAdPlusHandler" text="+" GridPane.columnIndex="4" GridPane.halignment="CENTER" />
-                                          <Label text="Date:" GridPane.rowIndex="2" />
-                                          <Label text="Time:" GridPane.rowIndex="3" />
-                                          <Label fx:id="fxPopDTDate" text="Label" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="2" />
-                                          <Label fx:id="fxPopDTTime" text="Label" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="3" />
+                                          <Label style="-fx-font-family: arial;" text="Tickets:" />
+                                          <Button mnemonicParsing="false" onAction="#popDTAdMinusHandler" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-font-weight: bold; -fx-background-radius: 5px;" text="-" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                                          <Label fx:id="fxPopDTAdCnt" style="-fx-font-family: arial;" text="1" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+                                          <Button mnemonicParsing="false" onAction="#popDTAdPlusHandler" prefWidth="14.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-border-color: #000000; -fx-font-weight: bold;" text="+" GridPane.columnIndex="4" GridPane.halignment="CENTER" />
+                                          <Label style="-fx-font-family: arial;" text="Date:" GridPane.rowIndex="2" />
+                                          <Label style="-fx-font-family: arial;" text="Time:" GridPane.rowIndex="3" />
+                                          <Label fx:id="fxPopDTDate" style="-fx-font-family: arial;" text="Label" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="2" />
+                                          <Label fx:id="fxPopDTTime" style="-fx-font-family: arial;" text="Label" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="3" />
                                        </children>
                                     </GridPane>
                                  </children></Pane>
-                              <Pane fx:id="fxBookedDayTrips" prefHeight="225.0" prefWidth="206.0" style="-fx-border-color: gold; -fx-border-radius: 5;">
+                              <Pane fx:id="fxBookedDayTrips" prefHeight="225.0" prefWidth="206.0">
                                  <children>
-                                    <Label layoutX="21.0" layoutY="12.0" text="Your daytrips:" />
-                                    <Label layoutX="118.0" layoutY="197.0" text="Total price:" />
-                                    <ScrollPane layoutX="1.0" layoutY="36.0" prefHeight="154.0" prefWidth="418.0">
+                                    <Label layoutX="21.0" layoutY="12.0" style="-fx-font-family: arial; -fx-font-weight: bold;" text="Your daytrips:" />
+                                    <Label layoutX="118.0" layoutY="197.0" style="-fx-font-family: arial;" text="Total price:" />
+                                    <ScrollPane layoutX="1.0" layoutY="36.0" prefHeight="154.0" prefWidth="418.0" style="-fx-border-color: #000000; -fx-border-radius: 2px;">
                                        <content>
                                           <VBox fx:id="fxBookedDayTripsList" prefHeight="153.0" prefWidth="400.0" spacing="2.0" />
                                        </content>
                                     </ScrollPane>
-                                    <Label fx:id="fxTotalDayTripsPrice" layoutX="195.0" layoutY="197.0" text="Label" />
+                                    <Label fx:id="fxTotalDayTripsPrice" layoutX="195.0" layoutY="197.0" style="-fx-font-family: arial;" text="Label" />
                                  </children></Pane>
                            </children>
                         </VBox>
@@ -513,10 +513,16 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Button fx:id="fxPrevDay" mnemonicParsing="false" onAction="#prevDayHandler" prefHeight="26.0" prefWidth="112.0" text="&lt;&lt; Previous day" GridPane.halignment="LEFT" />
-                              <Button fx:id="fxNextDay" mnemonicParsing="false" onAction="#nextDayHandler" text="Next day &gt;&gt;" GridPane.columnIndex="3" GridPane.halignment="RIGHT" />
-                              <DatePicker fx:id="fxPickADay" onAction="#pickDayHandler" prefHeight="26.0" prefWidth="139.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
-                              <Button fx:id="fxJumpButton" mnemonicParsing="false" onAction="#jumpToDateHandler" prefHeight="26.0" prefWidth="88.0" text="Jump to:" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+                              <Button fx:id="fxPrevDay" mnemonicParsing="false" onAction="#prevDayHandler" prefHeight="26.0" prefWidth="112.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-font-family: arial;" text="&lt;&lt; Previous day" GridPane.halignment="LEFT" />
+                              <Button fx:id="fxNextDay" mnemonicParsing="false" onAction="#nextDayHandler" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-font-family: arial;" text="Next day &gt;&gt;" GridPane.columnIndex="3" GridPane.halignment="RIGHT">
+                                 <GridPane.margin>
+                                    <Insets right="16.0" />
+                                 </GridPane.margin></Button>
+                              <DatePicker fx:id="fxPickADay" onAction="#pickDayHandler" prefHeight="26.0" prefWidth="139.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-font-family: arial;" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
+                              <Button fx:id="fxJumpButton" mnemonicParsing="false" onAction="#jumpToDateHandler" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-font-family: arial;" text="Jump to:" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                                 <GridPane.margin>
+                                    <Insets right="4.0" />
+                                 </GridPane.margin></Button>
                            </children>
                         </GridPane>
                      </children></AnchorPane>

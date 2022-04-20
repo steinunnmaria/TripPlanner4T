@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<fx:root dividerPositions="0.3319397993311037" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="409.0" type="javafx.scene.control.SplitPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root dividerPositions="0.3319397993311037" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="409.0" style="-fx-border-color: skyblue;" type="javafx.scene.control.SplitPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
@@ -18,15 +18,15 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="27.0" prefWidth="130.0">
                      <children>
-                        <Label fx:id="fxFlightNo" alignment="CENTER" prefHeight="27.0" prefWidth="130.0" text="FlightNo." />
+                        <Label fx:id="fxFlightNo" alignment="CENTER" prefHeight="27.0" prefWidth="130.0" style="-fx-font-family: arial;" text="FlightNo." />
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="27.0" prefWidth="130.0">
                      <children>
-                        <Label fx:id="fxFlightDate" alignment="CENTER" prefHeight="27.0" prefWidth="130.0" text="Flight date" textAlignment="CENTER" />
+                        <Label fx:id="fxFlightDate" alignment="CENTER" prefHeight="27.0" prefWidth="130.0" style="-fx-font-family: arial;" text="Flight date" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
-                  <Label fx:id="fxFlightDuration" alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="130.0" text="Flight duration" textAlignment="CENTER" />
+                  <Label fx:id="fxFlightDuration" alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="130.0" style="-fx-font-family: arial;" text="Flight duration" textAlignment="CENTER" />
               </items>
             </SplitPane>
          </children></AnchorPane>
@@ -43,20 +43,20 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="To:" GridPane.rowIndex="1" />
-                  <Label text="From:" />
-                  <Label fx:id="fxFlightPrice" text="Price:" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+                  <Label style="-fx-font-family: arial;" text="To:" GridPane.rowIndex="1" />
+                  <Label style="-fx-font-family: arial;" text="From:" />
+                  <Label fx:id="fxFlightPrice" style="-fx-font-family: arial;" text="Price:" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
                      <font>
                         <Font size="16.0" />
                      </font></Label>
-                  <Label fx:id="fxFromDest" text="fromDest" GridPane.columnIndex="1" />
-                  <Label fx:id="fxToDest" text="toDest" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="fxFromDest" style="-fx-font-family: arial;" text="fromDest" GridPane.columnIndex="1" />
+                  <Label fx:id="fxToDest" style="-fx-font-family: arial;" text="toDest" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <Button layoutX="198.0" mnemonicParsing="false" onAction="#selectHandler" prefHeight="60.0" prefWidth="70.0" style="-fx-background-color: radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%))radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%));" text="Book flight" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" wrapText="true" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="18.0">
+            <Button layoutX="198.0" mnemonicParsing="false" onAction="#selectHandler" prefHeight="60.0" prefWidth="70.0" style="-fx-background-color: radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%))radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%)); -fx-background-radius: 10px;" text="Book flight" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" wrapText="true" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="18.0">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>

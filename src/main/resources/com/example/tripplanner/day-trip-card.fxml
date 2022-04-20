@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<fx:root dividerPositions="0.3319397993311037" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="409.0" type="javafx.scene.control.SplitPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root dividerPositions="0.3319397993311037" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="409.0" type="javafx.scene.control.SplitPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
@@ -18,12 +18,12 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="45.0" prefWidth="130.0">
                      <children>
-                        <Label fx:id="fxDate" alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="130.0" text="DayTrip date" textAlignment="CENTER" />
+                        <Label fx:id="fxDate" alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="130.0" style="-fx-font-family: arial;" text="DayTrip date" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="45.0" prefWidth="130.0">
                      <children>
-                        <Label fx:id="fxDuration" alignment="CENTER" prefHeight="45.0" prefWidth="130.0" text="DayTrip duration" textAlignment="CENTER" />
+                        <Label fx:id="fxDuration" alignment="CENTER" prefHeight="45.0" prefWidth="130.0" style="-fx-font-family: arial;" text="DayTrip duration" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
               </items>
@@ -42,22 +42,22 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label fx:id="fxTitle" text="DayTrip name" GridPane.columnSpan="2147483647">
+                  <Label fx:id="fxTitle" style="-fx-font-family: arial; -fx-font-weight: bold;" text="DayTrip name" GridPane.columnSpan="2147483647">
                      <font>
                         <Font size="15.0" />
                      </font></Label>
-                  <Label fx:id="fxPrice" text="Price kr." GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Label fx:id="fxPrice" style="-fx-font-family: arial;" text="Price kr." GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin></Label>
-                  <Label fx:id="fxDiff" text="Difficulty" GridPane.rowIndex="2">
+                  <Label fx:id="fxDiff" style="-fx-font-family: arial;" text="Difficulty" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin></Label>
-                  <Label fx:id="fxLocation" text="Location" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
+                  <Label fx:id="fxLocation" style="-fx-font-family: arial;" text="Location" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <Button fx:id="fxCapacity" layoutX="198.0" mnemonicParsing="false" onAction="#selectHandler" prefHeight="60.0" prefWidth="70.0" style="-fx-background-color: radial-gradient(radius 180%, yellow, derive(yellow, -30%), derive(yellow, 30%))radial-gradient(radius 180%, yellow, derive(yellow, -30%), derive(yellow, 30%))radial-gradient(radius 180%, yellow, derive(yellow, -30%), derive(yellow, 30%))radial-gradient(radius 180%, yellow, derive(yellow, -30%), derive(yellow, 30%));" text="47 tickets left" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="18.0">
+            <Button fx:id="fxCapacity" layoutX="198.0" mnemonicParsing="false" onAction="#selectHandler" prefHeight="60.0" prefWidth="70.0" style="-fx-background-color: radial-gradient(radius 180%, FEF34F, derive(FEF34F, -30%), derive(FEF34F, 30%))radial-gradient(radius 180%, FEF34F, derive(FEF34F, -30%), derive(FEF34F, 30%)); -fx-font-family: arial;" text="47 tickets left" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="18.0">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>

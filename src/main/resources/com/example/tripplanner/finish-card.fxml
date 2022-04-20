@@ -4,15 +4,19 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="77.0" prefWidth="409.0" type="javafx.scene.layout.Pane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="77.0" prefWidth="409.0" type="javafx.scene.layout.Pane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="76.0" prefWidth="409.0">
+      <AnchorPane prefHeight="76.0" prefWidth="409.0" style="-fx-border-color: #000000; -fx-border-radius: 3px;">
          <children>
-            <Label layoutX="14.0" layoutY="14.0" text="Full name" />
-            <TextField fx:id="fxName" layoutX="14.0" layoutY="31.0" prefHeight="25.0" prefWidth="171.0" />
-            <TextField fx:id="fxSsnNo" layoutX="205.0" layoutY="31.0" prefHeight="25.0" prefWidth="171.0" />
-            <Label layoutX="205.0" layoutY="14.0" text="Ssn Number" />
+            <Label layoutX="14.0" layoutY="14.0" style="-fx-font-family: arial;" text="Full name" />
+            <TextField fx:id="fxName" layoutX="14.0" layoutY="31.0" prefHeight="25.0" prefWidth="171.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-font-family: arial;">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font></TextField>
+            <TextField fx:id="fxSsnNo" layoutX="205.0" layoutY="31.0" prefHeight="25.0" prefWidth="171.0" style="-fx-border-color: #000000; -fx-background-color: #FFFFFF; -fx-border-radius: 5px; -fx-font-family: arial;" />
+            <Label layoutX="205.0" layoutY="14.0" style="-fx-font-family: arial;" text="Ssn Number" />
          </children>
       </AnchorPane>
    </children>

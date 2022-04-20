@@ -16,22 +16,22 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="532.0" prefWidth="773.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.Controllers.ReviewBookingController">
+<AnchorPane prefHeight="532.0" prefWidth="773.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.Controllers.ReviewBookingController">
    <children>
-      <Button layoutX="472.0" layoutY="466.0" mnemonicParsing="false" onAction="#editHandler" prefHeight="50.0" style="-fx-background-color: #8BAECE;" text="Edit booking" />
-      <Button layoutX="631.0" layoutY="465.0" mnemonicParsing="false" onAction="#confirmHandler" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #A2D846;" text="Confirm booking" />
-      <Label layoutX="247.0" layoutY="14.0" text="Review your booking">
+      <Button layoutX="523.0" layoutY="479.0" mnemonicParsing="false" onAction="#editHandler" prefHeight="36.0" prefWidth="89.0" style="-fx-background-color: radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%))radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%)); -fx-font-family: arial; -fx-font-weight: bold;" text="Edit booking" />
+      <Button layoutX="631.0" layoutY="479.0" mnemonicParsing="false" onAction="#confirmHandler" prefHeight="36.0" prefWidth="120.0" style="-fx-background-color: radial-gradient(radius 180%, LIGHTGREEN, derive(LIGHTGREEN, -30%), derive(LIGHTGREEN, 30%))radial-gradient(radius 180%, LIGHTGREEN, derive(LIGHTGREEN, -30%), derive(LIGHTGREEN, 30%)); -fx-font-family: arial; -fx-font-weight: bold;" text="Confirm booking" />
+      <Label layoutX="247.0" layoutY="14.0" style="-fx-font-weight: bold;" text="Review your booking">
          <font>
             <Font name="Arial" size="30.0" />
          </font>
       </Label>
       <TabPane layoutX="14.0" layoutY="59.0" prefHeight="392.0" prefWidth="454.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab style="-fx-color: #C8D9F0; -fx-background-color: #C8D9F0;" text="Flight booking">
+          <Tab style="-fx-color: radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%))radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%)); -fx-background-color: radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%))radial-gradient(radius 180%, SKYBLUE, derive(SKYBLUE, -30%), derive(SKYBLUE, 30%)); -fx-font-family: arial;" text="Flight booking">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="362.0" prefWidth="415.0" style="-fx-border-color: #C8D9F0; -fx-border-width: 5;">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="362.0" prefWidth="415.0" style="-fx-border-color: skyblue; -fx-border-width: 3;">
                      <children>
-                        <SplitPane fx:id="fxMyFlight1" dividerPositions="0.22512437810945274" layoutX="16.0" layoutY="70.0" prefHeight="80.0" prefWidth="422.0" style="-fx-border-color: #C8D9F0 #C8D9F0; -fx-border-width: 1.5;">
+                        <SplitPane fx:id="fxMyFlight1" dividerPositions="0.22512437810945274" layoutX="16.0" layoutY="70.0" prefHeight="80.0" prefWidth="422.0" style="-fx-border-color: skyblue; -fx-border-width: 1.5;">
                            <items>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="75.0" prefWidth="90.0">
                                  <children>
@@ -39,12 +39,12 @@
                                        <items>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="32.0" prefWidth="80.0">
                                              <children>
-                                                <Label fx:id="fxOutFlightNo" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="86.0" text="FI-131" />
+                                                <Label fx:id="fxOutFlightNo" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="86.0" style="-fx-font-family: arial;" text="FI-131" />
                                              </children>
                                           </AnchorPane>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="32.0" prefWidth="80.0">
                                              <children>
-                                                <Label fx:id="fxOutDate" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="86.0" text="22.04.2022" />
+                                                <Label fx:id="fxOutDate" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="86.0" style="-fx-font-family: arial;" text="22.04.2022" />
                                              </children>
                                           </AnchorPane>
                                        </items>
@@ -66,7 +66,7 @@
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <Label fx:id="fxOutDepTime" text="11:05" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                          <Label fx:id="fxOutDepTime" style="-fx-font-family: arial;" text="11:05" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets right="5.0" />
                                              </GridPane.margin>
@@ -76,17 +76,17 @@
                                                 <Image url="@images/takeoff-the-plane.png" />
                                              </image>
                                           </ImageView>
-                                          <Label fx:id="fxOutDepLoc" text="Reykjavík" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                          <Label fx:id="fxOutDepLoc" style="-fx-font-family: arial;" text="Reykjavík" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets left="5.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="fxOutArrLoc" text="Egilsstaðir" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                          <Label fx:id="fxOutArrLoc" style="-fx-font-family: arial;" text="Egilsstaðir" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                              <GridPane.margin>
                                                 <Insets left="5.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="fxOutArrTime" text="14:50" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                          <Label fx:id="fxOutArrTime" style="-fx-font-family: arial;" text="14:50" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                                              <padding>
                                                 <Insets right="5.0" />
                                              </padding>
@@ -96,22 +96,22 @@
                                                 <Image url="@images/plane-landing.png" />
                                              </image>
                                           </ImageView>
-                                          <Label fx:id="fxOutAirline" text="Flugleiðir" GridPane.columnSpan="2" GridPane.halignment="LEFT">
+                                          <Label fx:id="fxOutAirline" style="-fx-font-family: arial;" text="Flugleiðir" GridPane.columnSpan="2" GridPane.halignment="LEFT">
                                              <padding>
                                                 <Insets left="10.0" />
                                              </padding>
                                           </Label>
-                                          <Label fx:id="fxOutPrice" text="72.889 kr." GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                          <Label fx:id="fxOutPrice" style="-fx-font-family: arial;" text="72.889 kr." GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets right="20.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="fxOutTickets" text="3 tickets" GridPane.columnIndex="2">
+                                          <Label fx:id="fxOutTickets" style="-fx-font-family: arial;" text="3 tickets" GridPane.columnIndex="2">
                                              <GridPane.margin>
                                                 <Insets left="5.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label text="Total price:" GridPane.columnIndex="3" GridPane.halignment="RIGHT">
+                                          <Label style="-fx-font-family: arial;" text="Total price:" GridPane.columnIndex="3" GridPane.halignment="RIGHT">
                                              <GridPane.margin>
                                                 <Insets right="20.0" />
                                              </GridPane.margin>
@@ -122,7 +122,7 @@
                               </AnchorPane>
                            </items>
                         </SplitPane>
-                        <SplitPane fx:id="fxMyFlight11" dividerPositions="0.22512437810945274" layoutX="16.0" layoutY="232.0" prefHeight="80.0" prefWidth="422.0" style="-fx-border-color: #C8D9F0 #C8D9F0; -fx-border-width: 1.5;">
+                        <SplitPane fx:id="fxMyFlight11" dividerPositions="0.22512437810945274" layoutX="16.0" layoutY="232.0" prefHeight="80.0" prefWidth="422.0" style="-fx-border-color: skyblue; -fx-border-width: 1.5;">
                            <items>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="75.0" prefWidth="90.0">
                                  <children>
@@ -130,12 +130,12 @@
                                        <items>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="32.0" prefWidth="80.0">
                                              <children>
-                                                <Label fx:id="fxBackFlightNo" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="86.0" text="FI-131" />
+                                                <Label fx:id="fxBackFlightNo" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="86.0" style="-fx-font-family: arial;" text="FI-131" />
                                              </children>
                                           </AnchorPane>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="32.0" prefWidth="80.0">
                                              <children>
-                                                <Label fx:id="fxBackDate" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="86.0" text="22.04.2022" />
+                                                <Label fx:id="fxBackDate" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="86.0" style="-fx-font-family: arial;" text="22.04.2022" />
                                              </children>
                                           </AnchorPane>
                                        </items>
@@ -157,7 +157,7 @@
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <Label fx:id="fxBackDepTime" text="11:05" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                          <Label fx:id="fxBackDepTime" style="-fx-font-family: arial;" text="11:05" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets right="5.0" />
                                              </GridPane.margin>
@@ -167,17 +167,17 @@
                                                 <Image url="@images/takeoff-the-plane.png" />
                                              </image>
                                           </ImageView>
-                                          <Label fx:id="fxBackDepLoc" text="Reykjavík" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                          <Label fx:id="fxBackDepLoc" style="-fx-font-family: arial;" text="Reykjavík" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets left="5.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="fxBackArrLoc" text="Egilsstaðir" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                          <Label fx:id="fxBackArrLoc" style="-fx-font-family: arial;" text="Egilsstaðir" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                              <GridPane.margin>
                                                 <Insets left="5.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="fxBackArrTime" text="14:50" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                          <Label fx:id="fxBackArrTime" style="-fx-font-family: arial;" text="14:50" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                                              <padding>
                                                 <Insets right="5.0" />
                                              </padding>
@@ -187,22 +187,22 @@
                                                 <Image url="@images/plane-landing.png" />
                                              </image>
                                           </ImageView>
-                                          <Label fx:id="fxBackAirline" text="Flugleiðir" GridPane.columnSpan="2" GridPane.halignment="LEFT">
+                                          <Label fx:id="fxBackAirline" style="-fx-font-family: arial;" text="Flugleiðir" GridPane.columnSpan="2" GridPane.halignment="LEFT">
                                              <padding>
                                                 <Insets left="10.0" />
                                              </padding>
                                           </Label>
-                                          <Label fx:id="fxBackPrice" text="72.889 kr." GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                          <Label fx:id="fxBackPrice" style="-fx-font-family: arial;" text="72.889 kr." GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets right="20.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label fx:id="fxBackTickets" text="3 tickets" GridPane.columnIndex="2">
+                                          <Label fx:id="fxBackTickets" style="-fx-font-family: arial;" text="3 tickets" GridPane.columnIndex="2">
                                              <GridPane.margin>
                                                 <Insets left="5.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <Label text="Total price:" GridPane.columnIndex="3" GridPane.halignment="RIGHT">
+                                          <Label style="-fx-font-family: arial;" text="Total price:" GridPane.columnIndex="3" GridPane.halignment="RIGHT">
                                              <GridPane.margin>
                                                 <Insets right="20.0" />
                                              </GridPane.margin>
@@ -234,9 +234,9 @@
                      </children></AnchorPane>
             </content>
           </Tab>
-          <Tab style="-fx-color: #D9EDDD; -fx-background-color: #D9EDDD;" text="Hotel Rooms booking">
+          <Tab style="-fx-color: radial-gradient(radius 180%, LIGHTGREEN, derive(LIGHTGREEN, -30%), derive(LIGHTGREEN, 30%))radial-gradient(radius 180%, LIGHTGREEN, derive(LIGHTGREEN, -30%), derive(LIGHTGREEN, 30%)); -fx-background-color: radial-gradient(radius 180%, LIGHTGREEN, derive(LIGHTGREEN, -30%), derive(LIGHTGREEN, 30%))radial-gradient(radius 180%, LIGHTGREEN, derive(LIGHTGREEN, -30%), derive(LIGHTGREEN, 30%)); -fx-font-family: arial;" text="Hotel Rooms booking">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-border-color: #D9EDDD; -fx-border-width: 5;">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-border-color: lightgreen; -fx-border-width: 3;">
                      <children>
                         <ScrollPane layoutX="14.0" layoutY="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="425.0">
                            <content>
@@ -246,9 +246,9 @@
                      </children></AnchorPane>
             </content>
           </Tab>
-            <Tab style="-fx-color: #FFF5BD; -fx-background-color: #FFF5BD;" text="Day Trips booking">
+            <Tab style="-fx-color: radial-gradient(radius 180%, FEF34F, derive(FEF34F, -30%), derive(FEF34F, 30%))radial-gradient(radius 180%, FEF34F, derive(FEF34F, -30%), derive(FEF34F, 30%)); -fx-background-color: radial-gradient(radius 180%, FEF34F, derive(FEF34F, -30%), derive(FEF34F, 30%))radial-gradient(radius 180%, FEF34F, derive(FEF34F, -30%), derive(FEF34F, 30%));" text="Day Trips booking">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-border-color: #FFF5BD; -fx-border-width: 5;">
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-border-color: FEF34F; -fx-border-width: 3;">
                      <children>
                         <ScrollPane layoutX="14.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="425.0">
                            <content>
@@ -264,40 +264,43 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" text="Flights overview">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" style="-fx-font-weight: bold;" text="Flights overview">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="Arial" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="fxFlightsPassPrice" layoutX="14.0" layoutY="55.0" text="Price per passanger: XX kr" />
-                  <Label fx:id="fxFlightsTotalPrice" layoutX="14.0" layoutY="88.0" text="Total price for X passangers: XX kr" />
+                  <Label fx:id="fxFlightsPassPrice" layoutX="14.0" layoutY="55.0" text="Price per passanger: XX kr">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="fxFlightsTotalPrice" layoutX="14.0" layoutY="88.0" style="-fx-font-family: arial;" text="Total price for X passangers: XX kr" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" text="Hotel overview" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="Arial Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="fxHotelOverview" layoutX="14.0" layoutY="55.0" text="X rooms booked at Hotel name" />
-                  <Label fx:id="fxHotelPrice" layoutX="14.0" layoutY="88.0" text="Total price for hotel booking: XX kr" />
+                  <Label fx:id="fxHotelOverview" layoutX="14.0" layoutY="55.0" style="-fx-font-family: arial;" text="X rooms booked at Hotel name" />
+                  <Label fx:id="fxHotelPrice" layoutX="14.0" layoutY="88.0" style="-fx-font-family: arial;" text="Total price for hotel booking: XX kr" />
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" text="Day Trips overview">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" style="-fx-font-family: arial; -fx-font-weight: bold;" text="Day Trips overview">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="fxDayTripsCount" layoutX="14.0" layoutY="55.0" text="X day trips booked" />
-                  <Label fx:id="fxDayTripsPrice" layoutX="14.0" layoutY="88.0" text="Total price for day trips: XX kr" />
+                  <Label fx:id="fxDayTripsCount" layoutX="14.0" layoutY="55.0" style="-fx-font-family: arial;" text="X day trips booked" />
+                  <Label fx:id="fxDayTripsPrice" layoutX="14.0" layoutY="88.0" style="-fx-font-family: arial;" text="Total price for day trips: XX kr" />
                </children>
             </AnchorPane>
         </items>
       </SplitPane>
-      <Label fx:id="fxTotalPrice" layoutX="14.0" layoutY="476.0" text="Total price for your trip: XX kr">
+      <Label fx:id="fxTotalPrice" layoutX="14.0" layoutY="476.0" style="-fx-font-family: arial;" text="Total price for your trip: XX kr">
          <font>
             <Font size="20.0" />
          </font>
