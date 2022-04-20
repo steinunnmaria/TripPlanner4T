@@ -268,10 +268,21 @@
                         <Button layoutX="900.0" layoutY="474.0" mnemonicParsing="false" onAction="#hotelSkipHandler" style="-fx-background-color: radial-gradient(radius 180%, #bf92e4, derive(#bf92e4, -30%), derive(#bf92e4, 30%))radial-gradient(radius 180%, #bf92e4, derive(#bf92e4, -30%), derive(#bf92e4, 30%)); -fx-font-family: arial; -fx-font-size: 15px; -fx-font-weight: bold;" text="Skip" textFill="WHITE" />
                         <VBox layoutY="14.0" prefHeight="448.0" prefWidth="174.0">
                            <children>
-                              <Pane prefHeight="103.0" prefWidth="174.0">
+                              <Pane prefHeight="81.0" prefWidth="174.0">
                                  <children>
                                     <ComboBox fx:id="fxSortHotels" layoutX="16.0" layoutY="14.0" onAction="#sortRoomsHandler" prefWidth="150.0" promptText="Sort rooms by:" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5px; -fx-font-family: arial;" />
                                  </children>
+                              </Pane>
+                              <Pane prefHeight="143.0" prefWidth="174.0">
+                                 <children>
+                                    <Label layoutX="5.0" layoutY="6.0" style="-fx-font-family: arial; -fx-font-weight: bold; -fx-font-size: 15px;" text="Filter by accomodation" />
+                                    <CheckBox layoutX="14.0" layoutY="40.0" mnemonicParsing="false" onAction="#filterHandler" style="-fx-font-family: arial;" text="Gym" />
+                                    <CheckBox layoutX="14.0" layoutY="74.0" mnemonicParsing="false" onAction="#filterHandler" style="-fx-font-family: arial;" text="Wifi" />
+                                    <CheckBox layoutX="14.0" layoutY="109.0" mnemonicParsing="false" onAction="#filterHandler" style="-fx-font-family: arial;" text="Breakfast" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
                               </Pane>
                               <Pane prefHeight="194.0" prefWidth="174.0">
                                  <children>
