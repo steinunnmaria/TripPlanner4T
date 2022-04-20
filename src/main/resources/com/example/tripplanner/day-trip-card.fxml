@@ -42,9 +42,9 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label fx:id="fxTitle" style="-fx-font-family: arial; -fx-font-weight: bold;" text="DayTrip name" GridPane.columnSpan="2147483647">
+                  <Label fx:id="fxTitle" text="DayTrip name" GridPane.columnSpan="2147483647">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="Arial Bold" size="15.0" />
                      </font></Label>
                   <Label fx:id="fxPrice" style="-fx-font-family: arial;" text="Price kr." GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
@@ -57,7 +57,7 @@
                   <Label fx:id="fxLocation" style="-fx-font-family: arial;" text="Location" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <Button fx:id="fxCapacity" layoutX="198.0" mnemonicParsing="false" onAction="#selectHandler" prefHeight="60.0" prefWidth="70.0" style="-fx-background-color: radial-gradient(radius 180%, FEF34F, derive(FEF34F, -30%), derive(FEF34F, 30%))radial-gradient(radius 180%, FEF34F, derive(FEF34F, -30%), derive(FEF34F, 30%)); -fx-font-family: arial;" text="47 tickets left" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="18.0">
+            <Button fx:id="fxCapacity" layoutX="198.0" mnemonicParsing="false" onAction="#selectHandler" prefHeight="60.0" prefWidth="70.0" style="-fx-background-color: radial-gradient(radius 180%, FEF34F, derive(FEF34F, -30%), derive(FEF34F, 30%))radial-gradient(radius 180%, FEF34F, derive(FEF34F, -30%), derive(FEF34F, 30%));" text="47 tickets left" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" wrapText="true" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="18.0">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>

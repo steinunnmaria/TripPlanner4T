@@ -45,12 +45,12 @@
                <children>
                   <Label style="-fx-font-family: arial;" text="To:" GridPane.rowIndex="1" />
                   <Label style="-fx-font-family: arial;" text="From:" />
-                  <Label fx:id="fxFlightPrice" style="-fx-font-family: arial;" text="Price:" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+                  <Label fx:id="fxFlightPrice" text="Price:" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
                      <font>
-                        <Font size="16.0" />
+                        <Font name="Arial" size="16.0" />
                      </font></Label>
                   <Label fx:id="fxFromDest" style="-fx-font-family: arial;" text="fromDest" GridPane.columnIndex="1" />
                   <Label fx:id="fxToDest" style="-fx-font-family: arial;" text="toDest" GridPane.columnIndex="1" GridPane.rowIndex="1" />

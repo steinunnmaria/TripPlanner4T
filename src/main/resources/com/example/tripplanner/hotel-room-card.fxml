@@ -14,17 +14,17 @@
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="68.0" prefWidth="66.0">
          <children>
-            <Label fx:id="fxRoomNumber" alignment="CENTER" contentDisplay="CENTER" prefHeight="68.0" prefWidth="111.0" style="-fx-font-family: arial;" text="2A" textAlignment="CENTER" wrapText="true">
+            <Label fx:id="fxRoomNumber" alignment="CENTER" contentDisplay="CENTER" prefHeight="68.0" prefWidth="111.0" text="2A" textAlignment="CENTER" wrapText="true">
                <font>
-                  <Font name="Bodoni 72 Book" size="29.0" />
+                  <Font name="Arial" size="29.0" />
                </font>
                <padding>
                   <Insets top="15.0" />
                </padding>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="5.0" prefHeight="28.0" prefWidth="38.0" style="-fx-font-family: arial;" text="Room" textAlignment="CENTER" wrapText="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="5.0" prefHeight="28.0" prefWidth="38.0" text="Room" textAlignment="CENTER" wrapText="true">
                <font>
-                  <Font name="Helvetica" size="14.0" />
+                  <Font name="Arial" size="14.0" />
                </font>
             </Label>
          </children></AnchorPane>

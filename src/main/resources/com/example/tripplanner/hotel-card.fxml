@@ -50,17 +50,17 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label fx:id="fxName" style="-fx-font-family: arial;" text="Hotel name" GridPane.columnSpan="2147483647">
+                  <Label fx:id="fxName" text="Hotel name" GridPane.columnSpan="2147483647">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
                      <font>
-                        <Font size="15.0" />
+                        <Font name="Arial" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="fxLocation" style="-fx-font-family: arial;" text="Location" GridPane.columnSpan="2147483647" GridPane.rowIndex="1">
+                  <Label fx:id="fxLocation" text="Location" GridPane.columnSpan="2147483647" GridPane.rowIndex="1">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Arial" size="14.0" />
                      </font>
                   </Label>
                </children>

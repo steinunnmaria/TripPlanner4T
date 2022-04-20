@@ -242,10 +242,13 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label style="-fx-font-family: arial;" text="Total price:" />
-                              <Label fx:id="fxFlightTotalPrice" contentDisplay="RIGHT" style="-fx-font-family: arial;" text="0 kr." GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                              <Label text="Total price:">
                                  <font>
-                                    <Font size="21.0" />
+                                    <Font name="Arial" size="12.0" />
+                                 </font></Label>
+                              <Label fx:id="fxFlightTotalPrice" contentDisplay="RIGHT" text="0 kr." GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                                 <font>
+                                    <Font name="Arial" size="21.0" />
                                  </font>
                               </Label>
                            </children>
