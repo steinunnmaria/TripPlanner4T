@@ -28,8 +28,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.*;
 
-public class BookingProcessController implements Initializable {
-
+public class BookingProcessController implements Initializable { 
     @FXML
     private Label fxPopHotelName, fxPopHotelNights, fxPopHotelDateFrom, fxPopHotelDateTo;
     @FXML
@@ -260,6 +259,7 @@ public class BookingProcessController implements Initializable {
             HotelCardController hcc = new HotelCardController(h, loader.getController(), this.vd);
             listi.add(hcc);
         }
+        fxHotelCont.getChildren().clear();
         fxHotelCont.getChildren().addAll(listi);
 
     }
@@ -267,7 +267,7 @@ public class BookingProcessController implements Initializable {
 
     public void loadHotelRoomCards(Hotel h) throws Exception {
         fxSortHotels.setDisable(false);
-        fxSortHotels.setValue("Sort rooms by:");
+        //fxSortHotels.setValue("Sort rooms by:");
         this.chosenHotel = h;
         peopleBooked = 0;
         bookedRooms.clear();

@@ -20,7 +20,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.Controllers.BookingProcessController">
+<AnchorPane prefHeight="600.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tripplanner.Controllers.BookingProcessController">
    <children>
       <TabPane fx:id="fxTabCont" layoutX="15.0" layoutY="39.0" prefHeight="546.0" prefWidth="1055.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -286,8 +286,8 @@
                               </Pane>
                               <Pane prefHeight="194.0" prefWidth="174.0">
                                  <children>
-                                    <CheckBox layoutX="16.0" layoutY="35.0" mnemonicParsing="false" onAction="#filterHandler" style="-fx-font-family: arial;" text="1 star" />
-                                    <CheckBox layoutX="16.0" layoutY="65.0" mnemonicParsing="false" onAction="#filterHandler" style="-fx-font-family: arial;" text="2 stars" />
+                                    <CheckBox fx:id="fx1Star" disable="true" layoutX="16.0" layoutY="35.0" mnemonicParsing="false" onAction="#filterHandler" style="-fx-font-family: arial;" text="1 star" />
+                                    <CheckBox fx:id="fx2Star" layoutX="16.0" layoutY="65.0" mnemonicParsing="false" onAction="#filterHandler" style="-fx-font-family: arial;" text="2 stars" />
                                     <CheckBox layoutX="16.0" layoutY="95.0" mnemonicParsing="false" onAction="#filterHandler" style="-fx-font-family: arial;" text="3 stars" />
                                     <CheckBox layoutX="16.0" layoutY="125.0" mnemonicParsing="false" onAction="#filterHandler" style="-fx-font-family: arial;" text="4 stars" />
                                     <CheckBox layoutX="16.0" layoutY="155.0" mnemonicParsing="false" onAction="#filterHandler" style="-fx-font-family: arial;" text="5 stars" />
