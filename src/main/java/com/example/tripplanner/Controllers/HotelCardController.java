@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
@@ -22,9 +23,10 @@ public class HotelCardController extends SplitPane {
     @FXML
     private Label fxLocation;
     @FXML
-    private Label fxCapacity;
-    @FXML
     private Label fxHotelID;
+    @FXML
+    private ImageView fx1Star, fx2Star, fx3Star, fx4Star, fx5Star;
+
 
 
     private Hotel hotel;
@@ -53,12 +55,26 @@ public class HotelCardController extends SplitPane {
     private void setLabels(Hotel h) {
         // sækja titil, dags, o.s.frv frá hotel og setja í labels (setText)
         fxName.setText(h.getName());
-        fxCapacity.setText("Has capacity for at least "+vd.getTotalCount());
+
         fxInDate.setText("Check-in: " + this.vd.getDateFrom().format(DateTimeFormatter
                 .ofLocalizedDate(FormatStyle.MEDIUM)));
         fxOutDate.setText("Check-out: " + this.vd.getDateTo().format(DateTimeFormatter
                 .ofLocalizedDate(FormatStyle.MEDIUM)));
         fxLocation.setText(h.getTown());
+        int stars = h.getHotelInfo().getStarRating();
+        showStars(stars);
+
+    }
+
+    private void showStars(int stars) {
+        ImageView[] imgs = {fx1Star, fx2Star, fx3Star, fx4Star, fx5Star};
+        for (int i = 0;i < imgs.length ;i++ ) {
+            imgs[i].setVisible(false);
+        }
+        for (int i = 0; i < stars-1; i++) {
+            imgs[i].setVisible(true);
+        }
+
     }
 
 

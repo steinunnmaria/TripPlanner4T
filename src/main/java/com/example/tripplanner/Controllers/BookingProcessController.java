@@ -26,10 +26,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class BookingProcessController implements Initializable {
 
@@ -190,6 +187,7 @@ public class BookingProcessController implements Initializable {
             FlightCardController fcc = new FlightCardController(f, loader.getController(), true);
             listi.add(fcc);
         }
+        fxFlightsDepCont.getChildren().clear();
         fxFlightsDepCont.getChildren().addAll(listi);
 
         ArrayList<FlightCardController> listi2 = new ArrayList<FlightCardController>();
@@ -198,6 +196,7 @@ public class BookingProcessController implements Initializable {
             FlightCardController fcc = new FlightCardController(f, loader.getController(), false);
             listi2.add(fcc);
         }
+        fxFlightsRetCont.getChildren().clear();
         fxFlightsRetCont.getChildren().addAll(listi2);
 
     }
@@ -211,6 +210,7 @@ public class BookingProcessController implements Initializable {
             HotelCardController hcc = new HotelCardController(h, loader.getController(), this.vd);
             listi.add(hcc);
         }
+        fxHotelCont.getChildren().clear();
         fxHotelCont.getChildren().addAll(listi);
 
     }
@@ -252,18 +252,20 @@ public class BookingProcessController implements Initializable {
     public void loadDTCards() throws IOException {
         fxNoDayTrips.setDisable(true);
         fxBookedDayTrips.setVisible(false);
-        ArrayList<DayTripCardController> listi = new ArrayList<DayTripCardController>();
-        ArrayList<DayTrip> listiafDT = new ArrayList<DayTrip>();
         this.chosenDayTrips = new ArrayList<DayTrip>();
+
+        ArrayList<DayTripCardController> listi = new ArrayList<DayTripCardController>();
+
         Hashtable<String, Object> params = new Hashtable<>();
-        LocalDate[] fylki = {this.chosenDayForDayTrip, this.chosenDayForDayTrip};
-        params.put("date", fylki);
+        LocalDate[] dates = {this.chosenDayForDayTrip, this.chosenDayForDayTrip};
+        params.put("date", dates);
         params.put("localCode", vd.getLocalCode());
-        listiafDT = DayTripController.getDayTrips(params);
+
+        ArrayList<DayTrip> listiafDT = DayTripController.getDayTrips(params);
         if(listiafDT.size() == 0) {
             fxNoDayTrips.setDisable(false);
         }
-        System.out.println(listiafDT.size());
+
         for (DayTrip dt : listiafDT) {
             DayTripCardController dtc = new DayTripCardController(dt, loader.getController());
             listi.add(dtc);
@@ -495,51 +497,136 @@ public class BookingProcessController implements Initializable {
      * wether they are selected or unselected.
      * @param actionEvent event of selecting or unselecting checkbox
      */
-    public void filterHandler(ActionEvent actionEvent) {
+    public void filterHandler(ActionEvent actionEvent) throws Exception {
         CheckBox check = (CheckBox) actionEvent.getSource();
 
         if (check.isSelected()) {
             selectedCheckBoxes.add(check);
             unselectedCheckBoxes.remove(check);
-            //System.out.println(check.getText());
         }
         else {
             selectedCheckBoxes.remove(check);
             unselectedCheckBoxes.add(check);
-            //System.out.println(check.getText());
         }
+
+        int selIndex = fxTabCont.getSelectionModel().getSelectedIndex();
+
         String[] checked = new String[selectedCheckBoxes.size()];
         int i = 0;
 
-        for (CheckBox c : selectedCheckBoxes) {
+        for(CheckBox c : selectedCheckBoxes) {
             checked[i] = c.getText();
             i++;
         }
+        int j = 0;
 
+        if (selIndex==1) {
+            if (selectedCheckBoxes.size() == 0) {
+                loadHotelCards();
+            }
+            else {
+                Integer[] stars = new Integer[selectedCheckBoxes.size()];
+                for (CheckBox c : selectedCheckBoxes) {
+                    String ch = c.getText();
+                    if (ch.equals("1 star") || ch.equals("2 stars") || ch.equals("3 stars") ||
+                            ch.equals("4 stars") || ch.equals("5 stars")) {
+                        stars[j] = Integer.parseInt(String.valueOf(ch.charAt(0)));
+                        j++;
+                    }
+                }
+                loadHotelByFilter(stars);
+            }
+        }
 
-        // Hvernig er ef allt er afcheckað? Fáum við ekki örugglega gamla listann til baka?
+        if (selIndex==0) {
+            System.out.println("Erum í flight tab");
+            if (selectedCheckBoxes.size()==0) {
+                loadFlightCards();
+            }
+            else {
+                loadFlightByFilter(checked);
+            }
+        }
+        else if (selIndex==2) {
+            System.out.println("Erum í DayTrips tab");
+            if (selectedCheckBoxes.size()==0) {
+                String[] diff = {"Easy", "Medium", "Hard"};
+                loadDtByFilter(diff);
+            }
+            else {
+                loadDtByFilter(checked);
+            }
 
+        }
 
-        // Kalla á getDayTrips með strengjafylkinu sem parameter til að filtera, undir lyklinum
-        // difficulty
-        // Kalla á filteringsföll hjá hinum teymunum með strengjafylkinu
+    }
 
+    public void loadFlightByFilter(String[] checked) throws IOException {
+
+        ArrayList<FlightCardController> listi = new ArrayList<FlightCardController>();
+
+        CustomerController cc = new CustomerController(new Customer("", "", new ArrayList<>(), 1));
+        List<List<Flight>> flights = cc.searchRoundTripsByAirline(vd.getDateFrom(), vd.getDateTo(), vd.getDestFrom(), vd.getDestTo(), totalPeople, Arrays.asList(checked));
+
+        List<Flight> depFlights = flights.get(0);
+        List<Flight> retFlights = flights.get(1);
+        for (Flight f : depFlights) {
+            FlightCardController fcc = new FlightCardController(f, loader.getController(), true);
+            listi.add(fcc);
+        }
+        fxFlightsDepCont.getChildren().clear();
+        fxFlightsDepCont.getChildren().addAll(listi);
+
+        ArrayList<FlightCardController> listi2 = new ArrayList<FlightCardController>();
+
+        for (Flight f : retFlights) {
+            FlightCardController fcc = new FlightCardController(f, loader.getController(), false);
+            listi2.add(fcc);
+        }
+        fxFlightsRetCont.getChildren().clear();
+        fxFlightsRetCont.getChildren().addAll(listi2);
+
+    }
+
+    public void loadHotelByFilter(Integer[] stars) throws Exception {
+        ArrayList<HotelCardController> listi = new ArrayList<HotelCardController>();
+
+        this.hotelController = HotelController.getInstance();
+        ArrayList<Hotel> filteredHotels = hotelController.filterByStars(hotelListi, stars);
+        for (Hotel h : filteredHotels) {
+            HotelCardController hcc = new HotelCardController(h, loader.getController(), this.vd);
+            listi.add(hcc);
+        }
+        fxHotelCont.getChildren().clear();
+        fxHotelCont.getChildren().addAll(listi);
+
+    }
+
+    public void loadDtByFilter(String[] checked) {
+        ArrayList<DayTripCardController> listi = new ArrayList<DayTripCardController>();
+
+        Hashtable<String, Object> params = new Hashtable<>();
+        LocalDate[] dates = {this.chosenDayForDayTrip, this.chosenDayForDayTrip};
+        params.put("date", dates);
+        params.put("localCode", vd.getLocalCode());
+        params.put("difficulty", checked);
+
+        ArrayList<DayTrip> listiafDT = DayTripController.getDayTrips(params);
+        if(listiafDT.size() == 0) {
+            fxNoDayTrips.setDisable(false);
+        }
+
+        for (DayTrip dt : listiafDT) {
+            DayTripCardController dtc = new DayTripCardController(dt, loader.getController());
+            listi.add(dtc);
+        }
+        fxDayTripsCont.getChildren().clear();
+        fxDayTripsCont.getChildren().addAll(listi);
     }
 
     public void tabChangeHandler(Event event) {
         resetCheckBoxes();
     }
-
-    /*public void hotelBookHandler(ActionEvent actionEvent) {
-
-        fxHotelBookedName.setText(chosenHotel.getName());
-        fxHotelBookedDates.setText(vd.getDateFrom() + " - " + vd.getDateTo());
-        //fxHotelBookedRooms.setText(this.bookedRooms.print()); hægt að nota bráðum...
-        fxHotelBookedGuests.setText(totalPeople + " persons");
-        fxBookedHotel.setVisible(true);
-        fxHotelPopUp.setVisible(false);
-    }*/
-
 
     public void bookRoom(Room rm) throws Exception {
 
@@ -559,6 +646,7 @@ public class BookingProcessController implements Initializable {
         fxHotelBookedPriceTotal.setText(String.format("%,.0f", (double) getTotalRoomPrice(bookedRooms)) + " kr.");
         fxBookedHotel.setVisible(true);
     }
+
     public void unbookRoom(Room rm) {
         peopleBooked -= rm.getCapacity();
         roomCount--;

@@ -87,7 +87,7 @@
                                           </Label>
                                           <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                                              <image>
-                                                <Image url="@../../../images/takeoff-the-plane.png" />
+                                                <Image url="@images/takeoff-the-plane.png" />
                                              </image>
                                           </ImageView>
                                           <Label fx:id="fxMyFlightFrom1" text="Reykjavík" GridPane.columnIndex="2" GridPane.rowIndex="1">
@@ -107,7 +107,7 @@
                                           </Label>
                                           <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                                              <image>
-                                                <Image url="@../../../images/plane-landing.png" />
+                                                <Image url="@images/plane-landing.png" />
                                              </image>
                                           </ImageView>
                                           <Label fx:id="fxMyAirline1" text="Flugleiðir" GridPane.columnSpan="2" GridPane.halignment="LEFT">
@@ -174,7 +174,7 @@
                                           </Label>
                                           <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                                              <image>
-                                                <Image url="@../../../images/takeoff-the-plane.png" />
+                                                <Image url="@images/takeoff-the-plane.png" />
                                              </image>
                                           </ImageView>
                                           <Label fx:id="fxMyFlightFrom2" text="Reykjavík" GridPane.columnIndex="2" GridPane.rowIndex="1">
@@ -194,7 +194,7 @@
                                           </Label>
                                           <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                                              <image>
-                                                <Image url="@../../../images/plane-landing.png" />
+                                                <Image url="@images/plane-landing.png" />
                                              </image>
                                           </ImageView>
                                           <Label fx:id="fxMyAirline2" text="Flugleiðir" GridPane.columnSpan="2" GridPane.halignment="LEFT">
